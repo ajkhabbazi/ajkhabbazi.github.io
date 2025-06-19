@@ -9,7 +9,6 @@ profile:
   image: arashjalilk-headshot.jpeg
   image_circular: false # crops the image to make it circular
   more_info: >
-    #<p>555 your office number</p>
     <p>177 S. Russell St</p>
     <p>West Lafayette, IN 47907</p>
 
