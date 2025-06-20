@@ -391,8 +391,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
+            },},{id: "news-i-passed-my-phd-area-exams-in-mechanical-engineering-at-purdue-university-boiler-up",
+          title: 'I passed my PhD Area Exams in Mechanical Engineering at Purdue University. Boiler...',
           description: "",
           section: "News",},{id: "news-i-won-the-graduate-student-grant-in-aid-award-from-the-american-society-of-heating-refrigeration-and-air-conditioning-engineers",
           title: 'I won the Graduate Student Grant-in-Aid Award from the American Society of Heating,...',
