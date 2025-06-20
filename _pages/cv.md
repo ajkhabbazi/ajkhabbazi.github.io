@@ -1,6 +1,7 @@
 ---
-layout: cv
+layout: page
+title: " "            # intentionally blank so no text appears
 permalink: /cv/
+nav: true            # keep this
+nav_order: 2
 ---
-
-<meta http-equiv="refresh" content="0; url=/assets/pdf/CV_Arash_Jalil_Khabbazi.pdf" />
