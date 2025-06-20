@@ -391,13 +391,13 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-gave-a-talk-on-field-demonstrations-of-advanced-commercial-hvac-control-at-the-2024-intelligent-building-operations-ibo-workshop-held-at-purdue",
+            },},{id: "news-i-gave-a-talk-on-field-demonstrations-of-advanced-commercial-hvac-control-at-the-2024-intelligent-building-operations-ibo-workshop-held-at-purdue-university-in-west-lafayette",
           title: 'I gave a talk on Field Demonstrations of Advanced Commercial HVAC Control at...',
           description: "",
           section: "News",},{id: "news-i-passed-my-phd-area-exams-in-mechanical-engineering-at-purdue-university-boiler-up",
           title: 'I passed my PhD Area Exams in Mechanical Engineering at Purdue University. Boiler...',
           description: "",
-          section: "News",},{id: "news-i-presented-on-what-have-we-learned-from-field-demonstrations-of-advanced-commercial-hvac-control-at-the-8th-international-conference-on-high-performance-buildings-held-at-purdue",
+          section: "News",},{id: "news-i-presented-on-what-have-we-learned-from-field-demonstrations-of-advanced-commercial-hvac-control-at-the-8th-international-conference-on-high-performance-buildings-held-at-purdue-university-in-west-lafayette",
           title: 'I presented on “What Have We Learned From Field Demonstrations of Advanced Commercial...',
           description: "",
           section: "News",},{id: "news-i-won-the-graduate-student-grant-in-aid-award-from-the-american-society-of-heating-refrigeration-and-air-conditioning-engineers",
