@@ -399,8 +399,8 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+            },},{id: "news-i-joined-tesla-as-a-phd-intern-on-the-drive-unit-inverter-team",
+          title: 'I joined Tesla as a PhD intern on the Drive Unit Inverter team!...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
