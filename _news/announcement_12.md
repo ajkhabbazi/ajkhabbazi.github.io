@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I passed my PhD Area Exams in Mechanical Engineering at Purdue University. Boiler Up!
+I passed my PhD Area Exams in Mechanical Engineering at Purdue. Boiler Up!
