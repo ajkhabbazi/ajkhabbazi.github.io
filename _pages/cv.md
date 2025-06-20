@@ -1,9 +1,6 @@
 ---
 layout: cv
 permalink: /cv/
-title: cv
-nav: true
-nav_order: 2
-cv_pdf: CV_Arash_Jalil_Khabbazi.pdf
-description: Dowlonad my full CV via the pdf link.
 ---
+
+<meta http-equiv="refresh" content="0; url=/assets/pdf/CV_Arash_Jalil_Khabbazi.pdf" />
