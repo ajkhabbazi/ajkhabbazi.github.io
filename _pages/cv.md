@@ -1,7 +1,9 @@
----
-layout: page
-title: " "            # intentionally blank so no text appears
+<!-- ---
+layout: cv
 permalink: /cv/
-nav: true            # keep this
+title: cv
+nav: true
 nav_order: 2
----
+cv_pdf: CV_Arash_Jalil_Khabbazi.pdf
+description: Dowlonad my full CV via the pdf link.
+--- -->
