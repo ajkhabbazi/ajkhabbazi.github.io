@@ -1,4 +1,9 @@
 ---
+layout: cv
 permalink: /cv/
-redirect_to: /assets/pdf/CV_Arash_Jalil_Khabbazi.pdf
+title: cv
+nav: true
+nav_order: 2
+cv_pdf: Drgona_CV.pdf
+description: Dowlonad my full CV via the pdf link.
 ---
