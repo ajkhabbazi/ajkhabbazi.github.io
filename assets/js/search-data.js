@@ -28,7 +28,10 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-gave-a-talk-on-field-demonstrations-of-advanced-commercial-hvac-control-at-the-2024-intelligent-building-operations-ibo-workshop-held-at-purdue",
+            },},{id: "news-i-published-a-major-part-of-my-master-s-research-in-the-international-journal-of-hydrogen-energy",
+          title: 'I published a major part of my Master’s research in the International Journal...',
+          description: "",
+          section: "News",},{id: "news-i-gave-a-talk-on-field-demonstrations-of-advanced-commercial-hvac-control-at-the-2024-intelligent-building-operations-ibo-workshop-held-at-purdue",
           title: 'I gave a talk on Field Demonstrations of Advanced Commercial HVAC Control at...',
           description: "",
           section: "News",},{id: "news-i-presented-on-what-have-we-learned-from-field-demonstrations-of-advanced-commercial-hvac-control-at-the-8th-international-conference-on-high-performance-buildings-held-at-purdue",
