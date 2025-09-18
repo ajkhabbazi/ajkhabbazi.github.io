@@ -28,7 +28,7 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-completed-my-master-of-applied-science-degree-at-the-university-of-british-columbia-mixing-gaseous-hydrogen-into-natural-gas-distribution-pipelines-link",
+            },},{id: "news-i-completed-my-master-of-applied-science-degree-at-the-university-of-british-columbia-mixing-gaseous-hydrogen-into-natural-gas-distribution-pipelines",
           title: 'I completed my Master of Applied Science degree at the University of British...',
           description: "",
           section: "News",},{id: "news-i-published-a-major-part-of-my-master-s-research-in-the-international-journal-of-hydrogen-energy",
