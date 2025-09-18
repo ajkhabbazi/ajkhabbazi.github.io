@@ -28,7 +28,10 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-published-a-major-part-of-my-master-s-research-in-the-international-journal-of-hydrogen-energy",
+            },},{id: "news-i-completed-my-master-of-applied-science-degree-at-the-university-of-british-columbia-mixing-gaseous-hydrogen-into-natural-gas-distribution-pipelines-link",
+          title: 'I completed my Master of Applied Science degree at the University of British...',
+          description: "",
+          section: "News",},{id: "news-i-published-a-major-part-of-my-master-s-research-in-the-international-journal-of-hydrogen-energy",
           title: 'I published a major part of my Master’s research in the International Journal...',
           description: "",
           section: "News",},{id: "news-i-gave-a-talk-on-field-demonstrations-of-advanced-commercial-hvac-control-at-the-2024-intelligent-building-operations-ibo-workshop-held-at-purdue",
