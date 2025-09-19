@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I kicked off my PhD in Mechanical Engineering at Purdue, Boiler Up!
+I kicked off my PhD in Mechanical Engineering at Purdue. Boiler Up!
