@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I presented on "What Have We Learned From Field Demonstrations of Advanced Commercial HVAC Control?" at the 8th International Conference on High Performance Buildings held at Purdue.
+I presented on [What Have We Learned From Field Demonstrations of Advanced Commercial HVAC Control?](https://docs.lib.purdue.edu/ihpbc/473/) at the 8th International Conference on High Performance Buildings, held at Purdue.
