@@ -35,7 +35,10 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-presented-my-work-on-green-hydrogen-supply-to-urban-infrastructure-and-buildings-through-blending-into-the-existing-grid-at-the-csme-international-congress-held-at-the-university-of-alberta",
+            },},{id: "news-i-presented-my-work-on-the-blending-and-transmission-of-hydrogen-and-natural-gas-in-transmission-and-distribution-pipelines-at-the-13th-international-green-energy-conference-igec-xiii-held-virtually",
+          title: 'I presented my work on The Blending and Transmission of Hydrogen and Natural...',
+          description: "",
+          section: "News",},{id: "news-i-presented-my-work-on-green-hydrogen-supply-to-urban-infrastructure-and-buildings-through-blending-into-the-existing-grid-at-the-csme-international-congress-held-at-the-university-of-alberta",
           title: 'I presented my work on Green Hydrogen Supply to Urban Infrastructure and Buildings...',
           description: "",
           section: "News",},{id: "news-i-was-honored-to-receive-the-best-presentation-award-at-the-advanced-energy-symposium-during-the-csme-international-congress-held-at-the-university-of-alberta",
