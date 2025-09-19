@@ -57,7 +57,7 @@ ninja.data = [{
           title: 'I was honored to receive the Best Paper Award at CSME International Congress,...',
           description: "",
           section: "News",},{id: "news-i-kicked-off-my-phd-in-mechanical-engineering-at-purdue-boiler-up",
-          title: 'I kicked off my PhD in Mechanical Engineering at Purdue, Boiler Up!',
+          title: 'I kicked off my PhD in Mechanical Engineering at Purdue. Boiler Up!',
           description: "",
           section: "News",},{id: "news-i-completed-my-master-of-applied-science-degree-at-the-university-of-british-columbia-mixing-gaseous-hydrogen-into-natural-gas-distribution-pipelines",
           title: 'I completed my Master of Applied Science degree at the University of British...',
