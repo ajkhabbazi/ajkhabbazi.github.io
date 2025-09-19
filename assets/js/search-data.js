@@ -35,7 +35,10 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-kicked-off-my-phd-in-mechanical-engineering-at-purdue-boiler-up",
+            },},{id: "news-i-was-honored-to-receive-the-best-paper-award-at-csme-international-congress-held-at-the-université-de-sherbrooke",
+          title: 'I was honored to receive the Best Paper Award at CSME International Congress,...',
+          description: "",
+          section: "News",},{id: "news-i-kicked-off-my-phd-in-mechanical-engineering-at-purdue-boiler-up",
           title: 'I kicked off my PhD in Mechanical Engineering at Purdue, Boiler Up!',
           description: "",
           section: "News",},{id: "news-i-completed-my-master-of-applied-science-degree-at-the-university-of-british-columbia-mixing-gaseous-hydrogen-into-natural-gas-distribution-pipelines",
