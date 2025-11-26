@@ -23,9 +23,32 @@ module ExternalPosts
     end
 
     def fetch_from_rss(site, src)
-      xml = HTTParty.get(src['rss_url']).body
-      return if xml.nil?
-      feed = Feedjira.parse(xml)
+      rss_url = src['rss_url']
+      puts "  RSS URL: #{rss_url}"
+
+      response = HTTParty.get(rss_url)
+      xml = response.body.to_s
+
+      if xml.strip.empty?
+        puts "  - Empty response, skipping."
+        return
+      end
+
+      begin
+        feed = Feedjira.parse(xml)
+      rescue Feedjira::NoParserAvailable => e
+        puts "  - Feedjira::NoParserAvailable: #{e.message}. Skipping this source."
+        return
+      rescue StandardError => e
+        puts "  - Error parsing feed: #{e.class}: #{e.message}. Skipping this source."
+        return
+      end
+
+      unless feed.respond_to?(:entries) && feed.entries
+        puts "  - No entries found in feed, skipping."
+        return
+      end
+
       process_entries(site, src, feed.entries)
     end
 
