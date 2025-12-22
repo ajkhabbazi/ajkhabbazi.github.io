@@ -6,7 +6,7 @@ permalink: /
 
 profile:
   align: right
-  image: IMG_5427.jpg
+  image: arashjalilk-headshot.jpeg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>177 S. Russell St</p>
