@@ -81,7 +81,7 @@ ninja.data = [{
           title: 'I joined Tesla as a summer intern on the Drive Unit team!',
           description: "",
           section: "News",},{id: "news-our-review-paper-lessons-learned-from-field-demonstrations-of-model-predictive-control-and-reinforcement-learning-for-residential-and-commercial-hvac-a-review-was-published-in-applied-energy-my-first-phd-journal-paper",
-          title: 'Our review paper, “Lessons learned from field demonstrations of model predictive control and...',
+          title: 'Our review paper “Lessons learned from field demonstrations of model predictive control and...',
           description: "",
           section: "News",},{id: "news-i-received-the-best-phd-forum-presentation-runner-up-award-at-acm-buildsys-2025",
           title: 'I received the Best PhD Forum Presentation Runner-up Award at ACM BuildSys 2025!...',
