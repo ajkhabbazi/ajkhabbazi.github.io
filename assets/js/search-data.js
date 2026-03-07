@@ -80,7 +80,7 @@ ninja.data = [{
           section: "News",},{id: "news-i-joined-tesla-as-an-applied-ml-intern-on-the-drive-unit-team",
           title: 'I joined Tesla as an Applied ML Intern on the Drive Unit team!⚡...',
           description: "",
-          section: "News",},{id: "news-our-review-paper-lessons-learned-from-field-demonstrations-of-model-predictive-control-and-reinforcement-learning-for-residential-and-commercial-hvac-a-review-was-published-in-applied-energy-my-first-phd-journal-paper",
+          section: "News",},{id: "news-our-review-paper-lessons-learned-from-field-demonstrations-of-model-predictive-control-and-reinforcement-learning-for-residential-and-commercial-hvac-a-review-was-published-in-applied-energy-this-was-my-first-phd-journal-paper",
           title: 'Our review paper “Lessons learned from field demonstrations of model predictive control and...',
           description: "",
           section: "News",},{id: "news-i-received-the-best-phd-forum-presentation-runner-up-award-at-acm-buildsys-2025",
