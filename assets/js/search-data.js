@@ -62,7 +62,7 @@ ninja.data = [{
           section: "News",},{id: "news-i-completed-my-master-of-applied-science-degree-at-the-university-of-british-columbia-mixing-gaseous-hydrogen-into-natural-gas-distribution-pipelines",
           title: 'I completed my Master of Applied Science degree at the University of British...',
           description: "",
-          section: "News",},{id: "news-our-paper-mixing-hydrogen-into-natural-gas-distribution-pipeline-system-through-tee-junctions-was-published-in-international-journal-of-hydrogen-energy-marking-my-first-ever-journal-paper-and-a-major-part-of-my-ms-thesis",
+          section: "News",},{id: "news-our-paper-mixing-hydrogen-into-natural-gas-distribution-pipeline-system-through-tee-junctions-was-published-in-international-journal-of-hydrogen-energy-this-was-my-first-ever-journal-paper-and-a-major-part-of-my-ms-thesis",
           title: 'Our paper “Mixing hydrogen into natural gas distribution pipeline system through Tee junctions”...',
           description: "",
           section: "News",},{id: "news-i-gave-a-talk-on-field-demonstrations-of-advanced-commercial-hvac-control-at-the-2024-intelligent-building-operations-ibo-workshop-held-at-purdue",
