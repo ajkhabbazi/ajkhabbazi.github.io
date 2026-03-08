@@ -47,7 +47,7 @@ ninja.data = [{
           section: "News",},{id: "news-i-presented-my-work-on-green-hydrogen-supply-to-urban-infrastructure-and-buildings-through-blending-into-the-existing-grid-at-the-csme-international-congress-held-at-the-university-of-alberta",
           title: 'I presented my work on Green Hydrogen Supply to Urban Infrastructure and Buildings...',
           description: "",
-          section: "News",},{id: "news-i-was-honored-to-receive-the-best-presentation-award-at-the-advanced-energy-symposium-during-the-csme-international-congress-held-at-the-university-of-alberta",
+          section: "News",},{id: "news-i-was-honored-to-receive-the-best-presentation-award-at-the-advanced-energy-symposium-during-the-2022-csme-international-congress-at-the-university-of-alberta-for-our-abstract-paper-green-hydrogen-supply-to-urban-infrastructure-and-buildings-through-blending-into-the-existing-grid",
           title: 'I was honored to receive the Best Presentation Award at the Advanced Energy...',
           description: "",
           section: "News",},{id: "news-i-presented-our-paper-blending-of-hydrogen-into-a-natural-gas-distribution-pipeline-in-british-columbia-through-a-tee-junction-for-reducing-ghg-emissions-at-the-2023-csme-international-congress-at-the-université-de-sherbrooke",
