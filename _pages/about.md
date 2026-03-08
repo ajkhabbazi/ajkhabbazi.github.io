@@ -9,11 +9,11 @@ profile:
   image: arashjalilk-headshot.jpeg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p><i class="fas fa-user-graduate"></i> <strong>PhD Student</strong><br>
-    <i class="fas fa-building-columns"></i> <strong>Purdue University</strong></p>
-    <p><i class="fas fa-envelope"></i> <a href="mailto:arashjkh@purdue.edu">arashjkh@purdue.edu</a></p>
-    <p><i class="ai ai-google-scholar"></i> <a href="https://scholar.google.com/">Google Scholar</a></p>
-    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/">LinkedIn</a></p>
+    <div class="profile-entry"><i class="fas fa-user-graduate"></i><span>PhD Student</span></div>
+    <div class="profile-entry"><i class="fas fa-building-columns"></i><span>Purdue University</span></div>
+    <div class="profile-entry"><i class="fas fa-envelope"></i><a href="mailto:arashjkh@purdue.edu">arashjkh@purdue.edu</a></div>
+    <div class="profile-entry"><i class="ai ai-google-scholar"></i><a href="https://scholar.google.com/">Google Scholar</a></div>
+    <div class="profile-entry"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/">LinkedIn</a></div>
   selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
