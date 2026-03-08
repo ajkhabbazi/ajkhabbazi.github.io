@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I graduated with a Bachelor of Science in Mechanical Engineering with Highest Distinction (GPA 4.0/4.0)!
+I graduated with a BS in Mechanical Engineering with Highest Distinction from the University of Tabriz, ranking first in a class of 155+
