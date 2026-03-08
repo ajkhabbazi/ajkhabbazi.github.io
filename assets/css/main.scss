@@ -23,3 +23,20 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-filled.scss",
   "tabler-icons/tabler-icons-outline.scss"
 ;
+
+.profile-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+  width: 100%;
+}
+
+.profile-entry i {
+  flex: 0 0 1.2rem;
+}
+
+.profile-entry span,
+.profile-entry a {
+  display: block;
+}
