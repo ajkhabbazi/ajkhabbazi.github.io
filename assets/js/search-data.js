@@ -24,7 +24,7 @@ ninja.data = [{
             window.location.href = "/news/";
           },
         },{id: "nav-resume",
-          title: "resume",
+          title: "Resume",
           description: "",
           section: "Navigation",
           handler: () => {
