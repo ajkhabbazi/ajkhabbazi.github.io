@@ -14,7 +14,8 @@ profile:
     <div class="profile-entry"><i class="fas fa-envelope"></i><a href="mailto:arashjkh@purdue.edu">arashjkh@purdue.edu</a></div>
     <div class="profile-entry"><i class="ai ai-google-scholar"></i><a href="https://scholar.google.com/">Google Scholar</a></div>
     <div class="profile-entry"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/">LinkedIn</a></div>
-  selected_papers: true # includes a list of papers marked as "selected={true}"
+
+selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
