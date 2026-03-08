@@ -65,7 +65,7 @@ ninja.data = [{
           section: "News",},{id: "news-our-paper-mixing-hydrogen-into-natural-gas-distribution-pipeline-system-through-tee-junctions-was-published-in-international-journal-of-hydrogen-energy-this-was-my-first-ever-journal-paper-and-a-major-part-of-my-ms-thesis",
           title: 'Our paper “Mixing hydrogen into natural gas distribution pipeline system through Tee junctions”...',
           description: "",
-          section: "News",},{id: "news-i-gave-a-talk-on-field-demonstrations-of-advanced-commercial-hvac-control-at-the-2024-intelligent-building-operations-ibo-workshop-held-at-purdue",
+          section: "News",},{id: "news-i-gave-a-talk-on-field-demonstrations-of-advanced-commercial-hvac-control-at-the-2024-intelligent-building-operations-ibo-workshop-at-purdue",
           title: 'I gave a talk on Field Demonstrations of Advanced Commercial HVAC Control at...',
           description: "",
           section: "News",},{id: "news-i-presented-what-have-we-learned-from-field-demonstrations-of-advanced-commercial-hvac-control-at-the-8th-international-conference-on-high-performance-buildings-as-part-of-the-2024-herrick-conferences-at-purdue",
