@@ -35,4 +35,4 @@ My research focuses on reinforcement learning and predictive control for buildin
 
 I am also interested in applying machine learning to broader AI-enabled engineering problems, and previously interned at [Tesla](https://www.tesla.com/), where I worked with the Drive Unit team on machine learning for quality assessment.
 
-Prior to Purdue, I received my MS from the [University of British Columbia](https://www.ubc.ca/), where I was advised by Professor [Sunny Li](https://scholar.google.com/citations?user=mgUDmT8AAAAJ&hl=en), and earned my BS in Mechanical Engineering (Highest Distinction) in Iran.
+Prior to Purdue, I received my MS from the [University of British Columbia](https://www.ubc.ca/), where I was advised by Professor [Sunny Li](https://scholar.google.com/citations?user=mgUDmT8AAAAJ&hl=en), and earned my BS in Mechanical Engineering with Highest Distinction in Iran.
