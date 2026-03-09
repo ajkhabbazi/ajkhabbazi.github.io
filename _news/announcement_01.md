@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I kicked off my Master of Applied Science in Mechanical Engineering at the University of British Columbia!
+I started my MS in Mechanical Engineering at the [University of British Columbia](https://www.ubc.ca/).
