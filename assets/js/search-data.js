@@ -75,7 +75,7 @@ ninja.data = [{
           title: 'First milestone of my PhD journey: I passed my PhD Area Exam in...',
           description: "",
           section: "News",},{id: "news-i-received-the-ashrae-graduate-student-grant-in-aid-award",
-          title: 'I received the ** ASHRAE Graduate Student Grant-in-Aid Award**!',
+          title: 'I received the ASHRAE Graduate Student Grant-in-Aid Award!',
           description: "",
           section: "News",},{id: "news-i-joined-tesla-as-an-applied-ml-intern-on-the-drive-unit-team",
           title: 'I joined Tesla as an Applied ML Intern on the Drive Unit team!⚡...',
