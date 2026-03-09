@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I received the [**ASHRAE Graduate Student Grant-in-Aid Award**](https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program)!
+I received the <a href="https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program" style="color: ##0a66c2; font-weight: 700;">ASHRAE Graduate Student Grant-in-Aid Award</a>!
