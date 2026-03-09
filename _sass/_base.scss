@@ -701,7 +701,7 @@ footer.sticky-bottom {
     color: var(--global-theme-color);
     font-size: 2rem;
     text-align: center;
-    margin-top: 1em;
+    margin-top: 2em;
     margin-bottom: 1em;
   }
 
@@ -930,6 +930,11 @@ html.transition *:after {
       }
     }
   }
+}
+
+.post h2:not(:first-of-type) {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 progress {
