@@ -35,8 +35,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-graduated-with-a-bachelor-of-science-in-mechanical-engineering-with-highest-distinction-gpa-4-0-4-0",
-          title: 'I graduated with a Bachelor of Science in Mechanical Engineering with Highest Distinction...',
+            },},{id: "news-i-graduated-with-a-bs-in-mechanical-engineering-with-highest-distinction-from-the-university-of-tabriz-ranking-first-in-a-class-of-155",
+          title: 'I graduated with a BS in Mechanical Engineering with Highest Distinction from the...',
           description: "",
           section: "News",},{id: "news-i-kicked-off-my-master-of-applied-science-in-mechanical-engineering-at-the-university-of-british-columbia",
           title: 'I kicked off my Master of Applied Science in Mechanical Engineering at the...',
