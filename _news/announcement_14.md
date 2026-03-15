@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-<strong>[role]</strong> I joined [Tesla](https://www.tesla.com/) as an Applied ML Intern on the Drive Unit team!
+<strong>[milestone]</strong> I joined [Tesla](https://www.tesla.com/) as an Applied ML Engineering Intern on the Drive Unit team!
