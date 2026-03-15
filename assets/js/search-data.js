@@ -71,7 +71,7 @@ ninja.data = [{
           section: "News",},{id: "news-i-presented-what-have-we-learned-from-field-demonstrations-of-advanced-commercial-hvac-control-at-the-8th-international-conference-on-high-performance-buildings-as-part-of-the-2024-herrick-conferences-at-purdue",
           title: 'I presented “What Have We Learned From Field Demonstrations of Advanced Commercial HVAC...',
           description: "",
-          section: "News",},{id: "news-first-milestone-of-my-phd-journey-i-passed-my-phd-area-exam-in-mechanical-engineering-at-purdue-university-boiler-up",
+          section: "News",},{id: "news-first-milestone-of-my-phd-journey-i-passed-my-phd-area-exam-in-mechanical-engineering-at-purdue-university",
           title: 'First milestone of my PhD journey: I passed my PhD Area Exam in...',
           description: "",
           section: "News",},{id: "news-i-received-the-ashrae-graduate-student-grant-in-aid-award",
