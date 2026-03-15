@@ -35,8 +35,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-graduated-with-a-bs-in-mechanical-engineering-with-highest-distinction-from-the-university-of-tabriz-ranking-first-in-a-class-of-155-students",
-          title: 'I graduated with a BS in Mechanical Engineering with Highest Distinction from the...',
+            },},{id: "news-milestone-i-graduated-with-a-bs-in-mechanical-engineering-with-highest-distinction-from-the-university-of-tabriz-ranking-first-in-a-class-of-155-students",
+          title: '[milestone] I graduated with a BS in Mechanical Engineering with Highest Distinction from...',
           description: "",
           section: "News",},{id: "news-milestone-i-started-my-ms-in-mechanical-engineering-at-the-university-of-british-columbia",
           title: '[milestone] I started my MS in Mechanical Engineering at the University of British...',
