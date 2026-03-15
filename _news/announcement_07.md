@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I started my PhD in Mechanical Engineering at Purdue University. Boiler Up!
+<strong>[milestone]</strong> I started my PhD in Mechanical Engineering at Purdue University!
