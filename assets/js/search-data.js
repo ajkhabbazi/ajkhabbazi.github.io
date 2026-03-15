@@ -83,7 +83,7 @@ ninja.data = [{
           section: "News",},{id: "news-paper-our-review-paper-lessons-learned-from-field-demonstrations-of-model-predictive-control-and-reinforcement-learning-for-residential-and-commercial-hvac-a-review-was-published-in-applied-energy-this-was-my-first-phd-journal-paper",
           title: '[paper] Our review paper “Lessons learned from field demonstrations of model predictive control...',
           description: "",
-          section: "News",},{id: "news-award-i-received-the-best-phd-forum-presentation-runner-up-award-at-acm-buildsys-2025-in-golden-co-usa",
+          section: "News",},{id: "news-award-i-received-the-best-phd-forum-presentation-runner-up-award-at-acm-buildsys-2025-in-golden-co",
           title: '[award] I received the Best PhD Forum Presentation Runner-up Award at ACM BuildSys...',
           description: "",
           section: "News",},{id: "news-paper-our-paper-small-hvac-control-demonstrations-in-larger-buildings-often-overestimate-savings-was-accepted-to-the-2026-american-control-conference-acc",
