@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-First milestone of my PhD journey: I passed my PhD Area Exam in Mechanical Engineering at Purdue University.
+<strong>[milestone]</strong> I passed my PhD Area Exam in Mechanical Engineering at Purdue!
