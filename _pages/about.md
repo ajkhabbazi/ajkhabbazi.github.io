@@ -29,7 +29,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a PhD student in [Mechanical Engineering](https://engineering.purdue.edu/ME) at [Purdue University](https://www.purdue.edu/), with a specialization in Computational Science and Engineering, and advised by Professor [Kevin Kircher](https://kevinjkircher.com/).
+I am a PhD Candidate in [Mechanical Engineering](https://engineering.purdue.edu/ME) at [Purdue University](https://www.purdue.edu/), with a specialization in Computational Science and Engineering, and advised by Professor [Kevin Kircher](https://kevinjkircher.com/).
 
 My research focuses on advanced control of building HVAC systems, with an emphasis on reinforcement learning, model predictive control, and data-driven predictive control. I study methods that improve energy efficiency, reduce costs and emissions, and support scalable deployment in real buildings. My work also emphasizes practical deployment through reliable experiment protocols and scalable controller design. My PhD research has been recognized with the [ASHRAE Graduate Student Grant-in-Aid Award](https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program#:~:text=It%20is%20awarded%20once%20each,amount%20of%20up%20to%20%2410%2C000).
 
