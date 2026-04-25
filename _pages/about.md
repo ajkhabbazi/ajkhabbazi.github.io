@@ -9,7 +9,7 @@ profile:
   image: arash.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <div class="profile-entry"><i class="fas fa-user-graduate"></i><span>PhD Student</span></div>
+    <div class="profile-entry"><i class="fas fa-user-graduate"></i><span>PhD Candidate</span></div>
     <div class="profile-entry"><i class="fas fa-building-columns"></i><span>Purdue University</span></div>
     <div class="profile-entry"><i class="fas fa-envelope"></i><a href="mailto:arashjkh@purdue.edu">arashjkh@purdue.edu</a></div>
     <div class="profile-entry"><i class="ai ai-google-scholar"></i><a href="https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AP6z3OZiab4BUHBahVV7kKVwfZKsUWAzfdPzb2cL93pVa1PI1ZkoD-qtb2rKsBW022rgb6ywzp1hvQMcRKiW3g&user=yIX3RKsAAAAJ">Google Scholar</a></div>
