@@ -2,15 +2,15 @@
 layout: about
 title: About
 permalink: /
-#subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: PhD Candidate, Purdue University.
 
 profile:
   align: right
   image: arash.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <div class="profile-entry"><i class="fas fa-user-graduate"></i><span>PhD Candidate</span></div>
-    <div class="profile-entry"><i class="fas fa-building-columns"></i><span>Purdue University</span></div>
+    # <div class="profile-entry"><i class="fas fa-user-graduate"></i><span>PhD Candidate</span></div>
+    # <div class="profile-entry"><i class="fas fa-building-columns"></i><span>Purdue University</span></div>
     <div class="profile-entry"><i class="fas fa-envelope"></i><a href="mailto:arashjkh@purdue.edu">arashjkh@purdue.edu</a></div>
     <div class="profile-entry"><i class="ai ai-google-scholar"></i><a href="https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AP6z3OZiab4BUHBahVV7kKVwfZKsUWAzfdPzb2cL93pVa1PI1ZkoD-qtb2rKsBW022rgb6ywzp1hvQMcRKiW3g&user=yIX3RKsAAAAJ">Google Scholar</a></div>
     <div class="profile-entry"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/ajkhabbazi/">LinkedIn</a></div>
@@ -31,6 +31,8 @@ latest_posts:
 
 I am a PhD Candidate in [Mechanical Engineering](https://engineering.purdue.edu/ME) at [Purdue University](https://www.purdue.edu/), with a specialization in Computational Science and Engineering, and advised by Professor [Kevin Kircher](https://kevinjkircher.com/).
 
-My research focuses on advanced control of building HVAC systems, with an emphasis on reinforcement learning, model predictive control, and data-driven predictive control. I study methods that improve energy efficiency, reduce costs and emissions, and support scalable deployment in real buildings. My work also emphasizes practical deployment through reliable experiment protocols and scalable controller design. My PhD research has been recognized with the [ASHRAE Graduate Student Grant-in-Aid Award](https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program#:~:text=It%20is%20awarded%20once%20each,amount%20of%20up%20to%20%2410%2C000).
+My research focuses on building energy systems, using predictive control and reinforcement learning to improve energy efficiency, reduce costs and emissions, and deploy these methods reliably at scale. This work has earned me the [ASHRAE Graduate Student Grant-in-Aid Award](https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program#:~:text=It%20is%20awarded%20once%20each,amount%20of%20up%20to%20%2410%2C000).
 
-Prior to Purdue, I received my MS in Mechanical Engineering from the [University of British Columbia](https://www.ubc.ca/), where I was advised by Professor [Sunny Li](https://scholar.google.com/citations?user=mgUDmT8AAAAJ&hl=en), and earned my BS in Mechanical Engineering with Highest Distinction in Iran. Previously, I interned at [Tesla](https://www.tesla.com/), where I worked with the Drive Unit team on machine learning for quality assessment.
+Beyond my research, I enjoy exploring ML more broadly, and lately I've been spending a lot of time with LLMs. On the industry side, I got to intern at [Tesla](https://www.tesla.com/), where I worked with the Drive Unit team on machine learning for manufacturing quality assessment.
+
+Prior to Purdue, I received my MS in Mechanical Engineering from the [University of British Columbia](https://www.ubc.ca/), where I was advised by Professor [Sunny Li](https://scholar.google.com/citations?user=mgUDmT8AAAAJ&hl=en), and earned my BS in Mechanical Engineering with Highest Distinction in Iran.
