@@ -6,7 +6,7 @@ permalink: /
 
 profile:
   align: right
-  image: arash.jpg
+  image: arashjalilk-headshot.jpeg
   image_circular: false # crops the image to make it circular
   more_info: >
     <div class="profile-entry"><i class="fas fa-user-graduate"></i><span>PhD Candidate</span></div>
