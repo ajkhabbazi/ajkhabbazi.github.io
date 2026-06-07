@@ -395,22 +395,6 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Social icons in header (below name)
-.header-social-icons {
-  margin-top: 0.3rem;
-  margin-bottom: 0.5rem;
-
-  a {
-    font-size: 1.5rem;
-    margin-right: 0.6rem;
-    color: inherit;
-
-    &:hover {
-      color: var(--global-theme-color);
-    }
-  }
-}
-
 // Social (bottom)
 
 .social {
