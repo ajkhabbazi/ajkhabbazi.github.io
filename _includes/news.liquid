@@ -7,8 +7,8 @@
 
   Included with `limit=true` (the about page), items past
   `page.announcements.limit` are rendered but hidden, and a button reveals them.
-  Included without `limit` (the news page), everything is shown and no button is
-  rendered.
+  Included without `limit` (the news page), everything is shown, no button is
+  rendered, and a row of per-kind filter chips is shown above the feed.
 {% endcomment %}
 
 {% assign news_size = site.news | size %}
@@ -28,10 +28,48 @@
       {% assign hidden_count = 0 %}
     {% endif %}
 
+    {% unless include.limit %}
+      {% assign kinds = news_items | map: 'kind' | compact | uniq | sort %}
+      {% if kinds.size > 1 %}
+        <div class="newsfeed-filters" role="group" aria-label="Filter news by kind">
+          <button class="newsfeed-filter newsfeed-filter--active" type="button" data-newsfeed-filter="all" aria-pressed="true">
+            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+            <span>All</span>
+          </button>
+          {% for kind in kinds %}
+            {% case kind %}
+              {% when 'paper' %}
+                {% assign kind_icon = 'fa-file-lines' %}
+              {% when 'talk' %}
+                {% assign kind_icon = 'fa-microphone-lines' %}
+              {% when 'award' %}
+                {% assign kind_icon = 'fa-award' %}
+              {% when 'milestone' %}
+                {% assign kind_icon = 'fa-flag-checkered' %}
+              {% else %}
+                {% assign kind_icon = 'fa-circle-dot' %}
+            {% endcase %}
+            <button
+              class="newsfeed-filter newsfeed-filter--{{ kind }}"
+              type="button"
+              data-newsfeed-filter="{{ kind }}"
+              aria-pressed="false"
+            >
+              <i class="fa-solid {{ kind_icon }}" aria-hidden="true"></i>
+              <span>{{ kind | capitalize }}</span>
+            </button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endunless %}
+
     <ul class="newsfeed-list">
       {% for item in news_items %}
         <li
           class="newsfeed-entry{% if item.kind %} newsfeed-entry--{{ item.kind }}{% endif %}"
+          {% if item.kind %}
+            data-newsfeed-kind="{{ item.kind }}"
+          {% endif %}
           {% if forloop.index > visible_count %}
             data-newsfeed-extra
             hidden
@@ -79,21 +117,48 @@
 </div>
 
 <script>
-  document.querySelectorAll(".newsfeed-toggle").forEach(function (toggle) {
-    const feed = toggle.closest(".newsfeed");
+  document.querySelectorAll('.newsfeed-toggle').forEach(function (toggle) {
+    const feed = toggle.closest('.newsfeed');
     if (!feed) return;
 
-    const extras = feed.querySelectorAll("[data-newsfeed-extra]");
-    const label = toggle.querySelector(".newsfeed-toggle-label");
+    const extras = feed.querySelectorAll('[data-newsfeed-extra]');
+    const label = toggle.querySelector('.newsfeed-toggle-label');
 
-    toggle.addEventListener("click", function () {
-      const expanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.addEventListener('click', function () {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
       extras.forEach(function (entry) {
         entry.hidden = expanded;
       });
-      toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
-      toggle.classList.toggle("newsfeed-toggle--open", !expanded);
+      toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      toggle.classList.toggle('newsfeed-toggle--open', !expanded);
       label.textContent = expanded ? toggle.dataset.labelMore : toggle.dataset.labelLess;
+    });
+  });
+
+  // Kind filters. Only rendered on the full news page, where no entry is hidden
+  // by the "show earlier updates" toggle, so [hidden] here is ours alone.
+  document.querySelectorAll('.newsfeed-filters').forEach(function (bar) {
+    const feed = bar.closest('.newsfeed');
+    if (!feed) return;
+
+    const buttons = bar.querySelectorAll('.newsfeed-filter');
+    const entries = feed.querySelectorAll('.newsfeed-entry');
+
+    bar.addEventListener('click', function (event) {
+      const button = event.target.closest('.newsfeed-filter');
+      if (!button) return;
+
+      const selected = button.dataset.newsfeedFilter;
+
+      buttons.forEach(function (other) {
+        const active = other === button;
+        other.classList.toggle('newsfeed-filter--active', active);
+        other.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+
+      entries.forEach(function (entry) {
+        entry.hidden = selected !== 'all' && entry.dataset.newsfeedKind !== selected;
+      });
     });
   });
 </script>

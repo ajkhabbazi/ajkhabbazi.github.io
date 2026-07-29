@@ -10,6 +10,13 @@
 .newsfeed {
   --news-accent: var(--global-text-color-light);
 
+  // One palette entry per kind, referenced by both the feed entries and the
+  // filter chips so a kind's colour is defined in exactly one place per theme.
+  --news-paper: #0f766e; // teal
+  --news-talk: #b45309; // amber
+  --news-award: #b91c1c; // red
+  --news-milestone: #4d7c0f; // green
+
   margin-bottom: 0.5rem;
 
   .newsfeed-list {
@@ -87,20 +94,69 @@
 
   // Accent per kind. These are deliberately distinct from the link colour so a
   // label is never mistaken for a hyperlink.
-  .newsfeed-entry--paper {
-    --news-accent: #0f766e; // teal
+  .newsfeed-entry--paper,
+  .newsfeed-filter--paper {
+    --news-accent: var(--news-paper);
   }
 
-  .newsfeed-entry--talk {
-    --news-accent: #b45309; // amber
+  .newsfeed-entry--talk,
+  .newsfeed-filter--talk {
+    --news-accent: var(--news-talk);
   }
 
-  .newsfeed-entry--award {
-    --news-accent: #b91c1c; // red
+  .newsfeed-entry--award,
+  .newsfeed-filter--award {
+    --news-accent: var(--news-award);
   }
 
-  .newsfeed-entry--milestone {
-    --news-accent: #4d7c0f; // green
+  .newsfeed-entry--milestone,
+  .newsfeed-filter--milestone {
+    --news-accent: var(--news-milestone);
+  }
+
+  // Filter chips. Same badge vocabulary as .newsfeed-kind, scaled up to a
+  // clickable target: outlined when idle, filled with the accent when active.
+  .newsfeed-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .newsfeed-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.6rem;
+    background: none;
+    color: var(--news-accent);
+    border: 1px solid var(--news-accent);
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease-in-out,
+      color 0.15s ease-in-out;
+
+    i {
+      font-size: 0.75em;
+    }
+
+    &:hover {
+      background-color: var(--news-accent);
+      color: var(--global-bg-color);
+    }
+
+    // Class rather than [aria-pressed="true"]: the attribute value is only ever
+    // set by script, so PurgeCSS cannot see it in the built HTML.
+    &.newsfeed-filter--active {
+      background-color: var(--news-accent);
+      color: var(--global-bg-color);
+    }
   }
 
   .newsfeed-toggle {
@@ -137,25 +193,15 @@
 
 // Lighter accents so the labels stay legible on the dark background.
 html[data-theme="dark"] .newsfeed {
-  .newsfeed-entry--paper {
-    --news-accent: #5eead4;
-  }
-
-  .newsfeed-entry--talk {
-    --news-accent: #fbbf24;
-  }
-
-  .newsfeed-entry--award {
-    --news-accent: #fca5a5;
-  }
-
-  .newsfeed-entry--milestone {
-    --news-accent: #a3e635;
-  }
+  --news-paper: #5eead4;
+  --news-talk: #fbbf24;
+  --news-award: #fca5a5;
+  --news-milestone: #a3e635;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .newsfeed .newsfeed-entry::before,
+  .newsfeed .newsfeed-filter,
   .newsfeed .newsfeed-toggle-caret {
     transition: none;
   }
