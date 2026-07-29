@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-#subtitle: PhD Candidate, Purdue University.
+subtitle: PhD Candidate | Mechanical Engineering, Purdue University
 
 profile:
   align: right
@@ -22,4 +22,12 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm a PhD Candidate in [Mechanical Engineering](https://engineering.purdue.edu/ME) at [Purdue University](https://www.purdue.edu/), with a specialization in Computational Science and Engineering, advised by Professor [Kevin Kircher](https://kevinjkircher.com/). My research focuses on building energy systems, using predictive control and reinforcement learning to improve energy efficiency and reduce costs, and deploy these methods reliably at scale. This work has earned me the [ASHRAE Graduate Student Grant-in-Aid Award](https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program#:~:text=It%20is%20awarded%20once%20each,amount%20of%20up%20to%20%2410%2C000). Outside of research, I got to intern at [Tesla](https://www.tesla.com/), where I worked with the Drive Unit team on machine learning for manufacturing quality assessment.
+I am a PhD candidate in [Mechanical Engineering](https://engineering.purdue.edu/ME) at [Purdue University](https://www.purdue.edu/), specializing in [Computational Science and Engineering](https://www.purdue.edu/academics/ogsps/oigp/program/cigp/) and advised by Professor [Kevin Kircher](https://kevinjkircher.com/).
+
+My research aims to make advanced control of buildings deliver in practice, not just in simulation. Buildings use about a third of the world's energy, and their HVAC systems alone account for roughly $1 trillion in annual bills. Better control of how they run could cut a meaningful share of that, yet very little of this research is ever tested in real buildings. I work on **predictive control** and **reinforcement learning** for commercial building energy systems, focusing on making results **reliable** enough for owners and operators to act on, and making methods **scalable** enough to run across many buildings without an expert tuning each one. This work primarily involves **modeling and simulation**, **machine learning**, **control theory**, and **field demonstrations** in real buildings, and is supported in part by the [ASHRAE Graduate Student Grant-in-Aid Award](https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program).
+
+Beyond my core research, I work on a range of problems in **distributed energy resources**, including **current limiting control** that lets homes electrify without upgrading their electrical panels, **supervisory HVAC control** for residential buildings, and **open-source simulation environments** for benchmarking building control algorithms. On the industry side, I spent a summer at [Tesla](https://www.tesla.com/) applying **machine learning** to manufacturing quality assessment with the Drive Unit team. I also collaborate with Purdue's energy and facilities teams on projects ranging from **measurement and verification** of chiller plant efficiency to **campus-scale energy use intensity analysis** that informs building renewal planning.
+
+Before Purdue I completed my M.S. in Mechanical Engineering at the [University of British Columbia](https://www.ubc.ca/) in Canada, where I worked on hydrogen blending in natural gas distribution networks, and my B.S. at the [University of Tabriz](https://tabrizu.ac.ir/en).
+
+I am currently looking for **postdoctoral**, **visiting researcher**, and **research intern** positions in academia or industry, in these areas or in related work on **scientific machine learning** and **control**.
