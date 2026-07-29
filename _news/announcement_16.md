@@ -1,9 +1,9 @@
 ---
 layout: post
-date: 2025-11-20
-kind: award
+date: 2025-07-09
+kind: paper
 inline: true
 related_posts: false
 ---
 
-I received the **Best PhD Forum Presentation Runner-up Award** at [ACM BuildSys 2025](https://buildsys.acm.org/2025/) in Golden, CO!
+Our review paper "[Lessons learned from field demonstrations of model predictive control and reinforcement learning for residential and commercial HVAC: A review](https://doi.org/10.1016/j.apenergy.2025.126459)" was published in Applied Energy. This was my first PhD journal paper.

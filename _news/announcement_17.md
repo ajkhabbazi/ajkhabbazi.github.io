@@ -1,9 +1,9 @@
 ---
 layout: post
-date: 2026-01-26
-kind: paper
+date: 2025-11-20
+kind: talk
 inline: true
 related_posts: false
 ---
 
-Our paper "[Small HVAC Control Demonstrations in Larger Buildings Often Overestimate Savings](https://doi.org/10.48550/arXiv.2602.22499)" was accepted to the [2026 American Control Conference (ACC)](https://acc2026.a2c2.org/).
+I presented "[Field Demonstration of Advanced Commercial HVAC Control for Scalable Deployment](https://doi.org/10.1145/3736425.3772194)" at the PhD Forum of [ACM BuildSys 2025](https://buildsys.acm.org/2025/) in Golden, CO.

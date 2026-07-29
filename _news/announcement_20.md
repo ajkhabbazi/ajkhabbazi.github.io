@@ -1,9 +1,9 @@
 ---
 layout: post
-date: 2026-07-15
-kind: paper
+date: 2026-04-17
+kind: milestone
 inline: true
 related_posts: false
 ---
 
-Our paper "[Scalable Supervisory HVAC Control for Linear Objectives](https://arxiv.org/abs/2607.15867)" was accepted to the [2026 IEEE Conference on Decision and Control (CDC)](https://cdc2026.ieeecss.org/).
+I passed my PhD Prelim Exam in Mechanical Engineering at Purdue and am officially a PhD candidate now!

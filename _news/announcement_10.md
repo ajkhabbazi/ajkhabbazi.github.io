@@ -1,9 +1,9 @@
 ---
 layout: post
-date: 2024-07-16
-kind: talk
+date: 2023-11-03
+kind: paper
 inline: true
 related_posts: false
 ---
 
-I presented "[What Have We Learned From Field Demonstrations of Advanced Commercial HVAC Control?](https://docs.lib.purdue.edu/ihpbc/473/)" at the 8th International Conference on High Performance Buildings as part of the [2024 Herrick Conferences](https://engineering.purdue.edu/Herrick/about/news/Conferences/2024) at Purdue.
+Our paper "[Mixing hydrogen into natural gas distribution pipeline system through Tee junctions](https://doi.org/10.1016/j.ijhydene.2023.11.038)" was published in International Journal of Hydrogen Energy. This was my first-ever journal paper and a major part of my MS thesis.

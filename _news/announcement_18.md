@@ -1,9 +1,9 @@
 ---
 layout: post
-date: 2026-04-17
-kind: milestone
+date: 2025-11-20
+kind: award
 inline: true
 related_posts: false
 ---
 
-I passed my PhD Prelim Exam in Mechanical Engineering at Purdue and am officially a PhD candidate now!
+I received the **Best PhD Forum Presentation Runner-up Award** at [ACM BuildSys 2025](https://buildsys.acm.org/2025/) in Golden, CO!

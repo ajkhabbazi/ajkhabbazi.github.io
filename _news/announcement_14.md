@@ -1,9 +1,9 @@
 ---
 layout: post
-date: 2025-05-19
-kind: milestone
+date: 2025-05-02
+kind: award
 inline: true
 related_posts: false
 ---
 
-I joined [Tesla](https://www.tesla.com/) as an Engineering Intern, Applied ML on the Drive Unit team!
+I received the <a href="https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program"><strong style="color: inherit;">ASHRAE Graduate Student Grant-in-Aid Award</strong></a>!

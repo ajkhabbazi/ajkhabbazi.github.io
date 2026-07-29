@@ -1,9 +1,9 @@
 ---
 layout: post
-date: 2025-05-02
-kind: award
+date: 2024-10-11
+kind: milestone
 inline: true
 related_posts: false
 ---
 
-I received the <a href="https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program"><strong style="color: inherit;">ASHRAE Graduate Student Grant-in-Aid Award</strong></a>!
+I passed my PhD Area Exam in Mechanical Engineering at Purdue!

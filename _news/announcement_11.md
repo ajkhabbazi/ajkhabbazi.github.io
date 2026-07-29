@@ -1,9 +1,9 @@
 ---
 layout: post
-date: 2024-07-15
+date: 2024-07-16
 kind: talk
 inline: true
 related_posts: false
 ---
 
-I gave a talk on [Field Demonstrations of Advanced Commercial HVAC Control](https://www.youtube.com/watch?v=NJ3izRJVNK0) at the [2024 Intelligent Building Operations (IBO) Workshop](https://www.youtube.com/playlist?list=PLcZDMdEnS08kcgUMfKHNHn507XDJG0LGC) at Purdue.
+I presented "[What Have We Learned From Field Demonstrations of Advanced Commercial HVAC Control?](https://docs.lib.purdue.edu/ihpbc/473/)" at the 8th International Conference on High Performance Buildings as part of the [2024 Herrick Conferences](https://engineering.purdue.edu/Herrick/about/news/Conferences/2024) at Purdue.
