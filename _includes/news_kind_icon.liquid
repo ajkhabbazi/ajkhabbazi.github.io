@@ -1,0 +1,17 @@
+{%- comment -%}
+  Font Awesome icon name for a news `kind`. Single source of truth so the filter
+  chips and the per-entry badges in `news.liquid` never drift apart. Emits the
+  bare icon class, e.g. `fa-award`, to be used as `fa-solid {% include ... %}`.
+{%- endcomment -%}
+{%- case include.kind -%}
+  {%- when 'paper' -%}
+    fa-file-lines
+  {%- when 'talk' -%}
+    fa-microphone-lines
+  {%- when 'award' -%}
+    fa-award
+  {%- when 'milestone' -%}
+    fa-flag-checkered
+  {%- else -%}
+    fa-circle-dot
+{%- endcase -%}
