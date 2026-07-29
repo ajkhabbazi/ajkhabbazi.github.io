@@ -22,7 +22,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a PhD candidate in [Mechanical Engineering](https://engineering.purdue.edu/ME) at [Purdue University](https://www.purdue.edu/), specializing in [Computational Science and Engineering](https://www.purdue.edu/academics/ogsps/oigp/program/cigp/) and advised by Professor [Kevin Kircher](https://kevinjkircher.com/).
+Glad you found your way here! I am a PhD candidate in [Mechanical Engineering](https://engineering.purdue.edu/ME) at [Purdue University](https://www.purdue.edu/), specializing in [Computational Science and Engineering](https://www.purdue.edu/academics/ogsps/oigp/program/cigp/) and advised by Professor [Kevin Kircher](https://kevinjkircher.com/).
 
 My research aims to make advanced control of buildings deliver in practice. Buildings use about a third of the world's energy, and their HVAC systems alone account for roughly $1 trillion in annual bills. Better control of how they run could cut a meaningful share of that, yet very little of this research is ever tested in real buildings. I work on **predictive control** and **reinforcement learning** for commercial building energy systems, focusing on making results reliable enough for owners and operators to act on, and making methods scalable enough to run across many buildings without an expert tuning each one. This work primarily involves **modeling and simulation**, **machine learning**, **control theory**, and **field demonstrations** in real buildings, and is supported in part by the [ASHRAE Graduate Student Grant-in-Aid Award](https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program).
 
