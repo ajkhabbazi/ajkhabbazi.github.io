@@ -6,11 +6,13 @@ module Jekyll
       require 'digest/md5'
       require 'pathname'
 
-      attr_accessor :file_name, :directory
+      attr_accessor :file_name, :sources
 
-      def initialize(file_name:, directory: nil)
+      # `sources` is a list of glob patterns whose combined contents determine
+      # the digest. Leave it nil to digest `file_name` itself.
+      def initialize(file_name:, sources: nil)
         self.file_name = file_name
-        self.directory = directory
+        self.sources = sources
       end
 
       def digest!
@@ -19,9 +21,10 @@ module Jekyll
 
       private
 
-      def directory_files_content
-        target_path = File.join(directory, '**', '*')
-        Dir[target_path].map{|f| File.read(f) unless File.directory?(f) }.join
+      # Sorted so the digest does not depend on the order the filesystem
+      # happens to return matches in.
+      def sources_content
+        Dir[*sources].sort.reject { |f| File.directory?(f) }.map { |f| File.read(f) }.join
       end
 
       def file_content
@@ -30,20 +33,19 @@ module Jekyll
       end
 
       def file_contents
-        is_directory? ? file_content : directory_files_content
-      end
-
-      def is_directory?
-        directory.nil?
+        sources.nil? ? file_content : sources_content
       end
     end
 
     def bust_file_cache(file_name)
-      CacheDigester.new(file_name: file_name, directory: nil).digest!
+      CacheDigester.new(file_name: file_name, sources: nil).digest!
     end
 
+    # main.css is generated from main.scss at build time, so there is no source
+    # file to digest directly. Digest what it is compiled from instead: the
+    # entry stylesheet plus every partial it imports.
     def bust_css_cache(file_name)
-      CacheDigester.new(file_name: file_name, directory: 'assets/_sass').digest!
+      CacheDigester.new(file_name: file_name, sources: ['assets/css/main.scss', '_sass/**/*']).digest!
     end
   end
 end
