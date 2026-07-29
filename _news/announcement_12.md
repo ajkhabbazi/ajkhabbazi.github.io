@@ -1,8 +1,9 @@
 ---
 layout: post
 date: 2024-10-11
+kind: milestone
 inline: true
 related_posts: false
 ---
 
-🎓 I passed my PhD Area Exam in Mechanical Engineering at Purdue!
+I passed my PhD Area Exam in Mechanical Engineering at Purdue!

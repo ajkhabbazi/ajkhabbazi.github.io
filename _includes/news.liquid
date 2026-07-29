@@ -1,36 +1,99 @@
-<div class="news">
-  {% if site.news != blank %}
-    {% assign news_size = site.news | size %}
-    <div
-      class="table-responsive"
-      {% if include.limit and page.announcements.scrollable and news_size > 3 %}
-        style="max-height: 60vw"
-      {% endif %}
-    >
-      <table class="table table-sm table-borderless">
-        {% assign news = site.news | reverse %}
-        {% if include.limit and page.announcements.limit %}
-          {% assign news_limit = page.announcements.limit %}
-        {% else %}
-          {% assign news_limit = news_size %}
-        {% endif %}
-        {% for item in news limit: news_limit %}
-          <tr>
-            <th scope="row" style="width: 20%; font-weight: 400; line-height: 1.25;">
+{% comment %}
+  News feed.
+
+  Every item in `_news/` carries a `kind` (paper / talk / award / milestone) in
+  its front matter, which selects the label and accent colour defined in
+  `_sass/_news.scss`. Adding an item needs no change here.
+
+  Included with `limit=true` (the about page), items past
+  `page.announcements.limit` are rendered but hidden, and a button reveals them.
+  Included without `limit` (the news page), everything is shown and no button is
+  rendered.
+{% endcomment %}
+
+{% assign news_size = site.news | size %}
+
+<div class="newsfeed">
+  {% if news_size > 0 %}
+    {% assign news_items = site.news | sort: 'date' | reverse %}
+
+    {% if include.limit and page.announcements.limit %}
+      {% assign visible_count = page.announcements.limit %}
+    {% else %}
+      {% assign visible_count = news_size %}
+    {% endif %}
+
+    {% assign hidden_count = news_size | minus: visible_count %}
+    {% if hidden_count < 0 %}
+      {% assign hidden_count = 0 %}
+    {% endif %}
+
+    <ul class="newsfeed-list">
+      {% for item in news_items %}
+        <li
+          class="newsfeed-entry{% if item.kind %} newsfeed-entry--{{ item.kind }}{% endif %}"
+          {% if forloop.index > visible_count %}
+            data-newsfeed-extra
+            hidden
+          {% endif %}
+        >
+          <div class="newsfeed-meta">
+            {% if item.kind %}
+              <span class="newsfeed-kind">{{ item.kind }}</span>
+            {% endif %}
+            <time class="newsfeed-date" datetime="{{ item.date | date_to_xmlschema }}">
               {{ item.date | date: '%Y-%m-%d' }}
-            </th>
-            <td>
-              {% if item.inline %}
-                {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-              {% else %}
-                <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-              {% endif %}
-            </td>
-          </tr>
-        {% endfor %}
-      </table>
-    </div>
+            </time>
+          </div>
+          <div class="newsfeed-body">
+            {% if item.inline %}
+              {{ item.content | emojify }}
+            {% else %}
+              <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% if hidden_count > 0 %}
+      {% if hidden_count == 1 %}
+        {% assign more_label = 'Show 1 earlier update' %}
+      {% else %}
+        {% assign more_label = hidden_count | prepend: 'Show ' | append: ' earlier updates' %}
+      {% endif %}
+      <button
+        class="newsfeed-toggle"
+        type="button"
+        aria-expanded="false"
+        data-label-more="{{ more_label }}"
+        data-label-less="Show fewer"
+      >
+        <span class="newsfeed-toggle-label">{{ more_label }}</span>
+        <span class="newsfeed-toggle-caret" aria-hidden="true">&#9662;</span>
+      </button>
+    {% endif %}
   {% else %}
     <p>No news so far...</p>
   {% endif %}
 </div>
+
+<script>
+  document.querySelectorAll(".newsfeed-toggle").forEach(function (toggle) {
+    const feed = toggle.closest(".newsfeed");
+    if (!feed) return;
+
+    const extras = feed.querySelectorAll("[data-newsfeed-extra]");
+    const label = toggle.querySelector(".newsfeed-toggle-label");
+
+    toggle.addEventListener("click", function () {
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      extras.forEach(function (entry) {
+        entry.hidden = expanded;
+      });
+      toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
+      toggle.classList.toggle("newsfeed-toggle--open", !expanded);
+      label.textContent = expanded ? toggle.dataset.labelMore : toggle.dataset.labelLess;
+    });
+  });
+</script>

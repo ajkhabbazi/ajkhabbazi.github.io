@@ -1,0 +1,162 @@
+/*******************************************************************************
+ * News feed
+ *
+ * Each entry carries a `kind` (paper / talk / award / milestone) set in the
+ * front matter of the corresponding file in `_news/`. The kind drives the label
+ * and the accent colour below. Body links are left alone so they keep the site
+ * link colour.
+ ******************************************************************************/
+
+.newsfeed {
+  --news-accent: var(--global-text-color-light);
+
+  margin-bottom: 0.5rem;
+
+  .newsfeed-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .newsfeed-entry {
+    position: relative;
+    padding: 0.35rem 0 0.85rem 1.1rem;
+
+    // The accent rail: one short segment per entry rather than a single
+    // continuous line, so entries read as separate records.
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.55rem;
+      bottom: 0.55rem;
+      left: 0;
+      width: 3px;
+      border-radius: 3px;
+      background-color: var(--news-accent);
+      opacity: 0.75;
+      transition: opacity 0.15s ease-in-out;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .newsfeed-meta {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .newsfeed-kind {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--news-accent);
+    border: 1px solid var(--news-accent);
+    border-radius: 3px;
+    padding: 0.05rem 0.4rem;
+    white-space: nowrap;
+  }
+
+  .newsfeed-date {
+    font-size: 0.75rem;
+    color: var(--global-text-color-light);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .newsfeed-body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    p {
+      margin: 0;
+    }
+
+    p + p {
+      margin-top: 0.4rem;
+    }
+  }
+
+  // Accent per kind. These are deliberately distinct from the link colour so a
+  // label is never mistaken for a hyperlink.
+  .newsfeed-entry--paper {
+    --news-accent: #0f766e; // teal
+  }
+
+  .newsfeed-entry--talk {
+    --news-accent: #b45309; // amber
+  }
+
+  .newsfeed-entry--award {
+    --news-accent: #b91c1c; // red
+  }
+
+  .newsfeed-entry--milestone {
+    --news-accent: #4d7c0f; // green
+  }
+
+  .newsfeed-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.25rem;
+    margin-left: 1.1rem;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--global-theme-color);
+    cursor: pointer;
+
+    &:hover .newsfeed-toggle-label {
+      text-decoration: underline;
+    }
+
+    .newsfeed-toggle-caret {
+      font-size: 0.7rem;
+      line-height: 1;
+      transition: transform 0.15s ease-in-out;
+    }
+
+    // Class rather than [aria-expanded="true"]: the attribute value is only ever
+    // set by script, so PurgeCSS cannot see it in the built HTML.
+    &.newsfeed-toggle--open .newsfeed-toggle-caret {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// Lighter accents so the labels stay legible on the dark background.
+html[data-theme="dark"] .newsfeed {
+  .newsfeed-entry--paper {
+    --news-accent: #5eead4;
+  }
+
+  .newsfeed-entry--talk {
+    --news-accent: #fbbf24;
+  }
+
+  .newsfeed-entry--award {
+    --news-accent: #fca5a5;
+  }
+
+  .newsfeed-entry--milestone {
+    --news-accent: #a3e635;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .newsfeed .newsfeed-entry::before,
+  .newsfeed .newsfeed-toggle-caret {
+    transition: none;
+  }
+}
