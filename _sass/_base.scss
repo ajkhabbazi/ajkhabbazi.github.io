@@ -1422,3 +1422,31 @@ figure.cover {
     color: #23212d !important;
   }
 }
+
+/* Collapsible "more" section on the about page */
+details.about-more {
+  margin-top: 0.5rem;
+
+  > summary {
+    cursor: pointer;
+    color: var(--global-theme-color);
+    list-style: none;
+    display: inline-block;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: " +";
+    }
+  }
+
+  &[open] > summary::after {
+    content: " \2212";
+  }
+
+  > p {
+    margin-top: 0.75rem;
+  }
+}
