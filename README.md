@@ -29,7 +29,7 @@ docker compose -f docker-compose-slim.yml up
 | `_bibliography/papers.bib` | Publications; `selected={true}` puts an entry on the about page      |
 | `_data/socials.yml`        | Social links; `coauthors.yml` and `venues.yml` support the bib list  |
 | `assets/img/`              | Profile photo and `publication_preview/` thumbnails                  |
-| `assets/pdf/cv.pdf`        | The CV — `/cv/` is just a redirect to this file                      |
+| `assets/pdf/cv-ajk.pdf`    | The CV — `/cv/` is just a redirect to this file. Built from `career-ajk/cv/cv-ajk.tex` with `\def\WEBVERSION{}`, which omits the phone number |
 | `_config.yml`              | Site-wide settings                                                   |
 
 ## Template content kept on purpose
