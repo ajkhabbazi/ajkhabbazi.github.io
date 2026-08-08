@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-I received the <a href="https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program"><strong style="color: inherit;">ASHRAE Graduate Student Grant-in-Aid Award</strong></a>!
+I received the **Graduate Student Grant-in-Aid Award** from the [American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE)](https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program)!
