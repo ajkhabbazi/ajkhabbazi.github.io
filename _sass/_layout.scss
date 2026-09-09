@@ -2,6 +2,13 @@
  * Content
  ******************************************************************************/
 
+// Reserve the scrollbar's width even when the page is short enough not to
+// need one, so the centred column stays put when content height changes
+// (e.g. filtering the news feed).
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   padding-bottom: 70px;
   color: var(--global-text-color);
