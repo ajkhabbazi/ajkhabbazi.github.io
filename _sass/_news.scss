@@ -66,7 +66,7 @@
   }
 
   // Filter chips. Same vocabulary as .newsfeed-kind, scaled up to a clickable
-  // target: outlined when idle, filled with the text colour when active.
+  // target: outlined when idle, lightly shaded when active.
   .newsfeed-filters {
     display: flex;
     flex-wrap: wrap;
@@ -100,9 +100,9 @@
     // Class rather than [aria-pressed="true"]: the attribute value is only ever
     // set by script, so PurgeCSS cannot see it in the built HTML.
     &.newsfeed-filter--active {
-      background-color: var(--global-text-color);
-      border-color: var(--global-text-color);
-      color: var(--global-bg-color);
+      background-color: var(--global-divider-color);
+      border-color: var(--global-text-color-light);
+      color: var(--global-text-color);
     }
   }
 
