@@ -2,8 +2,9 @@
   News feed.
 
   Every item in `_news/` carries a `kind` (paper / talk / award / milestone) in
-  its front matter, which selects the label and accent colour defined in
-  `_sass/_news.scss`. Adding an item needs no change here.
+  its front matter, which supplies the label text and the filter chips. All
+  kinds share one neutral style defined in `_sass/_news.scss`. Adding an item
+  needs no change here.
 
   Included with `limit=true` (the about page), items past
   `page.announcements.limit` are rendered but hidden, and a button reveals them.
@@ -33,18 +34,15 @@
       {% if kinds.size > 1 %}
         <div class="newsfeed-filters" role="group" aria-label="Filter news by kind">
           <button class="newsfeed-filter newsfeed-filter--active" type="button" data-newsfeed-filter="all" aria-pressed="true">
-            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
             <span>All</span>
           </button>
           {% for kind in kinds %}
-            {% capture kind_icon %}{% include news_kind_icon.liquid kind=kind %}{% endcapture %}
             <button
-              class="newsfeed-filter newsfeed-filter--{{ kind }}"
+              class="newsfeed-filter"
               type="button"
               data-newsfeed-filter="{{ kind }}"
               aria-pressed="false"
             >
-              <i class="fa-solid {{ kind_icon | strip }}" aria-hidden="true"></i>
               <span>{{ kind | capitalize }}</span>
             </button>
           {% endfor %}
@@ -55,7 +53,7 @@
     <ul class="newsfeed-list">
       {% for item in news_items %}
         <li
-          class="newsfeed-entry{% if item.kind %} newsfeed-entry--{{ item.kind }}{% endif %}"
+          class="newsfeed-entry"
           {% if item.kind %}
             data-newsfeed-kind="{{ item.kind }}"
           {% endif %}
@@ -66,11 +64,7 @@
         >
           <div class="newsfeed-meta">
             {% if item.kind %}
-              {% capture item_icon %}{% include news_kind_icon.liquid kind=item.kind %}{% endcapture %}
-              <span class="newsfeed-kind">
-                <i class="fa-solid {{ item_icon | strip }}" aria-hidden="true"></i>
-                {{ item.kind }}
-              </span>
+              <span class="newsfeed-kind">{{ item.kind }}</span>
             {% endif %}
             <time class="newsfeed-date" datetime="{{ item.date | date_to_xmlschema }}">
               {{ item.date | date: '%Y-%m-%d' }}
