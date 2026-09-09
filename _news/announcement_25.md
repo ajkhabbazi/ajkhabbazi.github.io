@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-I received the [**ACM SIGEnergy Student Travel Grant**](https://buildsys.acm.org/2025/registration/) to attend ACM BuildSys 2025 in Golden, CO!
+I received the **ACM SIGEnergy Student Travel Grant** to attend ACM BuildSys 2025 in Golden, CO!
