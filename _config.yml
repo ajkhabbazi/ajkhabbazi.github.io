@@ -256,8 +256,10 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Jalil Khabbazi]
-  first_name: [Arash]
+  # Both forms the bib uses: "Khabbazi, Arash J." on papers and
+  # "Jalil Khabbazi, Arash" on the MS thesis.
+  last_name: [Khabbazi, Jalil Khabbazi]
+  first_name: [Arash, Arash J.]
 
   style: apa
   locale: en
