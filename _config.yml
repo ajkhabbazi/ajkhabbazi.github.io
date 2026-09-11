@@ -259,7 +259,7 @@ scholar:
   # Both forms the bib uses: "Khabbazi, Arash J." on papers and
   # "Jalil Khabbazi, Arash" on the MS thesis.
   last_name: [Khabbazi, Jalil Khabbazi]
-  first_name: [Arash, Arash J.]
+  first_name: [Arash, Arash J., Arash Jalil]
 
   style: apa
   locale: en
