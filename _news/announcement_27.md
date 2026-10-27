@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-I presented "[Advanced HVAC Control in Real Buildings: State of the Art, Protocols, and Deployment](/assets/pdf/sbsim-arash-jalilkhabbazi-20261026.pdf)" to Google's Smart Buildings Simulator (SBSim) group.
+I presented "[Advanced HVAC Control in Real Buildings: State of the Art, Protocols, and Deployment](/assets/pdf/sbsim-arash-jalilkhabbazi-20261026.pdf)" to the Google [Smart Buildings Simulator (SBSim)](https://github.com/google/sbsim) group.
