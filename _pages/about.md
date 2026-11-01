@@ -3,6 +3,7 @@ layout: about
 title: About
 permalink: /
 subtitle: PhD Candidate | Mechanical Engineering, Purdue University
+availability: "I am currently looking for **research internships**, and I am open to **visiting researcher** positions as well." # shown under the name with CV and Email buttons
 
 profile:
   align: right
@@ -22,7 +23,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi there! I am a PhD candidate in [Mechanical Engineering](https://engineering.purdue.edu/ME) at [Purdue University](https://www.purdue.edu/), with a concentration in [Computational Science and Engineering](https://www.purdue.edu/academics/ogsps/oigp/program/cigp/), advised by Professor [Kevin Kircher](https://kevinjkircher.com/). I work on modeling, control, optimization, and machine learning for building energy systems. I am currently looking for **research internships**, and I am open to **visiting researcher** positions as well.
+Hi there! I am a PhD candidate in [Mechanical Engineering](https://engineering.purdue.edu/ME) at [Purdue University](https://www.purdue.edu/), with a concentration in [Computational Science and Engineering](https://www.purdue.edu/academics/ogsps/oigp/program/cigp/), advised by Professor [Kevin Kircher](https://kevinjkircher.com/). I work on modeling, control, optimization, and machine learning for building energy systems.
 
 Buildings use about a third of the world's energy, and much of that depends on how their systems are controlled. My research builds practical automation for efficient, occupant- and grid-interactive buildings, focusing on **predictive control** and **reinforcement learning**.
 

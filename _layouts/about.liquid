@@ -12,6 +12,15 @@ layout: default
       {% endif %}
     </h1>
     <p class="desc">{{ page.subtitle }}</p>
+    {% if page.availability %}
+      <div class="availability">
+        <div class="availability-text">{{ page.availability | markdownify }}</div>
+        <div class="availability-actions">
+          <a class="availability-btn availability-btn--primary" href="{{ '/assets/pdf/cv-ajk.pdf' | relative_url }}"><i class="fa-solid fa-file-lines"></i>CV</a>
+          <a class="availability-btn" href="mailto:{{ site.data.socials.email | encode_email }}"><i class="fa-solid fa-envelope"></i>Email</a>
+        </div>
+      </div>
+    {% endif %}
   </header>
 
   <article>
