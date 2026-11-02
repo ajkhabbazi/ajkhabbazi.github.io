@@ -1594,6 +1594,7 @@ details.about-more {
 @media (min-width: 576px) {
   article > .clearfix > p,
   details.about-more > p {
-    margin-right: calc(30% + 1rem);
+    // A plain percentage: the deploy minifier strips the spaces inside calc(), which makes it invalid
+    margin-right: 33.5%;
   }
 }
