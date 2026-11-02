@@ -1452,16 +1452,72 @@ details.about-more {
   }
 
   .about-more-photo {
-    margin: 0.75rem 0;
+    max-width: 60%;
+    margin: 0.75rem auto;
+
+    img {
+      padding: 0.25rem;
+      background-color: #fff;
+    }
   }
 
-  // Matches the headshot: full width on phones, 30% on the right otherwise
   @media (min-width: 576px) {
     .about-more-photo {
       float: right;
       width: 30%;
+      max-width: none;
       margin: 0.75rem 0 0.5rem 1rem;
     }
+  }
+}
+
+/* About page header: headshot on the left, with the name and job-search box beside it */
+.about-hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1.25rem;
+  align-items: start;
+  margin-bottom: 0;
+
+  .about-hero-photo {
+    width: 96px;
+
+    figure {
+      margin: 0;
+    }
+  }
+
+  .about-hero-name .post-title {
+    margin-bottom: 0.25rem;
+  }
+
+  .about-hero-name .desc {
+    margin-bottom: 0;
+  }
+
+  .availability {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 576px) {
+  .about-hero .about-hero-photo {
+    width: 110px;
+  }
+}
+
+/* Outdoor photo beside the first paragraph */
+.about-side-photo {
+  max-width: 60%;
+  margin: 0 auto 1rem;
+}
+
+@media (min-width: 576px) {
+  .about-side-photo {
+    float: right;
+    width: 30%;
+    max-width: none;
+    margin: 0 0 0.5rem 1rem;
   }
 }
 
@@ -1600,6 +1656,10 @@ details.about-more {
 }
 
 /* Research page */
+.pub-kind {
+  display: none;
+}
+
 .research-statement {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
@@ -1657,5 +1717,29 @@ details.about-more {
   .research-note {
     font-size: 0.9rem;
     margin-bottom: 0;
+  }
+
+  .research-video {
+    display: block;
+    width: 100%;
+    margin: 1rem auto 0;
+    border-radius: 0.5rem;
+    background-color: #fff;
+  }
+
+  // Tells readers what each item is. Hidden on other pages by the rule below.
+  .pub-kind {
+    display: inline-block;
+    margin-right: 0.35rem;
+    padding: 0.05rem 0.4rem;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 3px;
+    color: var(--global-text-color-light);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    vertical-align: 0.12em;
   }
 }

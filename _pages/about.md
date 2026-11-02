@@ -23,12 +23,14 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
+<div class="about-side-photo"><img src="{{ '/assets/img/arash-outdoors.jpg' | relative_url }}" class="img-fluid z-depth-1 rounded" alt="Arash outdoors" loading="lazy"></div>
+
 Hi there! I am a PhD candidate in [Mechanical Engineering](https://engineering.purdue.edu/ME) at [Purdue University](https://www.purdue.edu/), with a concentration in [Computational Science and Engineering](https://www.purdue.edu/academics/ogsps/oigp/program/cigp/), advised by Professor [Kevin Kircher](https://kevinjkircher.com/). I work on modeling, control, optimization, and machine learning for building energy systems. My research advances the state of the art of practical automation systems for efficient, occupant- and grid-interactive buildings, focusing on **reinforcement learning** and **data-driven predictive control**. I am developing and demonstrating scalable data-driven algorithms for high-performance control in real buildings, minimizing the data and engineering needed to achieve good, if imperfect, performance. I also work on demand flexibility in commercial buildings with Purdue's Energy and Utilities team, and in 2025 I interned at **[Tesla](https://www.tesla.com/)**, working on machine learning projects for the drive unit team. My PhD work is supported in part by a Graduate Student Grant-in-Aid Award from the American Society of Heating, Refrigerating and Air-Conditioning Engineers ([ASHRAE](https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program)).
 
 <details class="about-more" markdown="1">
 <summary>More about my background</summary>
 
-<div class="about-more-photo"><img src="{{ '/assets/img/arash-outdoors.jpg' | relative_url }}" class="img-fluid z-depth-1 rounded" alt="Arash outdoors" loading="lazy"></div>
+<div class="about-more-photo"><a href="https://www.energy.gov/eere/buildings/GEB" title="Image: U.S. Department of Energy"><img src="{{ '/assets/img/doe-smart-building.png' | relative_url }}" class="img-fluid z-depth-1 rounded" alt="U.S. Department of Energy graphic of a connected smart building linked to its devices and the grid" loading="lazy"></a></div>
 
 Buildings use about a third of the world's energy, and much of that depends on how their systems are controlled. My contributions so far include the most extensive synthesis in the literature of experimental research in my field, as well as a result that identifies, explains, and resolves a widespread and long-standing error with measurement and verification during field experiments. I also work on power control systems in homes, and I contribute to Google's open-source TensorFlow Smart Buildings Simulator ([SBSim](https://github.com/google/sbsim)).
 
