@@ -11,7 +11,7 @@
   --global-text-color: #{$black-color};
   --global-text-color-light: #{$grey-color};
   --global-theme-color: #1f3a5f;
-  --global-hover-color: #1f3a5f;
+  --global-hover-color: #2f6fb5;
   --global-availability-tint: #e9f0f8;
   --global-availability-edge: #8fb3e0;
   --global-hover-text-color: #{$white-color};
@@ -85,10 +85,10 @@ html[data-theme="dark"] {
   --global-text-color: #{$grey-color-light};
   --global-text-color-light: #{$grey-color};
   --global-theme-color: #8fb3e0;
-  --global-hover-color: #8fb3e0;
+  --global-hover-color: #bcd8ff;
   --global-availability-tint: #27303b;
   --global-availability-edge: #3f5f8a;
-  --global-hover-text-color: #{$white-color};
+  --global-hover-text-color: #{$grey-color-dark};
   --global-footer-bg-color: #{$grey-color-light};
   --global-footer-text-color: #{$grey-color-dark};
   --global-footer-link-color: #{$black-color};

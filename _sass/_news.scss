@@ -120,7 +120,7 @@
     cursor: pointer;
 
     &:hover .newsfeed-toggle-label {
-      text-decoration: underline;
+      color: var(--global-hover-color);
     }
 
     .newsfeed-toggle-caret {

@@ -27,8 +27,8 @@ layout: default
       <div class="availability">
         <div class="availability-text">{{ page.availability | markdownify }}</div>
         <div class="availability-actions">
-          <a class="availability-btn availability-btn--primary" href="{{ '/assets/pdf/resume-ajk.pdf' | relative_url }}">Resume</a>
-          <a class="availability-btn" href="mailto:{{ site.data.socials.email | encode_email }}">Email</a>
+          <a class="availability-btn availability-btn--primary" href="{{ '/assets/pdf/resume-ajk.pdf' | relative_url }}"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Resume</a>
+          <a class="availability-btn" href="mailto:{{ site.data.socials.email | encode_email }}"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Email</a>
         </div>
       </div>
     {% endif %}
@@ -40,7 +40,7 @@ layout: default
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
       <h2 style="margin-top: 2rem;">
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
+        <a href="{{ '/news/' | relative_url }}" class="heading-link">News</a>
       </h2>
 
       {% include news.liquid limit=true %}
@@ -49,7 +49,7 @@ layout: default
     <!-- Latest posts -->
     {% if page.latest_posts and page.latest_posts.enabled %}
       <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+        <a href="{{ '/blog/' | relative_url }}" class="heading-link">latest posts</a>
       </h2>
       {% include latest_posts.liquid %}
     {% endif %}
@@ -57,7 +57,7 @@ layout: default
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Select Publications</a>
+        <a href="{{ '/publications/' | relative_url }}" class="heading-link">Select Publications</a>
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}
