@@ -1,0 +1,70 @@
+---
+layout: page
+title: Research
+permalink: /research/
+nav: true
+nav_order: 0
+---
+
+<p class="research-statement">Advanced control can save buildings energy and money, but it rarely reaches real buildings at scale. My research focuses on minimizing the data and engineering needed to achieve good, if imperfect, performance, and on measuring the results reliably.</p>
+
+<section class="research-section">
+  <h2>What field demonstrations show</h2>
+  <p>Simulation studies suggest predictive control and reinforcement learning can cut costs, emissions, and grid stress, yet adoption remains limited. I led a review of 104 field studies, evaluating their protocols and reported outcomes.</p>
+  <p class="research-result"><strong>Result: 71% rely on potentially unreliable protocols. The more robust studies report average cost savings of 16% in homes and 13% in commercial buildings.</strong></p>
+  <img class="research-figure research-figure--narrow z-depth-1" src="{{ '/assets/img/research/field-demos.png' | relative_url }}" alt="Histograms of energy and cost savings across field demonstrations in residential and commercial buildings" loading="lazy" data-zoomable>
+  <div class="publications">
+    {% bibliography --group_by none --query @*[research=review]* %}
+  </div>
+</section>
+
+<section class="research-section">
+  <h2>Measuring savings correctly</h2>
+  <p>Many field tests control a few zones in a larger building and report savings for those zones alone. We proved this overstates whole-building savings, because heat drawn from neighboring zones isn&rsquo;t counted, and developed a correction that needs no baseline estimate.</p>
+  <p class="research-result"><strong>Result: when only interior zones are controlled, all perceived savings are fictitious.</strong></p>
+  <img class="research-figure research-figure--narrow z-depth-1" src="{{ '/assets/img/research/savings.png' | relative_url }}" alt="Line plot of savings overestimation error falling as the controlled zone has more exterior walls" loading="lazy" data-zoomable>
+  <div class="publications">
+    {% bibliography --group_by none --query @*[research=savings]* %}
+  </div>
+  <p class="research-note">Follow-up under review.</p>
+</section>
+
+<section class="research-section">
+  <h2>Control with almost no commissioning</h2>
+  <p>Advanced controllers are costly to commission, which limits their use in real buildings. We developed two nearly commissioning-free controllers for objectives such as energy costs and pollution, needing at most two thermal parameters.</p>
+  <p class="research-result"><strong>Result: up to 87% of optimal savings under time-varying pricing, in simulation.</strong></p>
+  <img class="research-figure research-figure--narrow z-depth-1" src="{{ '/assets/img/research/ltc.png' | relative_url }}" alt="Time series of electricity price, cooling supplied, and indoor temperature for the controllers under time-of-use pricing" loading="lazy" data-zoomable>
+  <div class="publications">
+    {% bibliography --group_by none --query @*[research=ltc]* %}
+  </div>
+</section>
+
+<section class="research-section">
+  <h2>Data-driven predictive control</h2>
+  <p>Data-driven predictive control can skip much of the modeling work, but its performance depends on how future behavior is predicted from data. We introduced a state-space predictor that connects this approach to established predictive control theory.</p>
+  <p class="research-result"><strong>Result: the lowest prediction error and failure rate of the predictors tested, especially with limited training data.</strong></p>
+  <img class="research-figure z-depth-1" src="{{ '/assets/img/research/tpc.png' | relative_url }}" alt="Bar charts comparing prediction error, control failure rate, and control cost across predictors as training data grows" loading="lazy" data-zoomable>
+  <div class="publications">
+    {% bibliography --group_by none --query @*[research=tpc]* %}
+  </div>
+</section>
+
+<section class="research-section">
+  <h2>Home power control</h2>
+  <p>Electric heating, water heating, and EV charging can overload 100&ndash;200 A panels, and upgrades cost <span class="text-nowrap"><span>$2k</span>&ndash;<span>$10k</span></span>. We built a simulation framework to compare control strategies across electrification scenarios.</p>
+  <p class="research-result"><strong>Result: coordinated control cut peak current by up to 70% while keeping homes comfortable in nearly all scenarios.</strong></p>
+  <img class="research-figure research-figure--medium z-depth-1" src="{{ '/assets/img/research/home-power.png' | relative_url }}" alt="Scatter plots of maximum household current against the panel limit under four control strategies" loading="lazy" data-zoomable>
+  <div class="publications">
+    {% bibliography --group_by none --query @*[research=homes]* %}
+  </div>
+</section>
+
+<section class="research-section">
+  <h2>Hydrogen in natural gas pipelines</h2>
+  <p>Hydrogen is buoyant, so when blended into natural gas pipelines it tends to stratify and collect near the top wall. At UBC, funded by FortisBC, I used CFD with ideal and real gas models to study how injection design affects mixing.</p>
+  <p class="research-result"><strong>Result: bottom-side injection mixes in a pipe length about four times shorter than horizontal injection and five times shorter than top-side injection.</strong></p>
+  <img class="research-figure z-depth-1" src="{{ '/assets/img/research/hydrogen.png' | relative_url }}" alt="Plots of hydrogen mixing variation along the pipe for top-side, horizontal, and bottom-side injection" loading="lazy" data-zoomable>
+  <div class="publications">
+    {% bibliography --group_by none --query @*[research=hydrogen]* %}
+  </div>
+</section>

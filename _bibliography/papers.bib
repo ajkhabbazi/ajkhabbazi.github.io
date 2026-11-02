@@ -1,13 +1,16 @@
 ---
 ---
 
-@inproceedings{khabbazi2027ashrae,
-  title         = {Adjacent Heat Transfer Effects Can Bias Savings Estimates When Controlling Only Part of a Multi-Zone Building},
-  author        = {Khabbazi, Arash J. and Kircher, Kevin J.},
-  booktitle     = {2027 ASHRAE Winter Conference},
-  year          = {2027},
+@article{reyespremer2026tpc,
+  title         = {Indirect Data-Driven Predictive Control and the State-Space Predictor},
+  author        = {Reyes Premer, Levi D. and Khabbazi, Arash J. and Kircher, Kevin J.},
+  journal       = {arXiv preprint arXiv:2602.10936},
+  year          = {2026},
+  month         = feb,
   note          = {Under review},
-  abstract      = {Field demonstrations of advanced heating, ventilation, and air-conditioning control often operate a few thermal zones within a larger building and report savings for those zones alone. A recent theorem showed that this practice overestimates whole-building savings, because heat drawn from the neighboring zones is paid for by their equipment and is not counted. The error grows with the thermal conductance between the controlled and uncontrolled zones, with how much colder the controlled zones run over the test, and with the price of the heat their neighbors supply. For one controlled zone with one neighbor, a single thermal price, and slowly changing prices, the relative error reduces to the ratio of two conductances, a screening number that can be evaluated from the two conductances before a demonstration begins. This paper tests how far that reduction can be taken. A two-story house with one thermal zone per floor is simulated over a 90-day heating season in West Lafayette, Indiana, with receding-horizon model predictive control on the first floor and setpoint control on the second, under four combinations of electricity tariff (time-of-use or flat) and heating plant (heat pump or electric resistance). The exact correction from the theorem recovers the true savings in every case, and the full theorem, evaluated from the controlled zone's temperatures, the prices, and the building parameters, reproduces the measured relative error in every case. The conductance ratio bounds that error from above in all four cases, tightly under a flat tariff, within 3\%, and loosely under a time-of-use tariff, where most of the controller's savings come from shifting load through the thermal mass rather than from lowering the temperature.},
+  html          = {https://arxiv.org/abs/2602.10936},
+  abstract      = {We define trajectory predictive control (TPC) as a class of indirect data-driven predictive control (DDPC) methods that represent future outputs as linear in past inputs/outputs and future inputs. TPC unifies many DDPC variants with different predictor structures. We introduce a predictor with a state-space representation and show that with it, TPC inherits the mature theory of linear model predictive control. In numerical experiments, the state-space predictor outperforms existing predictors, especially for small training datasets.},
+  research      = {tpc},
   selected      = {false},
   bibtex_show   = {true}
 }
@@ -22,7 +25,8 @@
   html          = {https://arxiv.org/abs/2607.15867},
   doi           = {10.48550/arXiv.2607.15867},
   preview       = {dierking2026ltc.png},
-  abstract      = {Advanced control of heating and cooling systems can substantially reduce energy costs and pollution. However, real-world adoption of popular algorithms among researchers, such as model predictive control (MPC) and reinforcement learning (RL), remains limited due in part to their high deployment and commissioning costs. Here, we develop two nearly commissioning-free controllers tailored to objectives that depend linearly on the controlled thermal load, such as energy costs and pollution. The controllers require at most two thermal parameters. In representative heating simulations, controller performance is robust to large parameter specification errors, suggesting potential for deployment with no tuning. The controllers maintain good occupant comfort while achieving 43 to 98\% (depending on the electricity pricing and controller variant) of the performance improvement achieved by an omniscient policy with perfect model information and forecasts. These results suggest that simple, structure-exploiting controllers may capture most of the attainable value of advanced control while avoiding the data, modeling, tuning, and computational burdens that can arise with conventional MPC or RL.},
+  abstract      = {Advanced control of heating, ventilation, and air-conditioning ({HVAC}) systems can substantially reduce energy costs and pollution. However, real-world adoption of popular algorithms among researchers, such as model predictive control and reinforcement learning, remains limited due in part to their high deployment and commissioning costs. Here, we develop two nearly commissioning-free supervisory controllers tailored to objectives that depend linearly on the controlled thermal load, such as energy costs and pollution. The controllers require, at most, two easily-estimable thermal parameters, forecasts of energy prices and occupant temperature preferences over a prediction horizon, and an indoor temperature measurement. In residential cooling simulations, both controllers perform essentially as well under traditional time-invariant electricity pricing as an omniscient optimal controller with exact model information and perfect forecasts, and attain up to 86.6\% of the omniscient cost savings under increasingly prevalent time-varying pricing. These results suggest that simple, structure-exploiting controllers may capture most of the attainable value of advanced supervisory {HVAC} control with linear objectives, while avoiding the data, modeling, tuning, and computational burdens that hinder real-world deployment.},
+  research      = {ltc},
   selected      = {true},
   bibtex_show   = {true}
 }
@@ -37,6 +41,7 @@
   html          = {https://www.aceee.org/proceedings/evaluating-power-control-strategies-for-avoiding-residential-panel-upgrades-in-cold-climates/},
   preview       = {ACEEE2026.jpg},
   abstract      = {Residential electrification is increasing household electricity demand through adoption of heat pumps, electric water heaters, and electric vehicle chargers. Many homes still rely on 100–200 A service panels, which can be inadequate for simultaneous operation of electrical loads, making panel upgrades costly and a barrier to electrification. This work develops a residential simulation framework that integrates simplified thermal, HVAC, water heating, EV charging, and miscellaneous load models to evaluate the impact of different electrification scenarios as well as the success of power control system strategies. Simulation results show that unmanaged operation frequently exceeds a 100 A panel limit especially when space heating is electrified. HVAC-only control can keep current below the limit but often cause unsatisfactory indoor conditions during the coldest days. In contrast, coordinated multi-device control reduces peak current by up to 70\% with respect to the no-control baseline simulation, while maintaining indoor temperatures within comfortable bounds for nearly all scenarios. These findings demonstrate that intelligent load coordination can substantially defer or eliminate the need for panel upgrades in electrified homes.},
+  research      = {homes},
   selected      = {false},
   bibtex_show   = {true}
 }
@@ -51,6 +56,7 @@
   doi           = {10.48550/arXiv.2602.22499},
   preview       = {ACC-2026.png},
   abstract      = {How much energy, money, and emissions can advanced control of heating and cooling equipment save in real buildings? To address this question, researchers sometimes control a small number of thermal zones within a larger multi-zone building, then report savings for the controlled zones only. That approach can overestimate savings by neglecting heat transfer between controlled zones and adjacent zones. This paper mathematically characterizes the overestimation error when the dynamics are linear and the objectives are linear in the thermal load, as usually holds when optimizing energy efficiency, energy costs, or emissions. Overestimation errors can be large even in seemingly innocuous situations. For example, when controlling only interior zones that have no direct thermal contact with the outdoors, all perceived savings are fictitious. This paper provides an alternative estimation method based on the controlled and adjacent zones' temperature measurements. The new method does not require estimating how much energy the building would have used under baseline operations, so it removes the additional measurement and verification challenge of accurate baseline estimation.},
+  research      = {savings},
   selected      = {true},
   bibtex_show   = {true}
 }
@@ -68,6 +74,7 @@
   preview       = {review-MPC-RL.png},
   code          = {https://github.com/ajkhabbazi/field-demonstrations-HVAC-MPC-RL},
   abstract      = {A substantial body of simulation research suggests that Model Predictive Control (MPC) and Reinforcement Learning (RL) can reduce energy costs, emissions, and grid stress in residential and commercial buildings. Yet, adoption in practice remains limited. Field demonstrations offer real-world insights and could bridge this gap by validating performance and economic viability. This review examines 104 field studies—24 in residential and 80 in commercial settings—evaluating experiment demographics, protocols, and reported outcomes. We find that 71\% of demonstrations rely on potentially unreliable protocols, while the remaining 29\%, considered more robust, report weighted-average cost savings of 16\% (residential) and 13\% (commercial). However, deployment costs remain underreported; only 13 studies address them. We outline five key recommendations to guide future field research, emphasizing protocol rigor, cost transparency, integration with other distributed energy resources, and emerging grid services.},
+  research    = {review},
   selected    = {true},
   bibtex_show = {true}
 }
@@ -101,6 +108,7 @@
   note          = {CISBAT 2025 proceedings},
   preview       = {CISBAT2025-ACL.jpg},
   abstract      = {Electrification of appliances, water heating, and space conditioning in homes can significantly reduce emissions and is crucial for achieving decarbonization goals [1, 2]. However, adding more electrical devices increases demand and requires major equipment upgrades on both the distribution and the residential side. One key upgrade is the electrical panel. Raising the panel rating can cost thousands for homeowners and millions for distribution providers, posing an obstacle to rapid electrification. This upgrade challenge impedes fast progress toward widespread electrification. In previous work, we introduced a novel multi-layered control strategy that coordinates heat pump and water heater set-points to keep a building’s net current draw below a safety threshold. Although the results were promising, that study was limited to a single site with specific envelope characteristics and appliance ratings. In this work, a multi-layer RC-based emulator is designed that can be applied at scale to model the feasibility of current limiting control. Preliminary simulations incorporating a heat pump, an electric charger, and an electric water heater for a validated site highlight that the flexibility of hot water and space conditioning can reduce peak current draw when a heat pump schedule is altered to accommodate the EV charging schedule.},
+  research      = {homes},
   selected      = {true},
   bibtex_show   = {true}
 }
@@ -136,6 +144,7 @@
   code        = {https://github.com/arashjkh/gas-mixture-models-Fluent},
   abstract    = {Hydrogen injection into natural gas distribution pipeline system through Tee junctions is numerically studied, by considering both ideal and Soave–Redlich–Kwong real gas models. The mixing homogeneity length is quantified for various side pipe sizes and perpendicular configurations for distribution-pressure and intermediate-pressure pipelines. The buoyant nature of hydrogen once blended into natural gas pipelines introduces a challenge as it tends to stratify and become trapped near the top wall. Accordingly, a greater side flow momentum leads to a shorter mixing homogeneity length. This reduces up to three to five times particularly when it penetrates deeply into the main flow without getting trapped from the beginning. Consequently, vertical bottom-side injection yields a mixing homogeneity length that is roughly four times shorter than horizontal and five times shorter than vertical top-side injection. Furthermore, employing a real gas model is critical once the pressure rises to intermediate pressures, resulting in a greater homogeneity length.},
   keywords    = {Mixing, Injection, Blending, Equation of state, Coefficient of variation, CFD},
+  research    = {hydrogen},
   selected    = {true},
   bibtex_show = {true}
 }
@@ -152,6 +161,7 @@
   html        = {https://open.library.ubc.ca/soa/cIRcle/collections/ubctheses/24/items/1.0437514},
   preview     = {UBC.jpg},
   code        = {https://github.com/arashjkh/gas-mixture-models-Fluent},
+  research    = {hydrogen},
   selected    = {true},
   bibtex_show = {true}
 }

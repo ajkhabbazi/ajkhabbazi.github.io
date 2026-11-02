@@ -1598,3 +1598,64 @@ details.about-more {
     margin-right: 33.5%;
   }
 }
+
+/* Research page */
+.research-statement {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.research-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--global-divider-color);
+
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .research-result {
+    margin-bottom: 1.25rem;
+  }
+
+  .research-figure {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+  }
+
+  .research-figure--narrow {
+    max-width: 480px;
+  }
+
+  .research-figure--medium {
+    max-width: 620px;
+  }
+
+  .publications {
+    margin-top: 1.5rem;
+
+    ol.bibliography li {
+      margin-bottom: 0.75rem;
+    }
+
+    // The section figure replaces the small thumbnails here
+    .abbr {
+      display: none;
+    }
+
+    .row > div:not(.abbr) {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .research-note {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+}
