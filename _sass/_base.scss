@@ -1450,6 +1450,19 @@ details.about-more {
   > p {
     margin-top: 0.75rem;
   }
+
+  .about-more-photo {
+    margin: 0.75rem 0;
+  }
+
+  // Matches the headshot: full width on phones, 30% on the right otherwise
+  @media (min-width: 576px) {
+    .about-more-photo {
+      float: right;
+      width: 30%;
+      margin: 0.75rem 0 0.5rem 1rem;
+    }
+  }
 }
 
 /* Job-search line and contact buttons under the name on the about page */
