@@ -1589,3 +1589,11 @@ details.about-more {
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
 }
+
+/* Keep about-page text in a column beside the photos, so nothing wraps under or over them. On phones the photos stack above the text instead. */
+@media (min-width: 576px) {
+  article > .clearfix > p,
+  details.about-more > p {
+    margin-right: calc(30% + 1rem);
+  }
+}
