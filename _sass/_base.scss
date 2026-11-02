@@ -42,7 +42,7 @@ table.table a {
 
   &:hover {
     color: var(--global-hover-color);
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   &:hover:after :not(.nav-item.dropdown) {
@@ -1644,6 +1644,15 @@ details.about-more {
   &:hover .social-label {
     color: var(--global-hover-color);
   }
+}
+
+/* The accent is close to the body text color, so links in running text also need an underline */
+.post article p a:not(.btn),
+.post article li a:not(.btn),
+.newsfeed a:not(.btn) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
 }
 
 /* Section headings that link somewhere */
