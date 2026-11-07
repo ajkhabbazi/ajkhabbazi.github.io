@@ -42,4 +42,14 @@ A lot of my work as a PhD student happens over email. Drafts get reviewed there,
 
 **13. Get to inbox zero.** By the end of each day, file what's done. Move anything that still needs follow-up to "Action Needed," or pin it if there are only a few, and check that folder every day.
 
+## Cold emails
+
+**14. Say why them.** Name a specific paper, project, or result of theirs. If the email would read the same sent to anyone else, rewrite it.
+
+**15. Show one concrete thing.** A repo, a post, or a quick result that builds on their work says more than a list of qualifications.
+
+**16. Keep the first ask small.** "Could we talk for 15 minutes?" is easy to say yes to. Bigger asks can come later.
+
+**17. Follow up once.** If there's no reply after about two weeks, send one short note. Silence usually means busy, not no.
+
 Most of these take a few seconds each. If you have a rule I'm missing, I'd like to hear it.
