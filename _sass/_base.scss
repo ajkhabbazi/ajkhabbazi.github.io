@@ -1526,7 +1526,53 @@ details.about-more {
   }
 }
 
-/* Job-search line and contact buttons under the name on the about page */
+/* Email and phone under the outdoor photo */
+.about-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+  font-size: 0.85rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--global-text-color);
+    text-decoration: none;
+
+    i {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background-color: var(--global-theme-color);
+      color: var(--global-bg-color);
+      font-size: 0.75rem;
+      box-shadow: 0 2px 6px rgba(31, 58, 95, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration: none;
+
+      i {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+/* Job-search line and resume button under the name on the about page */
 .availability {
   display: flex;
   flex-wrap: wrap;
