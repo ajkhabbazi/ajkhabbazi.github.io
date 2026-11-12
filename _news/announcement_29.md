@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-I received the **John R. Reidenbach Scholarship** from Purdue's School of Mechanical Engineering!
+I received the **John R. Reidenbach Scholarship** from Purdue University Mechanical Engineering!
