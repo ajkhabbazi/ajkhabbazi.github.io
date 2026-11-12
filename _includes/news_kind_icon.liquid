@@ -1,0 +1,6 @@
+{%- case include.kind -%}
+  {%- when 'award' -%}<i class="fa-solid fa-trophy newsfeed-kind-icon" aria-hidden="true"></i>
+  {%- when 'paper' -%}<i class="fa-solid fa-file-lines newsfeed-kind-icon" aria-hidden="true"></i>
+  {%- when 'talk' -%}<i class="fa-solid fa-microphone newsfeed-kind-icon" aria-hidden="true"></i>
+  {%- when 'milestone' -%}<i class="fa-solid fa-flag newsfeed-kind-icon" aria-hidden="true"></i>
+{%- endcase -%}

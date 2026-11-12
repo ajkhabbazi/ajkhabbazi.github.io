@@ -1,0 +1,93 @@
+/* Publications page: filter chips, solid panel, clear year headings, kind labels, wider text.
+   Plain CSS on purpose (no nesting, no calc) so it survives the deploy minifier. */
+
+.pub-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.pub-filter {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 999px;
+  background-color: var(--global-card-bg-color);
+  color: var(--global-text-color-light);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.pub-filter:hover {
+  border-color: var(--global-text-color-light);
+  color: var(--global-text-color);
+}
+
+.pub-filter.pub-filter--active {
+  border-color: var(--global-theme-color);
+  background-color: var(--global-theme-color);
+  color: var(--global-bg-color);
+}
+
+.publications.publications--page {
+  margin-top: 0;
+  padding: 1.1rem 1.25rem 0.4rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.5rem;
+  background-color: var(--global-card-bg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.publications--page [hidden] {
+  display: none;
+}
+
+.publications.publications--page h2.bibliography {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--global-divider-color);
+  color: var(--global-theme-color);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.publications.publications--page h2.bibliography:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.publications--page .pub-kind {
+  display: inline-block;
+  margin-right: 0.35rem;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 3px;
+  color: var(--global-text-color-light);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: 0.12em;
+}
+
+@media (min-width: 576px) {
+  .publications--page ol.bibliography .row > .col-sm-8 {
+    flex: 0 0 83.3333%;
+    max-width: 83.3333%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pub-filter {
+    transition: none;
+  }
+}

@@ -45,6 +45,7 @@
               data-newsfeed-filter="{{ kind }}"
               aria-pressed="false"
             >
+              {% include news_kind_icon.liquid kind=kind %}
               <span>{{ kind | capitalize }}</span>
             </button>
           {% endfor %}
@@ -75,7 +76,7 @@
         >
           <div class="newsfeed-meta">
             {% if item.kind %}
-              <span class="newsfeed-kind">{{ item.kind }}</span>
+              <span class="newsfeed-kind">{% include news_kind_icon.liquid kind=item.kind %}{{ item.kind }}</span>
             {% endif %}
             <time class="newsfeed-date" datetime="{{ item.date | date_to_xmlschema }}">
               {{ item.date | date: '%Y-%m-%d' }}

@@ -184,6 +184,11 @@
 }
 /* news-full:end */
 
+.newsfeed .newsfeed-kind-icon {
+  margin-right: 0.3rem;
+  font-size: 0.9em;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .newsfeed .newsfeed-filter,
   .newsfeed .newsfeed-toggle-caret {
