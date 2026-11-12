@@ -64,7 +64,8 @@
   border-top: 0;
 }
 
-.publications--page .pub-kind {
+.publications--page .pub-kind,
+.publications--home .pub-kind {
   display: inline-block;
   margin-right: 0.35rem;
   padding: 0.05rem 0.4rem;
@@ -80,9 +81,32 @@
 }
 
 @media (min-width: 576px) {
-  .publications--page ol.bibliography .row > .col-sm-8 {
+  .publications--page ol.bibliography .row > .col-sm-8,
+  .publications--home ol.bibliography .row > .col-sm-8 {
     flex: 0 0 83.3333%;
     max-width: 83.3333%;
+  }
+}
+
+/* Phones: keep the thumbnail small beside the text instead of a full-width banner */
+@media (max-width: 575.98px) {
+  .publications--page ol.bibliography .row,
+  .publications--home ol.bibliography .row {
+    flex-wrap: nowrap;
+  }
+
+  .publications--page ol.bibliography .row > .abbr,
+  .publications--home ol.bibliography .row > .abbr {
+    flex: 0 0 84px;
+    max-width: 84px;
+    padding-right: 0;
+  }
+
+  .publications--page ol.bibliography .row > .col-sm-8,
+  .publications--home ol.bibliography .row > .col-sm-8 {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
   }
 }
 

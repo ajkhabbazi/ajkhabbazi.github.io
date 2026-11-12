@@ -6,8 +6,8 @@
   kinds share one neutral style defined in `_sass/_news.scss`. Adding an item
   needs no change here.
 
-  Included with `limit=true` (the about page), items past
-  `page.announcements.limit` are rendered but hidden, and a button reveals them.
+  Included with `limit=true` (the about page), only the first
+  `page.announcements.limit` items are rendered, followed by a link to the news page.
   Included without `limit` (the news page), everything is shown, no button is
   rendered, and a row of per-kind filter chips is shown above the feed. There
   the list also sits on a solid panel, grouped under year headings along a
@@ -56,6 +56,9 @@
     <ul class="newsfeed-list">
       {% assign previous_year = '' %}
       {% for item in news_items %}
+        {% if forloop.index > visible_count %}
+          {% break %}
+        {% endif %}
         {% assign item_year = item.date | date: '%Y' %}
         {% unless include.limit %}
           {% if item_year != previous_year %}
@@ -68,10 +71,6 @@
           data-newsfeed-year="{{ item_year }}"
           {% if item.kind %}
             data-newsfeed-kind="{{ item.kind }}"
-          {% endif %}
-          {% if forloop.index > visible_count %}
-            data-newsfeed-extra
-            hidden
           {% endif %}
         >
           <div class="newsfeed-meta">
@@ -94,21 +93,7 @@
     </ul>
 
     {% if hidden_count > 0 %}
-      {% if hidden_count == 1 %}
-        {% assign more_label = 'Show 1 earlier update' %}
-      {% else %}
-        {% assign more_label = hidden_count | prepend: 'Show ' | append: ' earlier updates' %}
-      {% endif %}
-      <button
-        class="newsfeed-toggle"
-        type="button"
-        aria-expanded="false"
-        data-label-more="{{ more_label }}"
-        data-label-less="Show fewer"
-      >
-        <span class="newsfeed-toggle-label">{{ more_label }}</span>
-        <span class="newsfeed-toggle-caret" aria-hidden="true">&#9662;</span>
-      </button>
+      <a class="newsfeed-more" href="{{ '/news/' | relative_url }}">See all {{ news_size }} news items</a>
     {% endif %}
   {% else %}
     <p>No news so far...</p>
@@ -116,24 +101,6 @@
 </div>
 
 <script>
-  document.querySelectorAll('.newsfeed-toggle').forEach(function (toggle) {
-    const feed = toggle.closest('.newsfeed');
-    if (!feed) return;
-
-    const extras = feed.querySelectorAll('[data-newsfeed-extra]');
-    const label = toggle.querySelector('.newsfeed-toggle-label');
-
-    toggle.addEventListener('click', function () {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      extras.forEach(function (entry) {
-        entry.hidden = expanded;
-      });
-      toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-      toggle.classList.toggle('newsfeed-toggle--open', !expanded);
-      label.textContent = expanded ? toggle.dataset.labelMore : toggle.dataset.labelLess;
-    });
-  });
-
   // Kind filters. Only rendered on the full news page, where no entry is hidden
   // by the "show earlier updates" toggle, so [hidden] here is ours alone.
   document.querySelectorAll('.newsfeed-filters').forEach(function (bar) {

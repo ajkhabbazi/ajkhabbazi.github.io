@@ -36,13 +36,44 @@ layout: default
   <article>
     <div class="clearfix">{{ content }}</div>
 
+    <!-- Research: the three PhD phases, each linking to its card on the research page -->
+    <h2 style="margin-top: 2rem;">
+      <a href="{{ '/research/' | relative_url }}" class="heading-link">Research</a>
+    </h2>
+    <div class="home-phases">
+      <a class="home-phase home-phase--done" href="{{ '/research/' | relative_url }}#phase-1">
+        <span class="home-phase-num" aria-hidden="true">1</span>
+        <span class="home-phase-body">
+          <span class="home-phase-title">State of the art</span>
+          <span class="home-phase-text">What real buildings have shown</span>
+          <span class="home-phase-status">Completed</span>
+        </span>
+      </a>
+      <a class="home-phase" href="{{ '/research/' | relative_url }}#phase-2">
+        <span class="home-phase-num" aria-hidden="true">2</span>
+        <span class="home-phase-body">
+          <span class="home-phase-title">Protocols</span>
+          <span class="home-phase-text">Measuring savings reliably</span>
+          <span class="home-phase-status">In progress</span>
+        </span>
+      </a>
+      <a class="home-phase" href="{{ '/research/' | relative_url }}#phase-3">
+        <span class="home-phase-num" aria-hidden="true">3</span>
+        <span class="home-phase-body">
+          <span class="home-phase-title">Deployment</span>
+          <span class="home-phase-text">Control that scales</span>
+          <span class="home-phase-status">In progress</span>
+        </span>
+      </a>
+    </div>
+
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
       <h2 style="margin-top: 2rem;">
         <a href="{{ '/news/' | relative_url }}" class="heading-link">News</a>
       </h2>
 
-      {% include news.liquid limit=true %}
+      <div class="home-panel">{% include news.liquid limit=true %}</div>
     {% endif %}
 
     <!-- Latest posts -->
@@ -55,10 +86,10 @@ layout: default
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
+      <h2 style="margin-top: 2rem;">
         <a href="{{ '/publications/' | relative_url }}" class="heading-link">Select Publications</a>
       </h2>
-      {% include selected_papers.liquid %}
+      <div class="home-panel">{% include selected_papers.liquid %}</div>
     {% endif %}
 
     <!-- Social -->
