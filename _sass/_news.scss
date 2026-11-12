@@ -185,6 +185,11 @@
 }
 /* news-full:end */
 
+/* The site colors every span directly, so the label would ignore its button's color. */
+.newsfeed .newsfeed-filter span {
+  color: inherit;
+}
+
 .newsfeed .newsfeed-kind-icon {
   margin-right: 0.3rem;
   font-size: 0.9em;
