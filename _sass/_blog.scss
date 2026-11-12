@@ -1,0 +1,83 @@
+/* Blog: each post in the index is a card, and a post's body sits on a solid reading panel,
+   so text stays readable over the site backdrop.
+   Plain CSS on purpose (no nesting, no calc) so it survives the deploy minifier. */
+
+.post .post-list {
+  margin-bottom: 1.5rem;
+}
+
+.post .post-list > li {
+  margin-bottom: 0.75rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.5rem;
+  background-color: var(--global-card-bg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.post .post-list > li:hover {
+  border-color: var(--global-theme-color);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.post .post-list > li h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.post .post-list > li > p:empty {
+  display: none;
+}
+
+.post article.post-content {
+  padding: 1.25rem 1.5rem 0.75rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.5rem;
+  background-color: var(--global-card-bg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.post article.post-content #markdown-content > :first-child {
+  margin-top: 0;
+}
+
+/* 404 page links */
+.notfound-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.notfound-links a {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--global-theme-color);
+  border-radius: 999px;
+  background-color: var(--global-card-bg-color);
+  color: var(--global-theme-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.notfound-links a:hover {
+  background-color: var(--global-theme-color);
+  color: var(--global-bg-color);
+  text-decoration: none;
+}
+
+@media (max-width: 575.98px) {
+  .post article.post-content {
+    padding: 1rem 1rem 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post .post-list > li {
+    transition: none;
+  }
+}

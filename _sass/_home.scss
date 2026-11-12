@@ -65,14 +65,14 @@
   width: 2.1rem;
   height: 2.1rem;
   border-radius: 50%;
-  background-color: #2c6db5;
-  color: #fff;
+  background-color: var(--status-blue);
+  color: var(--global-bg-color);
   font-size: 1.1rem;
   font-weight: 800;
 }
 
 .home-phase--done .home-phase-num {
-  background-color: #2e8b57;
+  background-color: var(--status-green);
 }
 
 .home-phase-body {
@@ -94,7 +94,7 @@
 }
 
 .home-phase-status {
-  color: #2c6db5;
+  color: var(--status-blue);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -102,7 +102,7 @@
 }
 
 .home-phase--done .home-phase-status {
-  color: #2e8b57;
+  color: var(--status-green);
 }
 
 /* Footer icon row: same links as the top bar, so keep it small */
