@@ -52,7 +52,7 @@
   list-style: none;
 }
 
-.notfound-links a {
+.post article .notfound-links a {
   display: inline-block;
   padding: 0.3rem 0.9rem;
   border: 1px solid var(--global-theme-color);
@@ -64,7 +64,7 @@
   text-decoration: none;
 }
 
-.notfound-links a:hover {
+.post article .notfound-links a:hover {
   background-color: var(--global-theme-color);
   color: var(--global-bg-color);
   text-decoration: none;
