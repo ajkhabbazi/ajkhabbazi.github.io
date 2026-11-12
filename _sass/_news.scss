@@ -77,7 +77,7 @@
   .newsfeed-filter {
     display: inline-block;
     padding: 0.2rem 0.6rem;
-    background: none;
+    background-color: var(--global-card-bg-color);
     color: var(--global-text-color-light);
     border: 1px solid var(--global-divider-color);
     border-radius: 999px;
@@ -99,10 +99,11 @@
 
     // Class rather than [aria-pressed="true"]: the attribute value is only ever
     // set by script, so PurgeCSS cannot see it in the built HTML.
+    // Same active look as the publications filters.
     &.newsfeed-filter--active {
-      background-color: var(--global-divider-color);
-      border-color: var(--global-text-color-light);
-      color: var(--global-text-color);
+      background-color: var(--global-theme-color);
+      border-color: var(--global-theme-color);
+      color: var(--global-bg-color);
     }
   }
 

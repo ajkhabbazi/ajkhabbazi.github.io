@@ -36,7 +36,7 @@
       {% if kinds.size > 1 %}
         <div class="newsfeed-filters" role="group" aria-label="Filter news by kind">
           <button class="newsfeed-filter newsfeed-filter--active" type="button" data-newsfeed-filter="all" aria-pressed="true">
-            <span>All</span>
+            <span>All ({{ news_size }})</span>
           </button>
           {% for kind in kinds %}
             <button
@@ -46,7 +46,8 @@
               aria-pressed="false"
             >
               {% include news_kind_icon.liquid kind=kind %}
-              <span>{{ kind | capitalize }}</span>
+              {% assign kind_count = news_items | where: 'kind', kind | size %}
+              <span>{{ kind | capitalize }} ({{ kind_count }})</span>
             </button>
           {% endfor %}
         </div>
