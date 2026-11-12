@@ -1,17 +1,36 @@
-// Research page: count-up stats, fade-in on scroll, progress highlighting, paper counts, deep links.
+// Research page: links that open a card, count-up stats, fade-in on scroll.
 // Everything here is an enhancement. The page reads fully without it.
 (function () {
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var canObserve = "IntersectionObserver" in window;
 
-  // Paper counts on the toggles, e.g. "Papers (3)"
-  document.querySelectorAll(".research-papers").forEach(function (box) {
-    var n = box.querySelectorAll("ol.bibliography > li").length;
-    var summary = box.querySelector("summary");
-    if (n && summary) summary.textContent = (n === 1 ? "Paper" : "Papers") + " (" + n + ")";
+  // Open the card a link or the address bar points to, e.g. /research/#phase-2
+  function openCard(id, scroll) {
+    if (!id) return false;
+    var el = document.getElementById(id);
+    if (!el || el.tagName !== "DETAILS") return false;
+    el.open = true;
+    if (scroll) el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    return true;
+  }
+
+  // Wheel thirds and any other in-page link to a card
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (event) {
+      var id = a.getAttribute("href").slice(1);
+      if (openCard(id, true)) {
+        event.preventDefault();
+        if (window.history && window.history.replaceState) window.history.replaceState(null, "", "#" + id);
+      }
+    });
   });
 
-  // Count-up numbers
+  window.addEventListener("hashchange", function () {
+    openCard(window.location.hash.slice(1), true);
+  });
+  openCard(window.location.hash.slice(1), true);
+
+  // Count-up numbers, run when a stat first becomes visible (after its card opens)
   function countUp(el) {
     var target = parseInt(el.getAttribute("data-count"), 10);
     var suffix = el.getAttribute("data-suffix") || "";
@@ -53,60 +72,11 @@
           }
         });
       },
-      { threshold: 0.08 }
+      { threshold: 0.05 }
     );
     document.querySelectorAll(".research-section").forEach(function (el) {
       el.classList.add("research-reveal");
       revealObserver.observe(el);
     });
   }
-
-  // Highlight the current section in the progress bar
-  var links = {};
-  document.querySelectorAll("[data-research-spy]").forEach(function (a) {
-    links[a.getAttribute("data-research-spy")] = a;
-  });
-  var ids = Object.keys(links);
-  function setActive(id) {
-    ids.forEach(function (key) {
-      links[key].classList.toggle("is-active", key === id);
-    });
-  }
-  function updateActive() {
-    var current = null;
-    ids.forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= 140) current = id;
-    });
-    setActive(current);
-  }
-  if (ids.length) {
-    var ticking = false;
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(function () {
-          updateActive();
-          ticking = false;
-        });
-      },
-      { passive: true }
-    );
-    updateActive();
-  }
-
-  // Deep links such as /research/#project-hydrogen open that card
-  function openFromHash() {
-    var id = window.location.hash.slice(1);
-    if (!id) return;
-    var el = document.getElementById(id);
-    if (el && el.tagName === "DETAILS") {
-      el.open = true;
-      el.scrollIntoView();
-    }
-  }
-  window.addEventListener("hashchange", openFromHash);
-  openFromHash();
 })();
