@@ -76,19 +76,6 @@ html {
   fill: var(--global-theme-color);
 }
 
-.research-wheel-hub-small {
-  fill: var(--global-theme-color);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
-
-.research-wheel-hub-big {
-  fill: var(--global-theme-color);
-  font-size: 28px;
-  font-weight: 800;
-}
-
 /* Phase stops: blue while in progress, green once completed */
 .research-wheel-node {
   cursor: pointer;
