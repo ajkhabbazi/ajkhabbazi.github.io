@@ -138,6 +138,52 @@
   }
 }
 
+/* Full news page: solid panel, year headings, timeline. Plain CSS, no nesting. */
+/* news-full:start */
+.newsfeed--full .newsfeed-list {
+  padding: 1.1rem 1.25rem 0.6rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.5rem;
+  background-color: var(--global-card-bg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.newsfeed--full .newsfeed-year {
+  margin: 1.1rem 0 0.5rem;
+  color: var(--global-theme-color);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.newsfeed--full .newsfeed-year:first-child {
+  margin-top: 0;
+}
+
+.newsfeed--full .newsfeed-year[hidden] {
+  display: none;
+}
+
+.newsfeed--full .newsfeed-entry {
+  position: relative;
+  margin-left: 0.35rem;
+  padding: 0 0 1rem 1.25rem;
+  border-left: 2px solid var(--global-divider-color);
+}
+
+.newsfeed--full .newsfeed-entry::before {
+  content: "";
+  position: absolute;
+  top: 0.3rem;
+  left: -7px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--global-card-bg-color);
+  border-radius: 50%;
+  background-color: var(--global-theme-color);
+}
+/* news-full:end */
+
 @media (prefers-reduced-motion: reduce) {
   .newsfeed .newsfeed-filter,
   .newsfeed .newsfeed-toggle-caret {

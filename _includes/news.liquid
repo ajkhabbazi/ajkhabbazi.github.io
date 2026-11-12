@@ -9,12 +9,14 @@
   Included with `limit=true` (the about page), items past
   `page.announcements.limit` are rendered but hidden, and a button reveals them.
   Included without `limit` (the news page), everything is shown, no button is
-  rendered, and a row of per-kind filter chips is shown above the feed.
+  rendered, and a row of per-kind filter chips is shown above the feed. There
+  the list also sits on a solid panel, grouped under year headings along a
+  timeline (`newsfeed--full`), so it stays readable over the site backdrop.
 {% endcomment %}
 
 {% assign news_size = site.news | size %}
 
-<div class="newsfeed">
+<div class="newsfeed{% unless include.limit %} newsfeed--full{% endunless %}">
   {% if news_size > 0 %}
     {% assign news_items = site.news | sort: 'date' | reverse %}
 
@@ -51,9 +53,18 @@
     {% endunless %}
 
     <ul class="newsfeed-list">
+      {% assign previous_year = '' %}
       {% for item in news_items %}
+        {% assign item_year = item.date | date: '%Y' %}
+        {% unless include.limit %}
+          {% if item_year != previous_year %}
+            <li class="newsfeed-year" data-newsfeed-year="{{ item_year }}">{{ item_year }}</li>
+            {% assign previous_year = item_year %}
+          {% endif %}
+        {% endunless %}
         <li
           class="newsfeed-entry"
+          data-newsfeed-year="{{ item_year }}"
           {% if item.kind %}
             data-newsfeed-kind="{{ item.kind }}"
           {% endif %}
@@ -145,6 +156,16 @@
 
       entries.forEach(function (entry) {
         entry.hidden = selected !== 'all' && entry.dataset.newsfeedKind !== selected;
+      });
+
+      // A year heading stays only while one of its entries is showing.
+      feed.querySelectorAll('.newsfeed-year').forEach(function (heading) {
+        const year = heading.dataset.newsfeedYear;
+        let any = false;
+        entries.forEach(function (entry) {
+          if (!entry.hidden && entry.dataset.newsfeedYear === year) any = true;
+        });
+        heading.hidden = !any;
       });
     });
   });
