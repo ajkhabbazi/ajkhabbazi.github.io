@@ -1,0 +1,374 @@
+/* Research page: phase path, sticky progress, stat tiles, photo band, project cards.
+   Plain CSS on purpose (no nesting, no calc) so it survives the deploy minifier. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.research-eyebrow {
+  margin: 0 0 0.4rem;
+  color: var(--global-theme-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.research-badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--global-theme-color);
+  border-radius: 999px;
+  color: var(--global-theme-color);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: 0.08em;
+}
+
+/* Three-phase path */
+.research-path {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.research-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.9rem 1rem 1rem;
+  border: 1px solid var(--global-divider-color);
+  border-top: 3px solid var(--global-theme-color);
+  border-radius: 0.5rem;
+  background-color: var(--global-card-bg-color);
+  color: var(--global-text-color);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.research-step:hover,
+.research-step:focus-visible {
+  color: var(--global-text-color);
+  text-decoration: none;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.research-step-label {
+  color: var(--global-theme-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.research-step-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.research-step-note {
+  align-self: flex-start;
+  color: var(--global-text-color-light);
+  font-size: 0.85rem;
+}
+
+.research-step-note.research-badge {
+  color: var(--global-theme-color);
+  font-size: 0.68rem;
+}
+
+/* Sticky progress bar */
+.research-progress {
+  position: sticky;
+  top: 57px;
+  z-index: 5;
+  display: flex;
+  gap: 0.25rem;
+  margin: 0 -0.5rem;
+  padding: 0.4rem 0.5rem;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--global-divider-color);
+  background-color: var(--global-bg-color);
+}
+
+.research-progress a {
+  flex: 0 0 auto;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  color: var(--global-text-color-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.research-progress a:hover {
+  color: var(--global-theme-color);
+  text-decoration: none;
+}
+
+.research-progress a.is-active {
+  background-color: var(--global-theme-color);
+  color: var(--global-bg-color);
+}
+
+/* Sections land below the fixed navbar and the progress bar */
+.research-section[id],
+.research-project[id] {
+  scroll-margin-top: 110px;
+}
+
+.research-section.research-phase,
+.research-section#other-projects {
+  border-top: 0;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+/* Stat tiles */
+.research-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.research-stat {
+  padding: 0.8rem 0.9rem;
+  border-left: 3px solid var(--global-theme-color);
+  border-radius: 0.25rem;
+  background-color: var(--global-card-bg-color);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.research-stat-num {
+  display: block;
+  color: var(--global-theme-color);
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.research-stat-text {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+.research-callout {
+  margin: 1.25rem 0;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--global-theme-color);
+  border-radius: 0.25rem;
+  background-color: var(--global-card-bg-color);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.research-callout strong {
+  color: var(--global-theme-color);
+}
+
+/* Papers toggle */
+.research-papers {
+  margin-top: 1.25rem;
+}
+
+.research-papers > summary,
+.research-project > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.research-papers > summary::-webkit-details-marker,
+.research-project > summary::-webkit-details-marker {
+  display: none;
+}
+
+.research-papers > summary {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--global-theme-color);
+  border-radius: 999px;
+  color: var(--global-theme-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.research-papers > summary::after {
+  content: " +";
+}
+
+.research-papers[open] > summary::after {
+  content: " \2212";
+}
+
+.research-papers > summary:hover {
+  background-color: var(--global-theme-color);
+  color: var(--global-bg-color);
+}
+
+/* Phase 3 photo band */
+.research-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.research-photos figure {
+  margin: 0;
+}
+
+.research-photos img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.research-photos figcaption {
+  margin-top: 0.4rem;
+  color: var(--global-text-color-light);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Other projects */
+.research-hint {
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+}
+
+.research-projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.research-project {
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.5rem;
+  background-color: var(--global-card-bg-color);
+  transition: box-shadow 0.15s ease;
+}
+
+.research-project:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.research-project[open] {
+  grid-column: 1 / -1;
+  border-color: var(--global-theme-color);
+}
+
+.research-project > summary {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding: 0.8rem;
+}
+
+.research-project > summary > img {
+  flex: 0 0 84px;
+  width: 84px;
+  height: 84px;
+  padding: 0.2rem;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  background-color: #fff;
+}
+
+.research-project-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.research-project-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.research-project-title::after {
+  content: " +";
+  color: var(--global-theme-color);
+}
+
+.research-project[open] .research-project-title::after {
+  content: " \2212";
+}
+
+.research-project-result {
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.research-project-tag {
+  align-self: flex-start;
+  color: var(--global-text-color-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.research-project-detail {
+  padding: 0 1rem 1rem;
+}
+
+/* Fade in on scroll. The class is added by research.js, so nothing hides without it. */
+.research-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.research-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 700px) {
+  .research-path,
+  .research-photos {
+    grid-template-columns: 1fr;
+  }
+
+  .research-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .research-projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .research-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .research-step,
+  .research-project {
+    transition: none;
+  }
+}
