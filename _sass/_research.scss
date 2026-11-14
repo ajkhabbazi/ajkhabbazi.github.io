@@ -146,6 +146,25 @@ html[data-theme="dark"] {
   font-weight: 700;
 }
 
+/* In-progress circles blink; completed ones stay solid */
+.research-wheel-node:not(.research-wheel-node--done) .research-wheel-badge,
+.research-wheel-node:not(.research-wheel-node--done) .research-wheel-num,
+.research-pulse,
+.home-phase:not(.home-phase--done) .home-phase-num {
+  animation: research-blink 1.4s ease-in-out infinite;
+}
+
+@keyframes research-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+}
+
 .research-wheel-node--done .research-wheel-badge {
   fill: var(--status-green);
 }
