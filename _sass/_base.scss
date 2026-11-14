@@ -1148,6 +1148,12 @@ nav[data-toggle="toc"] {
   z-index: 999;
 }
 
+/* medium-zoom sets will-change: transform, so Safari on iPhone and iPad keeps the
+   zoomed image at its thumbnail resolution and it looks blurry */
+img.medium-zoom-image--opened {
+  will-change: auto;
+}
+
 #toc-sidebar {
   z-index: 1;
 }
