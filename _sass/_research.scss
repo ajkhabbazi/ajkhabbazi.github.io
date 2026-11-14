@@ -225,7 +225,12 @@ html[data-theme="dark"] {
   width: auto;
 }
 
-html[data-theme="dark"] .research-section-logo {
+.research-section-logo--wide {
+  height: 56px;
+}
+
+/* The navy UBC crest disappears on a dark page, so show it white there */
+html[data-theme="dark"] .research-section-logo--invert-dark {
   filter: brightness(0) invert(1);
 }
 
