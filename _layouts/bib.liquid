@@ -191,11 +191,15 @@
     <div class="links">
       {% if entry.award %}
         <a class="award btn btn-sm z-depth-0" role="button">
-          {%- if entry.award_name %}{{ entry.award_name }}{% else %}Awarded{% endif -%}
+          <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+          {%- if entry.award_name %} {{ entry.award_name }}{% else %} Awarded{% endif -%}
         </a>
       {% endif %}
       {% if entry.abstract %}
         <a class="abstract btn btn-sm z-depth-0" role="button">Abstract</a>
+      {% endif %}
+      {% if entry.graphical_abstract %}
+        <a class="ga btn btn-sm z-depth-0" role="button">Graphical Abstract</a>
       {% endif %}
       {% if entry.arxiv %}
         <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
@@ -342,6 +346,16 @@
       <!-- Hidden Award block -->
       <div class="award hidden d-print-inline">
         <p>{{ entry.award | markdownify }}</p>
+        {% if entry.certificate %}
+          <img class="pub-toggle-img z-depth-1" src="{{ entry.certificate | prepend: '/assets/img/publication_preview/' | relative_url }}" alt="Award certificate: {{ entry.award_name }}" loading="lazy" data-zoomable>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if entry.graphical_abstract %}
+      <!-- Hidden graphical abstract block -->
+      <div class="ga hidden">
+        <img class="pub-toggle-img z-depth-1" src="{{ entry.graphical_abstract | prepend: '/assets/img/publication_preview/' | relative_url }}" alt="Graphical abstract" loading="lazy" data-zoomable>
       </div>
     {% endif %}
 

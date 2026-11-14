@@ -874,6 +874,20 @@ footer.sticky-bottom {
     div.award.hidden.open {
       border-color: var(--global-highlight-color);
     }
+    div.ga.hidden {
+      border: dashed 1px var(--global-bg-color);
+    }
+    div.ga.hidden.open {
+      border-color: var(--global-text-color);
+    }
+    /* Certificate and graphical-abstract images inside the toggles */
+    .pub-toggle-img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 10px auto;
+      border-radius: 0.25rem;
+    }
   }
 }
 
