@@ -196,6 +196,7 @@ html[data-theme="dark"] {
 /* Sections */
 .research-section#phases,
 .research-section#other-projects,
+.research-section#collaborations,
 .research-section#masters {
   border-top: 0;
   margin-top: 1.25rem;
@@ -219,6 +220,10 @@ html[data-theme="dark"] {
   gap: 1rem;
 }
 
+.research-section-head > div:first-child {
+  min-width: 0;
+}
+
 .research-section-logo {
   flex: 0 0 auto;
   height: 72px;
@@ -229,9 +234,45 @@ html[data-theme="dark"] {
   height: 56px;
 }
 
+.research-section-logos {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.research-section-logo--wordmark {
+  height: 30px;
+}
+
 /* The navy UBC crest disappears on a dark page, so show it white there */
 html[data-theme="dark"] .research-section-logo--invert-dark {
   filter: brightness(0) invert(1);
+}
+
+/* The dark teal Berkeley Lab logo turns light teal, keeping its white building lines visible */
+html[data-theme="dark"] .research-section-logo--recolor-dark {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+@media (max-width: 576px) {
+  .research-section-logo {
+    height: 48px;
+  }
+
+  .research-section-logo--wide {
+    height: 40px;
+  }
+
+  .research-section-logos {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+
+  .research-section-logo--wordmark {
+    height: 22px;
+  }
 }
 
 .research-project-detail .research-figure + .research-figure {
