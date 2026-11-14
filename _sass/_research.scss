@@ -370,11 +370,21 @@ html[data-theme="dark"] {
 }
 
 .research-stat {
+  position: relative;
   padding: 0.8rem 0.9rem;
   border-left: 3px solid var(--global-theme-color);
   border-radius: 0.25rem;
   background-color: var(--global-card-bg-color);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.research-stat-icon {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  color: var(--global-theme-color);
+  font-size: 1.5rem;
+  opacity: 0.55;
 }
 
 .research-stat-num {
