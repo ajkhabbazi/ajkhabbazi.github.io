@@ -51,9 +51,14 @@ nav_order: 0
 </div>
 
 <section class="research-section" id="phases">
-  <p class="research-eyebrow">The thesis</p>
-  <h2>My PhD in three phases</h2>
-  <p class="research-hint">Select a phase to open it.</p>
+  <div class="research-section-head">
+    <div>
+      <p class="research-eyebrow">The thesis</p>
+      <h2>My PhD in three phases</h2>
+      <p class="research-hint">Select a phase to open it.</p>
+    </div>
+    <img class="research-section-logo" src="{{ '/assets/img/research/purdue-logo.png' | relative_url }}" alt="Purdue University logo" loading="lazy">
+  </div>
 
   <div class="research-projects research-projects--stack">
 
@@ -209,15 +214,20 @@ nav_order: 0
 </section>
 
 <section class="research-section" id="masters">
-  <p class="research-eyebrow">Before the PhD</p>
-  <h2>Master&rsquo;s research</h2>
-  <p class="research-hint">Select the project to open it.</p>
+  <div class="research-section-head">
+    <div>
+      <p class="research-eyebrow">Before the PhD</p>
+      <h2>Master&rsquo;s research</h2>
+      <p class="research-hint">Select the project to open it.</p>
+    </div>
+    <img class="research-section-logo" src="{{ '/assets/img/research/ubc-logo.png' | relative_url }}" alt="University of British Columbia logo" loading="lazy">
+  </div>
 
   <div class="research-projects research-projects--stack">
 
     <details class="research-project" id="project-hydrogen">
       <summary>
-        <img src="{{ '/assets/img/research/hydrogen.png' | relative_url }}" alt="" loading="lazy">
+        <img src="{{ '/assets/img/publication_preview/mixing-h2.jpg' | relative_url }}" alt="" loading="lazy">
         <span class="research-project-body">
           <span class="research-project-title">Hydrogen in natural gas pipelines</span>
           <span class="research-project-result">Bottom-side injection mixes in a pipe length about four times shorter than horizontal injection and five times shorter than top-side injection.</span>
@@ -226,7 +236,8 @@ nav_order: 0
         </span>
       </summary>
       <div class="research-project-detail">
-        <p>Hydrogen is buoyant, so when blended into natural gas pipelines it tends to stratify and collect near the top wall. At UBC, funded by FortisBC, I used CFD with ideal and real gas models to study how injection design affects mixing.</p>
+        <p>Canada has committed to <a href="https://www.canada.ca/en/services/environment/weather/climatechange/climate-plan/net-zero-emissions-2050.html">net-zero emissions by 2050</a>. One way to cut emissions from natural gas is to blend renewable hydrogen into the pipelines already in the ground. The catch is that hydrogen is about eight times lighter than natural gas, so when injected from the top it stays trapped along the top wall instead of mixing in. In an NSERC-funded collaboration between FortisBC and UBC, I used CFD with ideal and real gas models to find where and how to inject it. Bottom-side injection won, because the hydrogen rises through the natural gas and mixes on its way up.</p>
+        <img class="research-figure z-depth-1" src="{{ '/assets/img/publication_preview/mixing-h2.jpg' | relative_url }}" alt="Graphical abstract of the paper. Hydrogen enters a natural gas pipeline through a side pipe and mixes with the natural gas downstream." loading="lazy" data-zoomable>
         <img class="research-figure z-depth-1" src="{{ '/assets/img/research/hydrogen.png' | relative_url }}" alt="Plots of hydrogen mixing variation along the pipe for top-side, horizontal, and bottom-side injection" loading="lazy" data-zoomable>
         <video class="research-video z-depth-1" controls muted loop playsinline preload="metadata" aria-label="Simulation of hydrogen mixing in the pipe cross-section for top-side, horizontal, and bottom-side injection">
           <source src="{{ '/assets/video/h2-mixing-injection-direction.mp4' | relative_url }}#t=0.1" type="video/mp4">

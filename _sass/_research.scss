@@ -211,6 +211,28 @@ html[data-theme="dark"] {
   font-size: 0.9rem;
 }
 
+/* Section heading with an institution logo on the right */
+.research-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.research-section-logo {
+  flex: 0 0 auto;
+  height: 72px;
+  width: auto;
+}
+
+html[data-theme="dark"] .research-section-logo {
+  filter: brightness(0) invert(1);
+}
+
+.research-project-detail .research-figure + .research-figure {
+  margin-top: 1rem;
+}
+
 /* Expandable cards (phases and other projects) */
 .research-projects {
   display: grid;
