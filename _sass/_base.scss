@@ -1628,6 +1628,11 @@ details.about-more {
       background-color: var(--global-theme-color);
     }
 
+    /* The dot blinks; a fade, not motion, so it also runs under reduced motion */
+    &::before {
+      animation: availability-blink 1.2s ease-in-out infinite;
+    }
+
     &::after {
       animation: availability-pulse 2.4s ease-out infinite;
     }
@@ -1679,6 +1684,17 @@ details.about-more {
   100% {
     transform: scale(2.6);
     opacity: 0;
+  }
+}
+
+@keyframes availability-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.15;
   }
 }
 
