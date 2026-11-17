@@ -397,6 +397,11 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
   color: var(--status-green);
 }
 
+.research-dates {
+  color: var(--global-text-color-light);
+  font-weight: 600;
+}
+
 .research-pulse {
   position: relative;
   width: 0.55rem;
