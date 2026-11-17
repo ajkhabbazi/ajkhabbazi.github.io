@@ -245,9 +245,20 @@ html[data-theme="dark"] {
   height: 30px;
 }
 
+.research-section-logo--emblem {
+  height: 36px;
+}
+
 /* The navy UBC crest disappears on a dark page, so show it white there */
 html[data-theme="dark"] .research-section-logo--invert-dark {
   filter: brightness(0) invert(1);
+}
+
+/* NSERC's red and black logo keeps its own colors on a white plate */
+html[data-theme="dark"] .research-section-logo--plate-dark {
+  padding: 3px 5px;
+  border-radius: 4px;
+  background-color: #fff;
 }
 
 /* The dark teal Berkeley Lab logo turns light teal, keeping its white building lines visible */
@@ -272,6 +283,10 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
 
   .research-section-logo--wordmark {
     height: 22px;
+  }
+
+  .research-section-logo--emblem {
+    height: 28px;
   }
 }
 
