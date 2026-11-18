@@ -24,6 +24,28 @@ body {
   }
 }
 
+/* Typography: Inter for text at normal weight, Space Grotesk for the name and headings.
+   MDB sets Roboto at weight 300 on the body, the navbar and table cells; these override it. */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.post-title {
+  font-family: "Space Grotesk", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.navbar,
+table td {
+  font-weight: 400;
+}
+
 body.fixed-top-nav {
   // Add some padding for the nav-bar.
   padding-top: 56px;

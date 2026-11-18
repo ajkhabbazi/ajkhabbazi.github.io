@@ -762,7 +762,8 @@ footer.sticky-bottom {
       }
 
       .title {
-        font-weight: bolder;
+        // One step above the body text (400), as "bolder" gave over the old 300 body.
+        font-weight: 500;
       }
 
       .author {
