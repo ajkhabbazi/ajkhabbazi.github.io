@@ -185,6 +185,43 @@
 }
 /* news-full:end */
 
+/* Home page feed: one row per item, date and kind in a left column, text beside them.
+   Plain CSS, no nesting. Below 576px the row stacks back to label over text. */
+/* news-compact:start */
+.newsfeed--compact .newsfeed-entry {
+  display: grid;
+  grid-template-columns: 11.5rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: baseline;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--global-divider-color);
+}
+
+.newsfeed--compact .newsfeed-entry:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.newsfeed--compact .newsfeed-meta {
+  margin-bottom: 0;
+}
+
+/* Date first, so the dates line up whatever the label's width */
+.newsfeed--compact .newsfeed-date {
+  order: -1;
+}
+
+@media (max-width: 575px) {
+  .newsfeed--compact .newsfeed-entry {
+    display: block;
+  }
+
+  .newsfeed--compact .newsfeed-meta {
+    margin-bottom: 0.15rem;
+  }
+}
+/* news-compact:end */
+
 /* The site colors every span directly, so the label would ignore its button's color. */
 .newsfeed .newsfeed-filter span {
   color: inherit;

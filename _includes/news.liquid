@@ -7,7 +7,8 @@
   needs no change here.
 
   Included with `limit=true` (the about page), only the first
-  `page.announcements.limit` items are rendered, followed by a link to the news page.
+  `page.announcements.limit` items are rendered, one row each (`newsfeed--compact`),
+  followed by a link to the news page.
   Included without `limit` (the news page), everything is shown, no button is
   rendered, and a row of per-kind filter chips is shown above the feed. There
   the list also sits on a solid panel, grouped under year headings along a
@@ -16,7 +17,7 @@
 
 {% assign news_size = site.news | size %}
 
-<div class="newsfeed{% unless include.limit %} newsfeed--full{% endunless %}">
+<div class="newsfeed{% if include.limit %} newsfeed--compact{% else %} newsfeed--full{% endif %}">
   {% if news_size > 0 %}
     {% assign news_items = site.news | sort: 'date' | reverse %}
 

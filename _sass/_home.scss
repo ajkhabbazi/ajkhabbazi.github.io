@@ -36,7 +36,8 @@
 
 .home-phase {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: stretch;
   gap: 0.7rem;
   padding: 0.8rem 0.9rem;
   border: 1px solid var(--global-divider-color);
@@ -55,6 +56,26 @@
   color: var(--global-text-color);
   text-decoration: none;
   transform: translateY(-3px);
+}
+
+/* Picture on top of each card, the same image as the phase's card on the research page
+   (thumbnails cut to about 16:9). White behind it in both themes, like the research page
+   thumbnails, so plots keep their look. */
+.home-phase-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  padding: 0.2rem;
+  object-fit: contain;
+  border-radius: 0.35rem;
+  background-color: #fff;
+}
+
+.home-phase-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
 }
 
 .home-phase-num {
@@ -114,6 +135,17 @@
 @media (max-width: 700px) {
   .home-phases {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* One card per row: picture beside the text, so the cards stay short */
+  .home-phase {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .home-phase-img {
+    flex: 0 0 7.5rem;
+    width: 7.5rem;
   }
 }
 
