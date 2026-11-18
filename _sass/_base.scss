@@ -19,6 +19,12 @@ strong {
   color: var(--global-text-color);
 }
 
+// MDB sets strong to 500, one step above the 400 body; make bold read as bold.
+strong,
+b {
+  font-weight: 700;
+}
+
 hr {
   border-top: 1px solid var(--global-divider-color);
 }
