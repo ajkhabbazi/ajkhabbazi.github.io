@@ -211,15 +211,6 @@
   order: -1;
 }
 
-/* One line per item; the rest is cut with an ellipsis (full text on hover and on the news page) */
-.newsfeed--compact .newsfeed-body {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
-  overflow: hidden;
-}
-
 @media (max-width: 575px) {
   .newsfeed--compact .newsfeed-entry {
     display: block;

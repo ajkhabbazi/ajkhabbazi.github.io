@@ -8,8 +8,7 @@
 
   Included with `limit=true` (the about page), only the first
   `page.announcements.limit` items are rendered, one row each (`newsfeed--compact`),
-  each cut to one line with the full text as a hover title, followed by a link to
-  the news page.
+  followed by a link to the news page.
   Included without `limit` (the news page), everything is shown, no button is
   rendered, and a row of per-kind filter chips is shown above the feed. There
   the list also sits on a solid panel, grouped under year headings along a
@@ -84,12 +83,7 @@
               {{ item.date | date: '%Y-%m-%d' }}
             </time>
           </div>
-          <div
-            class="newsfeed-body"
-            {% if include.limit and item.inline %}
-              title="{{ item.content | strip_html | strip_newlines | strip | escape }}"
-            {% endif %}
-          >
+          <div class="newsfeed-body">
             {% if item.inline %}
               {{ item.content | emojify }}
             {% else %}
