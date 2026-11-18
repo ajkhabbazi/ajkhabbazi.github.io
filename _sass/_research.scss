@@ -244,6 +244,12 @@ html[data-theme="dark"] {
   height: 30px;
 }
 
+/* A second logo row inside one section, above the projects with that partner */
+.research-section-logos.research-group-logos {
+  justify-content: flex-end;
+  margin: 1.5rem 0 0.75rem;
+}
+
 .research-section-logo--emblem {
   height: 36px;
 }
