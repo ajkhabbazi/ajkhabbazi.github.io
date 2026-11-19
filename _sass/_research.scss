@@ -29,9 +29,24 @@ html[data-theme="dark"] {
 .research-intro {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
   gap: 1.5rem 3rem;
   margin-bottom: 0.5rem;
+}
+
+/* The collaborations circle is smaller, since the PhD is the main story */
+.research-wheel.research-wheel--other {
+  flex: 0 0 270px;
+  width: 270px;
+  height: 270px;
+}
+
+/* One line under the circles pointing to the master's card */
+.research-masters-link {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .research-circle {
@@ -598,6 +613,12 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
     flex: 0 0 auto;
     width: 300px;
     height: 300px;
+  }
+
+  .research-wheel.research-wheel--other {
+    flex: 0 0 auto;
+    width: 250px;
+    height: 250px;
   }
 
   .research-photos,
