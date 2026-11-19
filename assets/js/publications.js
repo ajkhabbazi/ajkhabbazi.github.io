@@ -1,4 +1,4 @@
-// Publications page: filter the list by kind (journal, conference, ...).
+// Publications page: filter the list by kind (journal, conference, ...), and fade entries in.
 // The kind comes from each entry's own label, so new papers need no change here.
 (function () {
   var page = document.querySelector(".publications--page");
@@ -51,4 +51,31 @@
       if (heading && heading.tagName === "H2") heading.hidden = !any;
     });
   });
+
+  // Fade entries in as they scroll into view, a short step apart when several arrive together.
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var revealObserver = new IntersectionObserver(
+      function (entries) {
+        var step = 0;
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var li = entry.target;
+          li.style.transitionDelay = step * 60 + "ms";
+          step += 1;
+          li.classList.add("is-visible");
+          revealObserver.unobserve(li);
+          // The delay must not linger, or it would also hold back the hover tint.
+          window.setTimeout(function () {
+            li.style.transitionDelay = "";
+          }, 1200);
+        });
+      },
+      { threshold: 0.05 }
+    );
+    items.forEach(function (li) {
+      li.classList.add("pub-reveal");
+      revealObserver.observe(li);
+    });
+  }
 })();

@@ -1,0 +1,20 @@
+# Research page card for each value of a paper's `research` field in papers.bib.
+# The publication list links every paper to its card with this label.
+review:
+  label: Phase 1 &middot; Field demonstrations
+  anchor: phase-1
+savings:
+  label: Phase 2 &middot; Control scope
+  anchor: phase-2
+ltc:
+  label: Control with almost no commissioning
+  anchor: project-ltc
+tpc:
+  label: Data-driven predictive control
+  anchor: project-tpc
+homes:
+  label: Home power control
+  anchor: project-homes
+hydrogen:
+  label: Hydrogen in natural gas pipelines
+  anchor: project-hydrogen

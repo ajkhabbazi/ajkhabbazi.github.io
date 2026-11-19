@@ -1,4 +1,5 @@
-/* Publications page: filter chips, solid panel, clear year headings, kind labels, wider text.
+/* Publications page: filter chips, solid panel, clear year headings, kind labels, wider text,
+   framed thumbnails, the link to each paper's research card, hover and fade-in.
    Plain CSS on purpose (no nesting, no calc) so it survives the deploy minifier. */
 
 .pub-filters {
@@ -110,8 +111,173 @@
   }
 }
 
+/* A color per kind, the same on the label beside a title and on its filter chip:
+   journal solid navy, conference blue, preprint amber, thesis green, abstract grey */
+html {
+  --pub-amber: #a86400;
+}
+
+html[data-theme="dark"] {
+  --pub-amber: #f0b25a;
+}
+
+.publications .pub-kind.pub-kind--journal {
+  border-color: var(--global-theme-color);
+  background-color: var(--global-theme-color);
+  color: var(--global-bg-color);
+}
+
+.publications .pub-kind.pub-kind--conference {
+  border-color: var(--status-blue);
+  color: var(--status-blue);
+}
+
+.publications .pub-kind.pub-kind--preprint {
+  border-color: var(--pub-amber);
+  color: var(--pub-amber);
+}
+
+.publications .pub-kind.pub-kind--thesis {
+  border-color: var(--status-green);
+  color: var(--status-green);
+}
+
+.pub-filter.pub-filter--journal {
+  border-color: var(--global-theme-color);
+  color: var(--global-theme-color);
+}
+
+.pub-filter.pub-filter--conference {
+  border-color: var(--status-blue);
+  color: var(--status-blue);
+}
+
+.pub-filter.pub-filter--preprint {
+  border-color: var(--pub-amber);
+  color: var(--pub-amber);
+}
+
+.pub-filter.pub-filter--thesis {
+  border-color: var(--status-green);
+  color: var(--status-green);
+}
+
+.pub-filter.pub-filter--journal.pub-filter--active {
+  background-color: var(--global-theme-color);
+  color: var(--global-bg-color);
+}
+
+.pub-filter.pub-filter--conference.pub-filter--active {
+  background-color: var(--status-blue);
+  color: var(--global-bg-color);
+}
+
+.pub-filter.pub-filter--preprint.pub-filter--active {
+  background-color: var(--pub-amber);
+  color: var(--global-bg-color);
+}
+
+.pub-filter.pub-filter--thesis.pub-filter--active {
+  background-color: var(--status-green);
+  color: var(--global-bg-color);
+}
+
+.pub-filter.pub-filter--abstract.pub-filter--active {
+  border-color: var(--global-text-color-light);
+  background-color: var(--global-text-color-light);
+  color: var(--global-bg-color);
+}
+
+/* Thumbnails: every picture in the same white 2:1 frame, whatever its own shape */
+.publications.publications--page ol.bibliography li .abbr figure,
+.publications.publications--home ol.bibliography li .abbr figure {
+  margin: 0;
+}
+
+.publications.publications--page ol.bibliography li .abbr img.preview,
+.publications.publications--home ol.bibliography li .abbr img.preview {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  padding: 0.2rem;
+  border: 1px solid var(--global-divider-color);
+  object-fit: contain;
+  background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Each entry is a row that tints on hover while its picture lifts */
+.publications.publications--page ol.bibliography > li,
+.publications.publications--home ol.bibliography > li {
+  margin: 0 -0.6rem 0.4rem;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.publications.publications--page ol.bibliography > li:hover,
+.publications.publications--home ol.bibliography > li:hover {
+  background-color: var(--global-availability-tint);
+}
+
+.publications.publications--page ol.bibliography > li:hover .abbr img.preview,
+.publications.publications--home ol.bibliography > li:hover .abbr img.preview {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  transform: translateY(-3px);
+}
+
+/* Link from a paper to its card on the research page, after the buttons */
+.post article .publications li a.pub-project {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 0.3rem;
+  color: var(--global-text-color-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.post article .publications li a.pub-project:hover,
+.post article .publications li a.pub-project:focus {
+  color: var(--global-theme-color);
+  text-decoration: underline;
+}
+
+.post article .publications li a.pub-project i {
+  font-size: 0.7rem;
+}
+
+/* Inside a research card the paper is already under its project */
+.post article .research-project-detail .publications li a.pub-project {
+  display: none;
+}
+
+/* Entries fade in as they scroll into view. publications.js adds the classes, so nothing
+   hides without it. */
+.publications.publications--page ol.bibliography > li.pub-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease, transform 0.45s ease, background-color 0.2s ease;
+}
+
+.publications.publications--page ol.bibliography > li.pub-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .pub-filter {
+  .pub-filter,
+  .publications.publications--page ol.bibliography > li,
+  .publications.publications--home ol.bibliography > li,
+  .publications.publications--page ol.bibliography li .abbr img.preview,
+  .publications.publications--home ol.bibliography li .abbr img.preview {
     transition: none;
+  }
+
+  .publications.publications--page ol.bibliography > li:hover .abbr img.preview,
+  .publications.publications--home ol.bibliography > li:hover .abbr img.preview {
+    transform: none;
   }
 }

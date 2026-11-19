@@ -48,7 +48,7 @@
   <!-- Entry bib key -->
   <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
     <!-- Title -->
-    <div class="title">{% if entry.kind %}<span class="pub-kind">{{ entry.kind }}</span> {% endif %}{{ entry.title }}</div>
+    <div class="title">{% if entry.kind %}<span class="pub-kind pub-kind--{{ entry.kind | downcase }}">{{ entry.kind }}</span> {% endif %}{{ entry.title }}</div>
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
@@ -187,7 +187,16 @@
       {{ entry.note | strip }}
     </div>
 
-    <!-- Links/Buttons -->
+    <!-- Links/Buttons. One link is the main one and is drawn solid: the paper's page, else its PDF, else arXiv. -->
+    {% if entry.html %}
+      {% assign main_link = 'html' %}
+    {% elsif entry.pdf %}
+      {% assign main_link = 'pdf' %}
+    {% elsif entry.arxiv %}
+      {% assign main_link = 'arxiv' %}
+    {% else %}
+      {% assign main_link = '' %}
+    {% endif %}
     <div class="links">
       {% if entry.award %}
         <a class="award btn btn-sm z-depth-0" role="button">
@@ -199,23 +208,23 @@
         <a class="abstract btn btn-sm z-depth-0" role="button">Abstract</a>
       {% endif %}
       {% if entry.arxiv %}
-        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
+        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0{% if main_link == 'arxiv' %} pub-link--main{% endif %}" role="button">arXiv</a>
       {% endif %}
       {% if entry.bibtex_show %}
         <a class="bibtex btn btn-sm z-depth-0" role="button">BibTeX</a>
       {% endif %}
       {% if entry.html %}
         {% if entry.html contains '://' %}
-          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
+          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0{% if main_link == 'html' %} pub-link--main{% endif %}" role="button">HTML</a>
         {% else %}
-          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
+          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0{% if main_link == 'html' %} pub-link--main{% endif %}" role="button">HTML</a>
         {% endif %}
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0{% if main_link == 'pdf' %} pub-link--main{% endif %}" role="button">PDF</a>
         {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0{% if main_link == 'pdf' %} pub-link--main{% endif %}" role="button">PDF</a>
         {% endif %}
       {% endif %}
       {% if entry.supp %}
@@ -252,6 +261,10 @@
       {% endif %}
       {% if entry.website %}
         <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
+      {% endif %}
+      {% assign project = site.data.research_projects[entry.research] %}
+      {% if project %}
+        <a class="pub-project" href="{{ '/research/' | relative_url }}#{{ project.anchor }}"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>{{ project.label }}</a>
       {% endif %}
     </div>
     {% if site.enable_publication_badges %}
