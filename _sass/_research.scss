@@ -178,6 +178,7 @@ html[data-theme="dark"] {
 /* In-progress circles blink; completed ones stay solid */
 .research-wheel-node:not(.research-wheel-node--done) .research-wheel-badge,
 .research-wheel-node:not(.research-wheel-node--done) .research-wheel-num,
+.research-wheel-node:not(.research-wheel-node--done) .research-wheel-icon,
 .research-pulse,
 .home-phase:not(.home-phase--done) .home-phase-num {
   animation: research-blink 1.4s ease-in-out infinite;
@@ -192,11 +193,6 @@ html[data-theme="dark"] {
   50% {
     opacity: 0.25;
   }
-}
-
-/* Only the PhD wheel blinks; the second circle stays still so the page is not busy */
-.research-wheel--other .research-wheel-node .research-wheel-badge {
-  animation: none;
 }
 
 .research-wheel-node--done .research-wheel-badge {
