@@ -24,10 +24,6 @@ latest_posts:
 ---
 
 <div class="about-side-photo"><img src="{{ '/assets/img/arash-outdoors.jpg' | relative_url }}" class="img-fluid z-depth-1 rounded" alt="Arash outdoors" loading="lazy">
-<div class="about-contact">
-<a href="mailto:{{ site.data.socials.email | encode_email }}"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>{{ site.data.socials.email }}</span></a>
-<a href="tel:+17657672058"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+1 (765) 767-2058</span></a>
-</div>
 </div>
 
 Hi there! I'm a PhD candidate in [Mechanical Engineering](https://engineering.purdue.edu/ME) at [Purdue University](https://www.purdue.edu/), with a concentration in [Computational Science and Engineering](https://www.purdue.edu/academics/ogsps/oigp/program/cigp/), advised by Professor [Kevin Kircher](https://kevinjkircher.com/). I work on modeling, control, optimization, and machine learning for building energy systems. My PhD work is supported in part by a Graduate Student Grant-in-Aid [Award](https://www.ashrae.org/communities/student-zone/scholarships-and-grants/graduate-student-grant-in-aid-award-program) from the American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE).

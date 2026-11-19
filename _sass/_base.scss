@@ -1554,12 +1554,12 @@ details.about-more {
   }
 }
 
-/* Email and phone under the outdoor photo */
+/* Email and phone in one row under the name and title */
 .about-contact {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin-top: 0.7rem;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin-top: 0.5rem;
   font-size: 0.85rem;
 
   a {
