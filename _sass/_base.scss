@@ -1003,7 +1003,7 @@ footer.sticky-bottom {
       }
 
       div.abstract.hidden {
-        border: dashed 1px var(--global-bg-color);
+        border: dashed 1px transparent; // invisible until opened, also on a tinted hover row
       }
 
       div.abstract.hidden.open {
@@ -1011,13 +1011,13 @@ footer.sticky-bottom {
       }
     }
     div.award.hidden {
-      border: dashed 1px var(--global-bg-color);
+      border: dashed 1px transparent; // invisible until opened, also on a tinted hover row
     }
     div.award.hidden.open {
       border-color: var(--global-highlight-color);
     }
     div.ga.hidden {
-      border: dashed 1px var(--global-bg-color);
+      border: dashed 1px transparent; // invisible until opened, also on a tinted hover row
     }
     div.ga.hidden.open {
       border-color: var(--global-text-color);
