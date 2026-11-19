@@ -324,6 +324,14 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
   margin-top: 1rem;
 }
 
+/* One-line caption under a figure or video in a card */
+.research-caption {
+  margin: 0.4rem 0 1rem;
+  color: var(--global-text-color-light);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
 /* Expandable cards (phases and other projects) */
 .research-projects {
   display: grid;

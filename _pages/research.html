@@ -173,8 +173,11 @@ nav_order: 0
         </span>
       </summary>
       <div class="research-project-detail">
-        <p>The review pointed to one common source of error. Many field tests control a few zones in a larger building and report savings for those zones alone. We proved this overstates whole-building savings, because heat drawn from neighboring zones isn&rsquo;t counted, and developed a correction that needs no baseline estimate.</p>
+        <p>The review pointed to one common source of error. Many field tests control a few zones in a larger building and report savings for those zones alone. We proved that this overstates whole-building savings, because heat drawn from neighboring zones isn&rsquo;t counted, and used simulations to show how large the error can be. We also developed a correction that needs no baseline estimate. Next, we aim to show this in an experiment.</p>
         <img class="research-figure research-figure--narrow z-depth-1" src="{{ '/assets/img/research/savings.png' | relative_url }}" alt="Line plot of savings overestimation error falling as the controlled zone has more exterior walls" loading="lazy" data-zoomable>
+        <p class="research-caption">Savings overstatement falls as the controlled zone has more exterior walls, and grows with &beta;.</p>
+        <img class="research-figure z-depth-1" src="{{ '/assets/img/publication_preview/khabbazi2027ashrae-fig.png' | relative_url }}" alt="Left, bar chart of perceived and true season savings for four heating cases. Right, the measured error falling as the load-shifting share of savings grows." loading="lazy" data-zoomable>
+        <p class="research-caption">A season simulation of a two-story house with control on the first floor only. Perceived savings exceed true savings by 65% to 190%.</p>
         <div class="publications">
           {% bibliography --group_by none --query @*[research=savings]* %}
         </div>
@@ -237,6 +240,7 @@ nav_order: 0
       <div class="research-project-detail">
         <p>Advanced controllers are costly to commission, which limits their use in real buildings. We developed two nearly commissioning-free controllers for objectives such as energy costs and pollution, needing at most two thermal parameters.</p>
         <img class="research-figure research-figure--narrow z-depth-1" src="{{ '/assets/img/research/ltc.png' | relative_url }}" alt="Time series of electricity price, cooling supplied, and indoor temperature for the controllers under time-of-use pricing" loading="lazy" data-zoomable>
+        <p class="research-caption">Price, cooling, and indoor temperature under time-of-use pricing.</p>
         <div class="publications">
           {% bibliography --group_by none --query @*[research=ltc]* %}
         </div>
@@ -255,6 +259,7 @@ nav_order: 0
       <div class="research-project-detail">
         <p>Data-driven predictive control can skip much of the modeling work, but its performance depends on how future behavior is predicted from data. We introduced a state-space predictor that connects this approach to established predictive control theory.</p>
         <img class="research-figure z-depth-1" src="{{ '/assets/img/research/tpc.png' | relative_url }}" alt="Bar charts comparing prediction error, control failure rate, and control cost across predictors as training data grows" loading="lazy" data-zoomable>
+        <p class="research-caption">Prediction error, control failure rate, and cost as training data grows.</p>
         <div class="publications">
           {% bibliography --group_by none --query @*[research=tpc]* %}
         </div>
@@ -273,6 +278,7 @@ nav_order: 0
       <div class="research-project-detail">
         <p>Electric heating, water heating, and EV charging can overload 100&ndash;200 A panels, and upgrades cost <span class="text-nowrap"><span>$2k</span>&ndash;<span>$10k</span></span>. We built a simulation framework to compare control strategies across electrification scenarios.</p>
         <img class="research-figure research-figure--medium z-depth-1" src="{{ '/assets/img/research/home-power.png' | relative_url }}" alt="Scatter plots of maximum household current against the panel limit under four control strategies" loading="lazy" data-zoomable>
+        <p class="research-caption">Maximum household current against the panel limit, for four control strategies.</p>
         <div class="publications">
           {% bibliography --group_by none --query @*[research=homes]* %}
         </div>
@@ -337,12 +343,15 @@ nav_order: 0
         <p>Canada has committed to <a href="https://www.canada.ca/en/services/environment/weather/climatechange/climate-plan/net-zero-emissions-2050.html">net-zero emissions by 2050</a>. One way to cut emissions from natural gas is to blend renewable hydrogen into the pipelines already in the ground. The catch is that hydrogen is about eight times lighter than natural gas, so when injected from the top it stays trapped along the top wall instead of mixing in. In an NSERC-funded collaboration between FortisBC and UBC, I used CFD with ideal and real gas models to find where and how to inject it. Bottom-side injection won, because the hydrogen rises through the natural gas and mixes on its way up.</p>
         <img class="research-figure z-depth-1" src="{{ '/assets/img/publication_preview/mixing-h2.jpg' | relative_url }}" alt="Graphical abstract of the paper. Hydrogen enters a natural gas pipeline through a side pipe and mixes with the natural gas downstream." loading="lazy" data-zoomable>
         <img class="research-figure z-depth-1" src="{{ '/assets/img/research/hydrogen.png' | relative_url }}" alt="Plots of hydrogen mixing variation along the pipe for top-side, horizontal, and bottom-side injection" loading="lazy" data-zoomable>
+        <p class="research-caption">Mixing along the pipe for top-side, horizontal, and bottom-side injection.</p>
         <video class="research-video z-depth-1" controls muted loop playsinline preload="metadata" aria-label="Simulation of hydrogen mixing in the pipe cross-section for top-side, horizontal, and bottom-side injection">
           <source src="{{ '/assets/video/h2-mixing-injection-direction.mp4' | relative_url }}#t=0.1" type="video/mp4">
         </video>
+        <p class="research-caption">Mixing in the pipe cross-section for the three injection directions.</p>
         <video class="research-video research-figure--narrow z-depth-1" controls muted loop playsinline preload="metadata" aria-label="Simulation of hydrogen mixing in the pipe cross-section for different side pipe sizes">
           <source src="{{ '/assets/video/h2-mixing-side-pipe-size.mp4' | relative_url }}#t=0.1" type="video/mp4">
         </video>
+        <p class="research-caption">Mixing for different side pipe sizes.</p>
         <div class="publications">
           {% bibliography --group_by none --query @*[research=hydrogen]* %}
         </div>
