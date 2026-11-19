@@ -31,22 +31,21 @@ html[data-theme="dark"] {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem 3rem;
+  gap: 1.5rem 2rem;
   margin-bottom: 0.5rem;
 }
 
-/* The collaborations circle is smaller, since the PhD is the main story */
+/* Circles step down in size: PhD, then collaborations, then the master's */
 .research-wheel.research-wheel--other {
-  flex: 0 0 270px;
-  width: 270px;
-  height: 270px;
+  flex: 0 0 290px;
+  width: 290px;
+  height: 290px;
 }
 
-/* One line under the circles pointing to the master's card */
-.research-masters-link {
-  margin: 0.75rem 0 0;
-  font-size: 0.9rem;
-  text-align: center;
+.research-wheel.research-wheel--masters {
+  flex: 0 0 190px;
+  width: 190px;
+  height: 190px;
 }
 
 .research-circle {
@@ -617,8 +616,14 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
 
   .research-wheel.research-wheel--other {
     flex: 0 0 auto;
-    width: 250px;
-    height: 250px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .research-wheel.research-wheel--masters {
+    flex: 0 0 auto;
+    width: 190px;
+    height: 190px;
   }
 
   .research-photos,
