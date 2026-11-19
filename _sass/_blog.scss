@@ -90,6 +90,44 @@
   display: none;
 }
 
+/* A post is set in a reading column, about 75 characters a line, centered on the page */
+.post.post--reading {
+  max-width: 46rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.post.post--reading .post-header .post-meta {
+  margin-bottom: 1.25rem;
+}
+
+/* Link back to the list, above the title */
+.post .post-header a.post-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+  color: var(--global-text-color-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.post .post-header a.post-back:hover,
+.post .post-header a.post-back:focus {
+  color: var(--global-theme-color);
+  text-decoration: none;
+}
+
+.post .post-header a.post-back i {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.post .post-header a.post-back:hover i {
+  transform: translateX(-3px);
+}
+
 .post article.post-content {
   padding: 1.25rem 1.5rem 0.75rem;
   border: 1px solid var(--global-divider-color);
@@ -112,7 +150,7 @@
   list-style: none;
 }
 
-.post article .notfound-links a {
+.post article ul.notfound-links li a {
   display: inline-block;
   padding: 0.3rem 0.9rem;
   border: 1px solid var(--global-theme-color);
@@ -124,7 +162,7 @@
   text-decoration: none;
 }
 
-.post article .notfound-links a:hover {
+.post article ul.notfound-links li a:hover {
   background-color: var(--global-theme-color);
   color: var(--global-bg-color);
   text-decoration: none;
@@ -138,7 +176,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .post .post-list > li,
-  .post .post-list > li .post-arrow {
+  .post .post-list > li .post-arrow,
+  .post .post-header a.post-back i {
     transition: none;
   }
 
