@@ -92,17 +92,23 @@ html[data-theme="dark"] {
   height: 30px;
 }
 
-/* Partner logos inside a card, on the right of its closed row */
+/* Institution and partner logos in a card, on the right of its status pill and dates */
 .research-project-logos {
   display: flex;
   flex: 0 0 auto;
   align-items: center;
-  align-self: center;
-  gap: 0.9rem;
+  gap: 0.6rem;
+  margin-left: 0.3rem;
 }
 
-.research-project-logos .research-section-logo--wordmark {
-  height: 24px;
+.research-project-logos .research-section-logo {
+  height: 18px;
+}
+
+/* The Purdue mark and the UBC crest are compact, so they can stand a little taller */
+.research-project-logos .research-section-logo--wide,
+.research-project-logos .research-section-logo--invert-dark:not(.research-section-logo--wordmark) {
+  height: 22px;
 }
 
 .research-section-logo--emblem {
@@ -529,11 +535,7 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Smaller thumbnails, and partner logos on their own line under the text */
-  .research-project > summary {
-    flex-wrap: wrap;
-  }
-
+  /* Smaller thumbnails */
   .research-project > summary > img {
     flex: 0 0 96px;
     width: 96px;
@@ -541,12 +543,7 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
   }
 
   .research-project-logos {
-    flex: 0 0 100%;
-    justify-content: flex-end;
-  }
-
-  .research-project-logos .research-section-logo--wordmark {
-    height: 20px;
+    margin-left: 0;
   }
 
   .research-rail-row {
