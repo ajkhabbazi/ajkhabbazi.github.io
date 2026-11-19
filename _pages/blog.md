@@ -2,6 +2,7 @@
 layout: page
 permalink: /blog/
 title: Blog
+description: Short notes on research and how I work.
 nav: true
 nav_order: 3
 pagination:
@@ -130,6 +131,7 @@ pagination:
         <h3>
         {% if post.redirect == blank %}
           <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <i class="fa-solid fa-arrow-right post-arrow" aria-hidden="true"></i>
         {% elsif post.redirect contains '://' %}
           <a class="post-title" href="{{ post.redirect }}" target="_blank">{{ post.title }}</a>
           <svg width="2rem" height="2rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
@@ -141,18 +143,15 @@ pagination:
       </h3>
       <p>{{ post.description }}</p>
       <p class="post-meta">
-        {{ read_time }} min read &nbsp; &middot; &nbsp;
-        {{ post.date | date: '%Y-%m-%d' }}
+        {{ post.date | date: '%b %-d, %Y' }}
+        &nbsp; &middot; &nbsp; {{ read_time }} min read
         {% if post.external_source %}
         &nbsp; &middot; &nbsp; {{ post.external_source }}
         {% endif %}
       </p>
+      {% if tags != "" or categories != "" %}
       <p class="post-tags">
-        <a href="{{ year | prepend: '/blog/' | relative_url }}">
-          <i class="fa-solid fa-calendar fa-sm"></i> {{ year }} </a>
-
           {% if tags != "" %}
-          &nbsp; &middot; &nbsp;
             {% for tag in post.tags %}
             <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">
               <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
@@ -163,7 +162,7 @@ pagination:
           {% endif %}
 
           {% if categories != "" %}
-          &nbsp; &middot; &nbsp;
+          {% if tags != "" %}&nbsp; &middot; &nbsp;{% endif %}
             {% for category in post.categories %}
             <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">
               <i class="fa-solid fa-tag fa-sm"></i> {{ category }}</a>
@@ -173,6 +172,7 @@ pagination:
               {% endfor %}
           {% endif %}
     </p>
+      {% endif %}
 
 {% if post.thumbnail %}
 

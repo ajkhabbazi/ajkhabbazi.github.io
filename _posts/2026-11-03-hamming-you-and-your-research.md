@@ -2,6 +2,7 @@
 layout: post
 title: "What I Took from Hamming’s “You and Your Research”"
 date: 2026-11-03
+description: "Ten takeaways from Richard Hamming's talk on why some capable people do great work and others don't."
 ---
 
 Richard Hamming's [talk](https://www.youtube.com/watch?v=a1zDuOPkMSw) asks why some capable people do great work and others don't. Here are my ten takeaways.

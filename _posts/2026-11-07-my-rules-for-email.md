@@ -2,6 +2,7 @@
 layout: post
 title: "My Rules for Email"
 date: 2026-11-07
+description: "Seventeen rules that keep my emails clear and my inbox under control."
 ---
 
 A lot of my work as a PhD student happens over email. Drafts get reviewed there, meetings get scheduled, and collaborations move forward or stall. Over time I've written down a few rules that keep my emails clear and my inbox under control. Here they are, grouped by when they apply, plus a few for cold emails.

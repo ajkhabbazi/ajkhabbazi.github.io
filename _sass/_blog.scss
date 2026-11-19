@@ -7,23 +7,83 @@
 }
 
 .post .post-list > li {
+  position: relative;
   margin-bottom: 0.75rem;
   padding: 1.1rem 1.25rem;
   border: 1px solid var(--global-divider-color);
   border-radius: 0.5rem;
   background-color: var(--global-card-bg-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
+/* The card lifts on hover, like the cards on the home and research pages */
 .post .post-list > li:hover {
   border-color: var(--global-theme-color);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+  transform: translateY(-3px);
 }
 
 .post .post-list > li h3 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
   margin-top: 0;
+  margin-bottom: 0.4rem;
   font-size: 1.4rem;
+}
+
+/* Title: bold, underlined on hover only. Its link is stretched over the whole card, so a
+   click anywhere on the card opens the post. */
+.post article .post-list > li h3 a.post-title {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.post article .post-list > li:hover h3 a.post-title,
+.post article .post-list > li h3 a.post-title:focus {
+  color: var(--global-theme-color);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.post .post-list > li h3 a.post-title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0.5rem;
+}
+
+/* Tag and category links stay clickable above the stretched title link */
+.post .post-list > li .post-tags a {
+  position: relative;
+  z-index: 1;
+}
+
+/* Arrow beside the title: faint at rest, slides right in the theme color on hover */
+.post .post-list > li .post-arrow {
+  flex: 0 0 auto;
+  color: var(--global-theme-color);
+  font-size: 0.95rem;
+  opacity: 0.3;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.post .post-list > li:hover .post-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* One-line summary of the post */
+.post .post-list > li > p:not(.post-meta):not(.post-tags) {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .post .post-list > li > p:empty {
@@ -77,7 +137,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .post .post-list > li {
+  .post .post-list > li,
+  .post .post-list > li .post-arrow {
     transition: none;
+  }
+
+  .post .post-list > li:hover {
+    transform: none;
   }
 }
