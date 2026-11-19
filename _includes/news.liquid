@@ -2,9 +2,8 @@
   News feed.
 
   Every item in `_news/` carries a `kind` (paper / talk / award / milestone) in
-  its front matter, which supplies the label text and the filter chips. All
-  kinds share one neutral style defined in `_sass/_news.scss`. Adding an item
-  needs no change here.
+  its front matter, which supplies the label text, the filter chips and a
+  color (see `_sass/_news.scss`). Adding an item needs no change here.
 
   Included with `limit=true` (the about page), only the first
   `page.announcements.limit` items are rendered, one row each (`newsfeed--compact`),
@@ -13,6 +12,8 @@
   rendered, and a row of per-kind filter chips is shown above the feed. There
   the list also sits on a solid panel, grouped under year headings along a
   timeline (`newsfeed--full`), so it stays readable over the site backdrop.
+  Each entry has its date in a left column and its kind's icon in a dot on
+  the line.
 {% endcomment %}
 
 {% assign news_size = site.news | size %}
@@ -41,7 +42,7 @@
           </button>
           {% for kind in kinds %}
             <button
-              class="newsfeed-filter"
+              class="newsfeed-filter newsfeed-filter--{{ kind }}"
               type="button"
               data-newsfeed-filter="{{ kind }}"
               aria-pressed="false"
@@ -69,19 +70,27 @@
           {% endif %}
         {% endunless %}
         <li
-          class="newsfeed-entry"
+          class="newsfeed-entry{% if item.kind %} newsfeed-entry--{{ item.kind }}{% endif %}"
           data-newsfeed-year="{{ item_year }}"
           {% if item.kind %}
             data-newsfeed-kind="{{ item.kind }}"
           {% endif %}
         >
+          {% comment %} The year is in the heading on the news page, so only the home rows repeat it. {% endcomment %}
+          <time class="newsfeed-date" datetime="{{ item.date | date_to_xmlschema }}">
+            {%- if include.limit -%}
+              {{ item.date | date: '%b %-d, %Y' }}
+            {%- else -%}
+              {{ item.date | date: '%b %-d' }}
+            {%- endif -%}
+          </time>
+          {% unless include.limit %}
+            <span class="newsfeed-dot" aria-hidden="true">{% include news_kind_icon.liquid kind=item.kind %}</span>
+          {% endunless %}
           <div class="newsfeed-meta">
             {% if item.kind %}
-              <span class="newsfeed-kind">{% include news_kind_icon.liquid kind=item.kind %}{{ item.kind }}</span>
+              <span class="newsfeed-kind newsfeed-kind--{{ item.kind }}">{% include news_kind_icon.liquid kind=item.kind %}{{ item.kind }}</span>
             {% endif %}
-            <time class="newsfeed-date" datetime="{{ item.date | date_to_xmlschema }}">
-              {{ item.date | date: '%Y-%m-%d' }}
-            </time>
           </div>
           <div class="newsfeed-body">
             {% if item.inline %}
@@ -139,4 +148,34 @@
       });
     });
   });
+
+  // News page only: entries fade in as they scroll into view, a short step apart when
+  // several arrive together. The hiding class is added here, so nothing hides without it.
+  (function () {
+    var entries = document.querySelectorAll('.newsfeed--full .newsfeed-entry');
+    if (!entries.length || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var observer = new IntersectionObserver(
+      function (seen) {
+        var step = 0;
+        seen.forEach(function (one) {
+          if (!one.isIntersecting) return;
+          var entry = one.target;
+          entry.style.transitionDelay = step * 50 + 'ms';
+          step += 1;
+          entry.classList.add('is-visible');
+          observer.unobserve(entry);
+          // The delay must not linger, or it would also hold back the hover tint.
+          window.setTimeout(function () {
+            entry.style.transitionDelay = '';
+          }, 1200);
+        });
+      },
+      { threshold: 0.05 }
+    );
+    entries.forEach(function (entry) {
+      entry.classList.add('newsfeed-reveal');
+      observer.observe(entry);
+    });
+  })();
 </script>

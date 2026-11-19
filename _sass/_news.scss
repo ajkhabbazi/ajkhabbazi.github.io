@@ -3,9 +3,9 @@
  *
  * Each entry carries a `kind` (paper / talk / award / milestone) set in the
  * front matter of the corresponding file in `_news/`. The kind drives the label
- * text and the filter chips only; every kind is styled the same neutral grey so
- * the feed reads as text with quiet metadata. Body links are left alone so they
- * keep the site link colour.
+ * text, the filter chips and a color: award gold, paper navy, talk blue,
+ * milestone green. Body links drop the underline until hover, since most
+ * entries have two of them.
  ******************************************************************************/
 
 .newsfeed {
@@ -19,6 +19,7 @@
 
   .newsfeed-entry {
     padding: 0.35rem 0 0.85rem 0;
+    transition: background-color 0.2s ease;
 
     &[hidden] {
       display: none;
@@ -27,7 +28,7 @@
 
   .newsfeed-meta {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 0.15rem;
@@ -47,9 +48,11 @@
   }
 
   .newsfeed-date {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 600;
     color: var(--global-text-color-light);
     font-variant-numeric: tabular-nums;
+    white-space: nowrap;
   }
 
   .newsfeed-body {
@@ -62,6 +65,19 @@
 
     p + p {
       margin-top: 0.4rem;
+    }
+
+    // Links: no underline until hover, a little weight to stay apart from the text
+    a:not(.btn) {
+      font-weight: 500;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.15em;
+      }
     }
   }
 
@@ -139,7 +155,82 @@
   }
 }
 
-/* Full news page: solid panel, year headings, timeline. Plain CSS, no nesting. */
+/* A color per kind, on the label, the filter chip and the timeline dot. Plain CSS, no nesting. */
+html {
+  --news-gold: #9a7400;
+}
+
+html[data-theme="dark"] {
+  --news-gold: #e3bd55;
+}
+
+.newsfeed .newsfeed-kind.newsfeed-kind--award {
+  border-color: var(--news-gold);
+  color: var(--news-gold);
+}
+
+.newsfeed .newsfeed-kind.newsfeed-kind--paper {
+  border-color: var(--global-theme-color);
+  color: var(--global-theme-color);
+}
+
+.newsfeed .newsfeed-kind.newsfeed-kind--talk {
+  border-color: var(--status-blue);
+  color: var(--status-blue);
+}
+
+.newsfeed .newsfeed-kind.newsfeed-kind--milestone {
+  border-color: var(--status-green);
+  color: var(--status-green);
+}
+
+.newsfeed .newsfeed-filter.newsfeed-filter--award {
+  border-color: var(--news-gold);
+  color: var(--news-gold);
+}
+
+.newsfeed .newsfeed-filter.newsfeed-filter--paper {
+  border-color: var(--global-theme-color);
+  color: var(--global-theme-color);
+}
+
+.newsfeed .newsfeed-filter.newsfeed-filter--talk {
+  border-color: var(--status-blue);
+  color: var(--status-blue);
+}
+
+.newsfeed .newsfeed-filter.newsfeed-filter--milestone {
+  border-color: var(--status-green);
+  color: var(--status-green);
+}
+
+.newsfeed .newsfeed-filter.newsfeed-filter--award.newsfeed-filter--active {
+  background-color: var(--news-gold);
+  color: var(--global-bg-color);
+}
+
+.newsfeed .newsfeed-filter.newsfeed-filter--paper.newsfeed-filter--active {
+  background-color: var(--global-theme-color);
+  color: var(--global-bg-color);
+}
+
+.newsfeed .newsfeed-filter.newsfeed-filter--talk.newsfeed-filter--active {
+  background-color: var(--status-blue);
+  color: var(--global-bg-color);
+}
+
+.newsfeed .newsfeed-filter.newsfeed-filter--milestone.newsfeed-filter--active {
+  background-color: var(--status-green);
+  color: var(--global-bg-color);
+}
+
+/* Rows tint on hover, like the publication rows */
+.newsfeed .newsfeed-entry:hover {
+  background-color: var(--global-availability-tint);
+}
+
+/* Full news page: solid panel, year headings, and a timeline with the date in a left column
+   and the kind's icon in a dot on the line. Plain CSS, no nesting. */
 /* news-full:start */
 .newsfeed--full .newsfeed-list {
   padding: 1.1rem 1.25rem 0.6rem;
@@ -165,50 +256,144 @@
   display: none;
 }
 
+/* Two columns: the date, then the label over the text. The line and its dot sit in the gap. */
 .newsfeed--full .newsfeed-entry {
   position: relative;
-  margin-left: 0.35rem;
-  padding: 0 0 1rem 1.25rem;
-  border-left: 2px solid var(--global-divider-color);
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr);
+  column-gap: 2.6rem;
+  padding: 0.5rem 0.6rem 0.6rem 0.4rem;
+  border-radius: 0.4rem;
+}
+
+.newsfeed--full .newsfeed-entry[hidden] {
+  display: none;
 }
 
 .newsfeed--full .newsfeed-entry::before {
   content: "";
   position: absolute;
-  top: 0.3rem;
-  left: -7px;
-  width: 12px;
-  height: 12px;
+  top: 0;
+  bottom: 0;
+  left: 5.0375rem;
+  width: 0.125rem;
+  background-color: var(--global-divider-color);
+}
+
+.newsfeed--full .newsfeed-date {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  line-height: 1.5rem;
+  text-align: right;
+}
+
+.newsfeed--full .newsfeed-dot {
+  position: absolute;
+  top: 0.5rem;
+  left: 4.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
   border: 2px solid var(--global-card-bg-color);
   border-radius: 50%;
+  background-color: var(--global-text-color-light);
+  color: var(--global-bg-color);
+  font-size: 0.62rem;
+}
+
+.newsfeed--full .newsfeed-dot .newsfeed-kind-icon {
+  margin-right: 0;
+  font-size: 1em;
+}
+
+.newsfeed--full .newsfeed-entry--award .newsfeed-dot {
+  background-color: var(--news-gold);
+}
+
+.newsfeed--full .newsfeed-entry--paper .newsfeed-dot {
   background-color: var(--global-theme-color);
+}
+
+.newsfeed--full .newsfeed-entry--talk .newsfeed-dot {
+  background-color: var(--status-blue);
+}
+
+.newsfeed--full .newsfeed-entry--milestone .newsfeed-dot {
+  background-color: var(--status-green);
+}
+
+.newsfeed--full .newsfeed-meta {
+  grid-column: 2;
+  min-height: 1.5rem;
+  margin-bottom: 0.1rem;
+}
+
+.newsfeed--full .newsfeed-body {
+  grid-column: 2;
+}
+
+/* The dot already shows the icon */
+.newsfeed--full .newsfeed-kind .newsfeed-kind-icon {
+  display: none;
+}
+
+/* Fade-in on scroll. The script in news.liquid adds the classes. */
+.newsfeed--full .newsfeed-entry.newsfeed-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.2s ease;
+}
+
+.newsfeed--full .newsfeed-entry.newsfeed-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 575px) {
+  .newsfeed--full .newsfeed-list {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .newsfeed--full .newsfeed-entry {
+    grid-template-columns: 3.1rem minmax(0, 1fr);
+    column-gap: 2.3rem;
+    padding-right: 0.3rem;
+    padding-left: 0.2rem;
+  }
+
+  .newsfeed--full .newsfeed-entry::before {
+    left: 4.3875rem;
+  }
+
+  .newsfeed--full .newsfeed-dot {
+    left: 3.7rem;
+  }
 }
 /* news-full:end */
 
-/* Home page feed: one row per item, date and kind in a left column, text beside them.
-   Plain CSS, no nesting. Below 576px the row stacks back to label over text. */
+/* Home page feed: one row per item, with the date, then the kind, then the text.
+   Plain CSS, no nesting. Below 576px the row stacks back to date and label over text. */
 /* news-compact:start */
 .newsfeed--compact .newsfeed-entry {
   display: grid;
-  grid-template-columns: 11.5rem minmax(0, 1fr);
-  column-gap: 1rem;
+  grid-template-columns: 5.6rem 6.1rem minmax(0, 1fr);
+  column-gap: 0.75rem;
   align-items: baseline;
-  padding: 0.55rem 0;
+  margin: 0 -0.6rem;
+  padding: 0.55rem 0.6rem;
   border-top: 1px solid var(--global-divider-color);
+  border-radius: 0.3rem;
 }
 
 .newsfeed--compact .newsfeed-entry:first-child {
-  padding-top: 0;
-  border-top: none;
+  border-top-color: transparent;
 }
 
 .newsfeed--compact .newsfeed-meta {
   margin-bottom: 0;
-}
-
-/* Date first, so the dates line up whatever the label's width */
-.newsfeed--compact .newsfeed-date {
-  order: -1;
 }
 
 @media (max-width: 575px) {
@@ -216,8 +401,15 @@
     display: block;
   }
 
+  .newsfeed--compact .newsfeed-date {
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
   .newsfeed--compact .newsfeed-meta {
+    display: inline-flex;
     margin-bottom: 0.15rem;
+    vertical-align: baseline;
   }
 }
 /* news-compact:end */
@@ -234,6 +426,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .newsfeed .newsfeed-filter,
+  .newsfeed .newsfeed-entry,
   .newsfeed .newsfeed-toggle-caret {
     transition: none;
   }
