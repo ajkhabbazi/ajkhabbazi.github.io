@@ -253,8 +253,16 @@ ul.task-list input[type="checkbox"] {
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
-  opacity: 0.95;
+  // See-through with a blur, so the backdrop and the page show faintly behind the bar
+  background-color: var(--global-navbar-bg-color);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  backdrop-filter: saturate(160%) blur(12px);
+  transition: box-shadow 0.2s ease;
+}
+
+// Added by common.js once the page has scrolled
+.navbar.navbar-scrolled {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .dropdown-menu {
@@ -308,7 +316,7 @@ ul.task-list input[type="checkbox"] {
 
   .navbar-nav .nav-item.active > .nav-link {
     background-color: inherit;
-    font-weight: bolder;
+    font-weight: 600;
     color: var(--global-theme-color);
 
     &:hover {
@@ -316,12 +324,102 @@ ul.task-list input[type="checkbox"] {
     }
   }
 
+  // Wide screens: a line slides in under a link on hover and stays under the current page,
+  // which then needs no bold. The collapsed phone menu keeps the bold.
+  @media (min-width: 576px) {
+    .navbar-nav .nav-item > a.nav-link:not(.dropdown-toggle) {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0.5rem;
+        bottom: 0.2rem;
+        left: 0.5rem;
+        height: 2px;
+        border-radius: 1px;
+        background-color: var(--global-theme-color);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.25s ease;
+      }
+
+      &:hover::after,
+      &:focus-visible::after {
+        transform: scaleX(1);
+      }
+    }
+
+    .navbar-nav .nav-item.active > a.nav-link:not(.dropdown-toggle) {
+      font-weight: 400;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
   .navbar-brand.social {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     padding-bottom: 0;
     padding-top: 0;
-    font-size: 1.7rem;
+    font-size: 0.95rem;
 
+    // Every icon in the same circle, like the email and phone icons under the name
     a {
+      position: relative;
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: var(--global-theme-color);
+      box-shadow: 0 2px 6px rgba(31, 58, 95, 0.2);
+      transition: transform 0.2s ease;
+
+      &:hover,
+      &:focus-visible {
+        transform: scale(1.1);
+      }
+
+      // Academicons glyphs are drawn smaller than the Font Awesome ones
+      .ai {
+        font-size: 1.2em;
+      }
+
+      // Name of the link, shown under the icon on hover
+      .social-label {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        display: block;
+        margin-top: 0.5rem;
+        padding: 0.15rem 0.45rem;
+        border-radius: 0.25rem;
+        background-color: var(--global-text-color);
+        color: var(--global-bg-color);
+        font-size: 0.7rem;
+        font-weight: 500;
+        line-height: 1.4;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -4px);
+        transition:
+          opacity 0.15s ease,
+          transform 0.15s ease;
+      }
+
+      &:hover .social-label,
+      &:focus-visible .social-label {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+
       img {
         width: 1.7rem;
         height: 1.7rem;
@@ -341,16 +439,18 @@ ul.task-list input[type="checkbox"] {
       }
 
       i::before {
-        color: var(--global-text-color);
-        transition-property: all 0.2s ease-in-out;
-      }
-
-      &:hover {
-        i::before {
-          color: var(--global-hover-color);
-        }
+        color: var(--global-bg-color);
       }
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar.navbar-light .navbar-brand.social a,
+  .navbar.navbar-light .navbar-brand.social a .social-label,
+  .navbar.navbar-light .navbar-nav .nav-item > a.nav-link::after {
+    transition: none;
   }
 }
 

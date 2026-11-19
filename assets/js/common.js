@@ -55,4 +55,14 @@ $(document).ready(function () {
   $('[data-toggle="popover"]').popover({
     trigger: "hover",
   });
+
+  // shadow under the top bar once the page has scrolled
+  var navbar = document.getElementById("navbar");
+  if (navbar) {
+    var markScrolled = function () {
+      navbar.classList.toggle("navbar-scrolled", window.scrollY > 8);
+    };
+    markScrolled();
+    window.addEventListener("scroll", markScrolled, { passive: true });
+  }
 });
