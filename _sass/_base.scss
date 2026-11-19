@@ -224,7 +224,7 @@ ul.task-list input[type="checkbox"] {
 
 @media (min-width: 576px) {
   .profile {
-    width: 24%;
+    width: 30%;
 
     .address {
       p {
@@ -1164,9 +1164,10 @@ nav[data-toggle="toc"] {
   display: none !important;
 }
 
+/* Above the fixed navbar and footer (Bootstrap's 1030), so they do not cover a zoomed figure */
 .medium-zoom-overlay,
 .medium-zoom-image--opened {
-  z-index: 999;
+  z-index: 1040;
 }
 
 /* medium-zoom sets will-change: transform, so Safari on iPhone and iPad keeps the
@@ -1540,14 +1541,14 @@ details.about-more {
 
 /* Outdoor photo beside the first paragraph */
 .about-side-photo {
-  max-width: 60%;
+  max-width: 48%;
   margin: 0 auto 1rem;
 }
 
 @media (min-width: 576px) {
   .about-side-photo {
     float: right;
-    width: 30%;
+    width: 24%;
     max-width: none;
     margin: 0 0 0.5rem 1rem;
   }

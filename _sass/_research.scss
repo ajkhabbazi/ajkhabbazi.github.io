@@ -74,13 +74,8 @@ html[data-theme="dark"] {
 /* Campus photo under a very light shade */
 .research-wheel-shade {
   fill: var(--global-bg-color);
-  fill-opacity: 0.72;
+  fill-opacity: 0.85;
   pointer-events: none;
-}
-
-/* The second circle shows the same photo, faded further */
-.research-wheel-shade--light {
-  fill-opacity: 0.86;
 }
 
 .research-wheel-rim {
