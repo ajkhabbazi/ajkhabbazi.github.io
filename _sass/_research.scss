@@ -175,10 +175,7 @@ html[data-theme="dark"] {
   font-weight: 700;
 }
 
-/* In-progress circles blink; completed ones stay solid */
-.research-wheel-node:not(.research-wheel-node--done) .research-wheel-badge,
-.research-wheel-node:not(.research-wheel-node--done) .research-wheel-num,
-.research-wheel-node:not(.research-wheel-node--done) .research-wheel-icon,
+/* The small dot in an in-progress status pill blinks */
 .research-pulse {
   animation: research-blink 1.4s ease-in-out infinite;
 }
@@ -202,23 +199,26 @@ html[data-theme="dark"] {
   fill: var(--status-green);
 }
 
+/* In-progress circles stay solid and send out a ring, like the phase circles on the home page */
 .research-wheel-pulse {
-  fill: var(--status-blue);
+  fill: none;
+  stroke: var(--status-blue);
+  stroke-width: 2;
   pointer-events: none;
   transform-box: fill-box;
   transform-origin: center;
-  animation: research-ripple 2.2s ease-out infinite;
+  animation: research-ripple 1.8s ease-out infinite;
 }
 
 @keyframes research-ripple {
   from {
-    opacity: 0.45;
+    opacity: 0.8;
     transform: scale(1);
   }
 
   to {
     opacity: 0;
-    transform: scale(1.7);
+    transform: scale(1.8);
   }
 }
 
@@ -273,10 +273,17 @@ html[data-theme="dark"] {
   height: 30px;
 }
 
-/* A second logo row inside one section, above the projects with that partner */
-.research-section-logos.research-group-logos {
-  justify-content: flex-end;
-  margin: 1.5rem 0 0.75rem;
+/* Partner logos inside a card, on the right of its closed row */
+.research-project-logos {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  align-self: center;
+  gap: 0.9rem;
+}
+
+.research-project-logos .research-section-logo--wordmark {
+  height: 24px;
 }
 
 .research-section-logo--emblem {
@@ -352,12 +359,18 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
   border: 1px solid var(--global-divider-color);
   border-radius: 0.5rem;
   background-color: var(--global-card-bg-color);
-  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .research-project:hover {
   border-color: var(--global-theme-color);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+}
+
+/* A closed card lifts on hover, like the cards on the home page. An open one stays put. */
+.research-project:not([open]):hover {
+  transform: translateY(-3px);
 }
 
 .research-project[open] {
@@ -366,12 +379,38 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
 }
 
 .research-project > summary {
+  position: relative;
   display: flex;
-  gap: 0.8rem;
+  gap: 0.9rem;
   align-items: flex-start;
-  padding: 0.8rem;
+  padding: 0.8rem 2.7rem 0.8rem 0.8rem;
   cursor: pointer;
   list-style: none;
+}
+
+/* Chevron on the right of the closed row. It turns over when the card opens. */
+.research-project > summary::after {
+  content: "\f078";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  margin-top: -0.5rem;
+  color: var(--global-theme-color);
+  font-family: "Font Awesome 6 Free";
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1rem;
+  opacity: 0.55;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.research-project:hover > summary::after {
+  opacity: 1;
+}
+
+.research-project[open] > summary::after {
+  opacity: 1;
+  transform: rotate(180deg);
 }
 
 .research-project > summary::-webkit-details-marker {
@@ -379,9 +418,9 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
 }
 
 .research-project > summary > img {
-  flex: 0 0 112px;
-  width: 112px;
-  height: 84px;
+  flex: 0 0 152px;
+  width: 152px;
+  height: 86px;
   padding: 0.2rem;
   object-fit: contain;
   border-radius: 0.4rem;
@@ -390,6 +429,7 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
 
 .research-project-body {
   display: flex;
+  flex: 1 1 0;
   flex-direction: column;
   gap: 0.25rem;
   min-width: 0;
@@ -407,15 +447,6 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
   font-size: 1.05rem;
   font-weight: 600;
   line-height: 1.25;
-}
-
-.research-project-title::after {
-  content: " +";
-  color: var(--global-theme-color);
-}
-
-.research-project[open] .research-project-title::after {
-  content: " \2212";
 }
 
 .research-project-result {
@@ -436,58 +467,138 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
   padding: 0 1rem 1rem;
 }
 
-/* Status line on phase cards */
-.research-status {
-  display: inline-flex;
+/* Status pill and dates on each card. The pill is the home page one: outlined blue while in
+   progress, solid green when done. */
+.research-status-row {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  align-self: flex-start;
-  gap: 0.4rem;
-  margin-top: 0.15rem;
+  gap: 0.3rem 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.research-status {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.18rem 0.55rem;
+  border: 1px solid var(--status-blue);
+  border-radius: 1rem;
   color: var(--status-blue);
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.06em;
+  line-height: 1.4;
   text-transform: uppercase;
 }
 
 .research-status--done {
-  color: var(--status-green);
+  border-color: var(--status-green);
+  background-color: var(--status-green);
+  color: var(--global-bg-color);
 }
 
 .research-dates {
   color: var(--global-text-color-light);
+  font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .research-pulse {
-  position: relative;
-  width: 0.55rem;
-  height: 0.55rem;
+  width: 0.4rem;
+  height: 0.4rem;
   border-radius: 50%;
   background-color: var(--status-blue);
 }
 
-.research-pulse::after {
+/* The three phase cards on a rail: numbered circles on a line down the left, green through
+   the completed phase and blue after it, as on the home page */
+.research-rail-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.research-rail-row > .research-project {
+  flex: 1 1 0;
+}
+
+/* Each row draws one piece of the line, down to the next row. The first piece starts at the
+   first circle and the last one ends at the last circle. */
+.research-rail-row::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  bottom: -0.75rem;
+  left: 0.9875rem;
+  width: 0.125rem;
   background-color: var(--status-blue);
-  animation: research-pulse 1.8s ease-out infinite;
 }
 
-@keyframes research-pulse {
+.research-rail-row:first-child::before {
+  top: 3.4rem;
+}
+
+.research-rail-row:last-child::before {
+  bottom: auto;
+  height: 3.4rem;
+}
+
+.research-rail-row--done::before {
+  background-color: var(--status-green);
+}
+
+/* The circle sits level with the middle of the closed card */
+.research-rail-num {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 0 0 2.1rem;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  margin-top: 2.35rem;
+  border-radius: 50%;
+  background-color: var(--status-blue);
+  color: var(--global-bg-color);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.research-rail-row--done .research-rail-num {
+  background-color: var(--status-green);
+}
+
+.research-rail-num::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 2px solid var(--status-blue);
+  border-radius: 50%;
+  animation: research-rail-ring 1.8s ease-out infinite;
+}
+
+.research-rail-row--done .research-rail-num::after {
+  display: none;
+}
+
+@keyframes research-rail-ring {
   from {
-    opacity: 0.6;
+    opacity: 0.8;
     transform: scale(1);
   }
 
   to {
     opacity: 0;
-    transform: scale(3);
+    transform: scale(1.9);
   }
 }
 
@@ -621,6 +732,30 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
   .research-stats {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  /* Smaller thumbnails, and partner logos on their own line under the text */
+  .research-project > summary {
+    flex-wrap: wrap;
+  }
+
+  .research-project > summary > img {
+    flex: 0 0 96px;
+    width: 96px;
+    height: 72px;
+  }
+
+  .research-project-logos {
+    flex: 0 0 100%;
+    justify-content: flex-end;
+  }
+
+  .research-project-logos .research-section-logo--wordmark {
+    height: 20px;
+  }
+
+  .research-rail-row {
+    gap: 0.5rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -635,13 +770,24 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
   }
 
   .research-project,
+  .research-project > summary::after,
   .research-wheel-badge,
   .research-wheel-hit {
     transition: none;
   }
 
-  .research-pulse::after,
-  .research-wheel-pulse {
+  .research-project:not([open]):hover {
+    transform: none;
+  }
+
+  .research-pulse,
+  .research-wheel-pulse,
+  .research-rail-num::after {
     animation: none;
+  }
+
+  .research-wheel-pulse,
+  .research-rail-num::after {
+    display: none;
   }
 }
