@@ -1539,10 +1539,37 @@ details.about-more {
   }
 }
 
-/* Outdoor photo beside the first paragraph */
+/* Outdoor photo beside the first paragraph, with an accent block set off behind it to the
+   lower left (so the photo's right edge stays on the column edge). The photo lifts on hover. */
 .about-side-photo {
+  position: relative;
+  z-index: 0;
   max-width: 52.8%;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.6rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    bottom: -0.7rem;
+    left: -0.7rem;
+    z-index: -1;
+    border-radius: 0.35rem;
+    background: linear-gradient(135deg, var(--global-availability-edge), var(--global-theme-color));
+  }
+
+  img {
+    display: block;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  &:hover img {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    transform: translate(4px, -4px);
+  }
 }
 
 @media (min-width: 576px) {
@@ -1550,7 +1577,13 @@ details.about-more {
     float: right;
     width: 26.4%;
     max-width: none;
-    margin: 0 0 0.5rem 1rem;
+    margin: 0 0 1.2rem 1.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-side-photo img {
+    transition: none;
   }
 }
 
@@ -1633,7 +1666,7 @@ details.about-more {
       width: 0.6rem;
       height: 0.6rem;
       border-radius: 50%;
-      background-color: var(--global-theme-color);
+      background-color: var(--status-green);
     }
 
     /* The dot blinks; a fade, not motion, so it also runs under reduced motion */
@@ -1743,6 +1776,33 @@ details.about-more {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
+}
+
+/* Home bio: links there are many, so they drop the underline until hover and carry a
+   little weight instead, to stay apart from the body text */
+.post article > .clearfix > p a:not(.btn) {
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+  }
+}
+
+/* First sentence of the home bio, in the same lead size as the research lead line */
+.home-bio-lead {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.45;
+
+  a:not(.btn) {
+    font-weight: 600;
+  }
 }
 
 /* Section headings that link somewhere */
