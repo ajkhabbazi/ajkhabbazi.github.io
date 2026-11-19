@@ -27,6 +27,48 @@
   font-weight: 600;
 }
 
+/* The top of the page fades in on load, one piece after another: headshot, name, job-search
+   bar, outdoor photo, then the bio. Styles only, so the content shows even if nothing runs. */
+@keyframes home-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.about-hero-photo,
+.about-hero-name,
+.about-hero .availability,
+.about-side-photo,
+.post article > .clearfix > p {
+  animation: home-rise 0.5s ease both;
+}
+
+.about-hero-name {
+  animation-delay: 0.08s;
+}
+
+.about-hero .availability {
+  animation-delay: 0.16s;
+}
+
+.about-side-photo {
+  animation-delay: 0.24s;
+}
+
+.post article > .clearfix > p {
+  animation-delay: 0.3s;
+}
+
+.post article > .clearfix > p + p {
+  animation-delay: 0.38s;
+}
+
 /* Research intro: one big number beside a lead line, the rest of the statement smaller */
 .home-research-intro {
   display: flex;
@@ -390,6 +432,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .about-hero-photo,
+  .about-hero-name,
+  .about-hero .availability,
+  .about-side-photo,
+  .post article > .clearfix > p {
+    animation: none;
+  }
+
   .home-phase-card,
   .home-phase-img,
   .home-phase-arrow {

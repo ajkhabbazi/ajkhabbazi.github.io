@@ -1518,6 +1518,13 @@ details.about-more {
     figure {
       margin: 0;
     }
+
+    /* Circular headshot (profile.image_circular), so it reads as an avatar beside the framed photo below */
+    img.rounded-circle {
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
   }
 
   .about-hero-name .post-title {
