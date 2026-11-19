@@ -1786,21 +1786,14 @@ a.heading-link {
     margin-bottom: 1.25rem;
   }
 
+  // Every figure and video on the research page has the same width, a little short of the card
   .research-figure {
     display: block;
-    width: 100%;
+    width: 88%;
     margin: 0 auto;
     padding: 0.5rem;
     border-radius: 0.5rem;
     background-color: #fff;
-  }
-
-  .research-figure--narrow {
-    max-width: 480px;
-  }
-
-  .research-figure--medium {
-    max-width: 620px;
   }
 
   .publications {
@@ -1828,7 +1821,7 @@ a.heading-link {
 
   .research-video {
     display: block;
-    width: 100%;
+    width: 88%;
     margin: 1rem auto 0;
     border-radius: 0.5rem;
     background-color: #fff;
