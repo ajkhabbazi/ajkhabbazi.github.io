@@ -179,8 +179,7 @@ html[data-theme="dark"] {
 .research-wheel-node:not(.research-wheel-node--done) .research-wheel-badge,
 .research-wheel-node:not(.research-wheel-node--done) .research-wheel-num,
 .research-wheel-node:not(.research-wheel-node--done) .research-wheel-icon,
-.research-pulse,
-.home-phase:not(.home-phase--done) .home-phase-num {
+.research-pulse {
   animation: research-blink 1.4s ease-in-out infinite;
 }
 

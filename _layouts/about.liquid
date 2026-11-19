@@ -40,46 +40,80 @@ layout: default
   <article>
     <div class="clearfix">{{ content }}</div>
 
-    <!-- Research: the three PhD phases, each linking to its card on the research page -->
+    <!-- Research: one number and a lead line, then the three PhD phases on a rail,
+         each card linking to its phase on the research page -->
     <h2 style="margin-top: 2rem;">
       <a href="{{ '/research/' | relative_url }}" class="heading-link">Research</a>
     </h2>
-    <p class="home-research-statement"><strong>Buildings</strong> use <strong><a href="https://www.iea.org/news/making-buildings-more-efficient-offers-a-major-opportunity-to-bring-down-energy-bills-and-reduce-emissions">30%</a></strong> of the world&rsquo;s energy, and much of that depends on how their systems are controlled. <strong>Advanced control</strong>, such as <strong>predictive control</strong> and <strong>reinforcement learning</strong>, can save energy and money, but it rarely reaches real buildings at scale. My PhD research aims to advance the state of the art of practical automation systems for efficient, occupant- and grid-interactive buildings. I&rsquo;m developing and demonstrating scalable algorithms in real buildings, minimizing data and engineering requirements. At Purdue, I also work with the Energy and Utilities team on reducing peak cooling demand in campus buildings.</p>
+    <div class="home-research-intro">
+      <div class="home-stat">
+        <span class="home-stat-label"><strong>Buildings</strong> use</span>
+        <a class="home-stat-num" href="https://www.iea.org/news/making-buildings-more-efficient-offers-a-major-opportunity-to-bring-down-energy-bills-and-reduce-emissions">30%</a>
+        <span class="home-stat-label">of the world&rsquo;s energy</span>
+      </div>
+      <div class="home-research-text">
+        <p class="home-research-lead">Much of that depends on how their systems are controlled. <strong>Advanced control</strong>, such as <strong>predictive control</strong> and <strong>reinforcement learning</strong>, can save energy and money, but it rarely reaches real buildings at scale.</p>
+        <p class="home-research-statement">My PhD research aims to advance the state of the art of practical automation systems for efficient, occupant- and grid-interactive buildings. I&rsquo;m developing and demonstrating scalable algorithms in real buildings, minimizing data and engineering requirements. At Purdue, I also work with the Energy and Utilities team on reducing peak cooling demand in campus buildings.</p>
+      </div>
+    </div>
     <div class="home-phases">
       <a class="home-phase home-phase--done" href="{{ '/research/' | relative_url }}#phase-1">
-        <img class="home-phase-img" src="{{ '/assets/img/research/field-demos-thumb.webp' | relative_url }}" alt="" loading="lazy">
-        <span class="home-phase-row">
-          <span class="home-phase-num" aria-hidden="true">1</span>
+        <span class="home-phase-num" aria-hidden="true">1</span>
+        <span class="home-phase-card">
+          <span class="home-phase-media"><img class="home-phase-img" src="{{ '/assets/img/research/field-demos-pie.webp' | relative_url }}" alt="" loading="lazy"></span>
           <span class="home-phase-body">
-            <span class="home-phase-title">Field demonstrations</span>
-            <span class="home-phase-text">What real buildings have shown</span>
-            <span class="home-phase-status">Completed</span>
+            <span class="home-phase-title">Field demonstrations<i class="fa-solid fa-arrow-right home-phase-arrow" aria-hidden="true"></i></span>
+            <span class="home-phase-text">71% of field demonstrations rely on potentially unreliable protocols.</span>
+            <span class="home-phase-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Completed</span>
           </span>
         </span>
       </a>
       <a class="home-phase" href="{{ '/research/' | relative_url }}#phase-2">
-        <img class="home-phase-img" src="{{ '/assets/img/research/savings-thumb.webp' | relative_url }}" alt="" loading="lazy">
-        <span class="home-phase-row">
-          <span class="home-phase-num" aria-hidden="true">2</span>
+        <span class="home-phase-num" aria-hidden="true">2</span>
+        <span class="home-phase-card">
+          <span class="home-phase-media"><img class="home-phase-img" src="{{ '/assets/img/research/savings-thumb.webp' | relative_url }}" alt="" loading="lazy"></span>
           <span class="home-phase-body">
-            <span class="home-phase-title">Control scope</span>
-            <span class="home-phase-text">Measuring savings reliably</span>
-            <span class="home-phase-status">In progress</span>
+            <span class="home-phase-title">Control scope<i class="fa-solid fa-arrow-right home-phase-arrow" aria-hidden="true"></i></span>
+            <span class="home-phase-text">When only interior zones are controlled, all perceived savings are fictitious.</span>
+            <span class="home-phase-status"><span class="home-phase-dot" aria-hidden="true"></span>In progress</span>
           </span>
         </span>
       </a>
       <a class="home-phase" href="{{ '/research/' | relative_url }}#phase-3">
-        <img class="home-phase-img" src="{{ '/assets/img/research/campus-thumb.webp' | relative_url }}" alt="" loading="lazy">
-        <span class="home-phase-row">
-          <span class="home-phase-num" aria-hidden="true">3</span>
+        <span class="home-phase-num" aria-hidden="true">3</span>
+        <span class="home-phase-card">
+          <span class="home-phase-media"><img class="home-phase-img" src="{{ '/assets/img/research/campus-thumb.webp' | relative_url }}" alt="" loading="lazy"></span>
           <span class="home-phase-body">
-            <span class="home-phase-title">Peak demand</span>
-            <span class="home-phase-text">Cutting the campus cooling peak</span>
-            <span class="home-phase-status">In progress</span>
+            <span class="home-phase-title">Peak demand<i class="fa-solid fa-arrow-right home-phase-arrow" aria-hidden="true"></i></span>
+            <span class="home-phase-text">Simulating building control that lowers the peak load on the campus chilled water plant.</span>
+            <span class="home-phase-status"><span class="home-phase-dot" aria-hidden="true"></span>In progress</span>
           </span>
         </span>
       </a>
     </div>
+    <!-- Cards fade in one after another when the row scrolls into view. The hiding class is
+         added here, so without scripts (or with reduced motion) the cards simply show. -->
+    <script>
+      (function () {
+        var row = document.querySelector(".home-phases");
+        if (!row || !("IntersectionObserver" in window)) return;
+        if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        row.classList.add("home-phases--reveal");
+        var observer = new IntersectionObserver(
+          function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              if (entries[i].isIntersecting) {
+                row.classList.add("is-visible");
+                observer.disconnect();
+                return;
+              }
+            }
+          },
+          { threshold: 0.15 }
+        );
+        observer.observe(row);
+      })();
+    </script>
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}

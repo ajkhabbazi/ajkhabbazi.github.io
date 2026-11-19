@@ -1,4 +1,4 @@
-/* Home (about) page: research teaser, solid panels for news and publications, smaller footer icons.
+/* Home (about) page: research intro and teaser, solid panels for news and publications, smaller footer icons.
    Plain CSS on purpose (no nesting, no calc) so it survives the deploy minifier. */
 
 /* Solid panel so lists stay readable over the site backdrop */
@@ -27,58 +27,115 @@
   font-weight: 600;
 }
 
-/* Research teaser: the three PhD phases, each linking to its card on the research page */
+/* Research intro: one big number beside a lead line, the rest of the statement smaller */
+.home-research-intro {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.home-stat {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding-right: 1.5rem;
+  border-right: 3px solid var(--global-theme-color);
+}
+
+.home-stat-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.home-stat-num,
+.home-stat-num:hover,
+.home-stat-num:focus {
+  color: var(--global-theme-color);
+  font-size: 4.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-decoration: none;
+}
+
+.home-stat-num:hover,
+.home-stat-num:focus {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.35rem;
+}
+
+.home-research-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.home-research-lead {
+  margin: 0 0 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.home-research-statement {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* Research teaser: the three PhD phases, each linking to its phase on the research page.
+   The numbered circles sit on a rail above the cards, green up to the end of the completed
+   phase and blue from there. */
 .home-phases {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
 }
 
-.home-phase {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.7rem;
-  padding: 0.8rem 0.9rem;
-  border: 1px solid var(--global-divider-color);
-  border-radius: 0.5rem;
-  background-color: var(--global-card-bg-color);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  color: var(--global-text-color);
-  text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-}
-
+.home-phase,
 .home-phase:hover,
 .home-phase:focus {
-  border-color: var(--global-theme-color);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
   color: var(--global-text-color);
   text-decoration: none;
-  transform: translateY(-3px);
 }
 
-/* Picture on top of each card, the same image as the phase's card on the research page
-   (thumbnails cut to about 16:9). White behind it in both themes, like the research page
-   thumbnails, so plots keep their look. */
-.home-phase-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  padding: 0.2rem;
-  object-fit: contain;
-  border-radius: 0.35rem;
-  background-color: #fff;
+/* The rail. Each card draws one piece, through the middle of its circle and across the gap
+   to the next card. The first piece starts at the first circle, the last ends at the last. */
+.home-phase::before {
+  content: "";
+  position: absolute;
+  top: 0.9875rem;
+  right: -0.75rem;
+  left: 0;
+  height: 0.125rem;
+  background-color: var(--status-blue);
 }
 
-.home-phase-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
+.home-phase:first-child::before {
+  left: 50%;
+}
+
+.home-phase:last-child::before {
+  right: 50%;
+}
+
+.home-phase--done::before {
+  background-color: var(--status-green);
 }
 
 .home-phase-num {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex: 0 0 2.1rem;
   align-items: center;
@@ -96,34 +153,167 @@
   background-color: var(--status-green);
 }
 
+/* In-progress circles send out a ring; completed ones stay still */
+.home-phase-num::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 2px solid var(--status-blue);
+  border-radius: 50%;
+  animation: home-phase-ring 1.8s ease-out infinite;
+}
+
+.home-phase--done .home-phase-num::after {
+  display: none;
+}
+
+@keyframes home-phase-ring {
+  from {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+.home-phase-card {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-self: stretch;
+  gap: 0.7rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.5rem;
+  background-color: var(--global-card-bg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.home-phase:hover .home-phase-card,
+.home-phase:focus .home-phase-card {
+  border-color: var(--global-theme-color);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+  transform: translateY(-4px);
+}
+
+/* Picture on top of each card, cut to about 16:9. White behind it in both themes, like the
+   research page thumbnails, so plots keep their look. The frame clips the zoom on hover. */
+.home-phase-media {
+  display: block;
+  overflow: hidden;
+  border-radius: 0.35rem;
+  background-color: #fff;
+}
+
+.home-phase-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  padding: 0.2rem;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.home-phase:hover .home-phase-img,
+.home-phase:focus .home-phase-img {
+  transform: scale(1.06);
+}
+
 .home-phase-body {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.3rem;
   min-width: 0;
 }
 
 .home-phase-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.25;
 }
 
-.home-phase-text {
+/* Arrow beside the title: faint at rest, slides right in the theme color on hover */
+.home-phase-arrow {
+  color: var(--global-theme-color);
   font-size: 0.85rem;
-  line-height: 1.3;
+  opacity: 0.3;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+.home-phase:hover .home-phase-arrow,
+.home-phase:focus .home-phase-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.home-phase-text {
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+/* Status pill at the foot of the card: outlined blue while in progress, solid green when done */
 .home-phase-status {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding: 0.18rem 0.55rem;
+  border: 1px solid var(--status-blue);
+  border-radius: 1rem;
   color: var(--status-blue);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.06em;
+  line-height: 1.4;
   text-transform: uppercase;
 }
 
 .home-phase--done .home-phase-status {
-  color: var(--status-green);
+  border-color: var(--status-green);
+  background-color: var(--status-green);
+  color: var(--global-bg-color);
+}
+
+.home-phase-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--status-blue);
+  animation: research-blink 1.4s ease-in-out infinite;
+}
+
+/* Fade-in on scroll. The page script adds --reveal, then is-visible once the row is in view. */
+.home-phases--reveal .home-phase {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.home-phases--reveal .home-phase:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.home-phases--reveal .home-phase:nth-child(3) {
+  transition-delay: 0.24s;
+}
+
+.home-phases--reveal.is-visible .home-phase {
+  opacity: 1;
+  transform: none;
 }
 
 /* Footer icon row: same links as the top bar, so keep it small */
@@ -133,24 +323,85 @@
 }
 
 @media (max-width: 700px) {
+  /* The number moves above the text, on one line with its words */
+  .home-research-intro {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.9rem;
+  }
+
+  .home-stat {
+    flex-flow: row wrap;
+    align-items: baseline;
+    gap: 0.45rem;
+    padding: 0 0 0.7rem;
+    border-right: 0;
+    border-bottom: 3px solid var(--global-theme-color);
+  }
+
+  .home-stat-num,
+  .home-stat-num:hover,
+  .home-stat-num:focus {
+    font-size: 3rem;
+  }
+
   .home-phases {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* One card per row: picture beside the text, so the cards stay short */
-  .home-phase {
+  /* One card per row: the rail runs down the left, and the picture sits beside the text
+     so the cards stay short */
+  .home-phase,
+  .home-phase:hover,
+  .home-phase:focus {
     flex-direction: row;
-    align-items: center;
   }
 
-  .home-phase-img {
-    flex: 0 0 7.5rem;
-    width: 7.5rem;
+  .home-phase::before {
+    top: 0;
+    right: auto;
+    bottom: -0.75rem;
+    left: 0.9875rem;
+    width: 0.125rem;
+    height: auto;
+  }
+
+  .home-phase:first-child::before {
+    top: 50%;
+    left: 0.9875rem;
+  }
+
+  .home-phase:last-child::before {
+    right: auto;
+    bottom: 50%;
+  }
+
+  .home-phase-card {
+    flex: 1 1 0;
+    flex-direction: row;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .home-phase-media {
+    flex: 0 0 6.5rem;
+    width: 6.5rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-phase {
+  .home-phase-card,
+  .home-phase-img,
+  .home-phase-arrow {
     transition: none;
+  }
+
+  .home-phase-num::after {
+    display: none;
+    animation: none;
+  }
+
+  .home-phase-dot {
+    animation: none;
   }
 }
