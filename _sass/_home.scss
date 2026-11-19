@@ -105,6 +105,33 @@
   text-decoration: none;
 }
 
+/* The digits are filled with the site's building photo under a tint of the theme color, so
+   the number is a window onto the buildings. Browsers without text clipping keep the plain
+   theme color set above. */
+html {
+  --home-stat-tint: rgba(31, 58, 95, 0.55);
+  --home-stat-spot: 8% 80%;
+}
+
+/* On the dark page the digits sit on the photo's bright glass tower, so they stay light */
+html[data-theme="dark"] {
+  --home-stat-tint: rgba(143, 179, 224, 0.6);
+  --home-stat-spot: 96% 44%;
+}
+
+@supports (-webkit-background-clip: text) {
+  .home-stat-num,
+  .home-stat-num:hover,
+  .home-stat-num:focus {
+    background-image: linear-gradient(var(--home-stat-tint), var(--home-stat-tint)), url("/assets/img/backdrop.webp");
+    background-position: 0 0, var(--home-stat-spot);
+    background-size: auto, 24rem auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 .home-stat-num:hover,
 .home-stat-num:focus {
   text-decoration: underline;
