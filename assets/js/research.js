@@ -14,7 +14,7 @@
     return true;
   }
 
-  // Wheel thirds and any other in-page link to a card
+  // Any in-page link to a card
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener("click", function (event) {
       var id = a.getAttribute("href").slice(1);

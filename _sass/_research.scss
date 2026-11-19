@@ -1,4 +1,4 @@
-/* Research page: phase wheel, expandable phase and project cards, stat tiles, photo band.
+/* Research page: expandable phase and project cards, the phase rail, stat tiles, photo band.
    Plain CSS on purpose (no nesting, no calc) so it survives the deploy minifier. */
 
 html {
@@ -25,156 +25,6 @@ html[data-theme="dark"] {
   text-transform: uppercase;
 }
 
-/* Opening: the PhD wheel on the left, collaborations and master's on the right */
-.research-intro {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem 2rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Circles step down in size: PhD, then collaborations, then the master's */
-.research-wheel.research-wheel--other {
-  flex: 0 0 290px;
-  width: 290px;
-  height: 290px;
-}
-
-.research-wheel.research-wheel--masters {
-  flex: 0 0 190px;
-  width: 190px;
-  height: 190px;
-}
-
-.research-circle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.research-circle-label {
-  margin-bottom: 0.25rem;
-  text-align: center;
-}
-
-.research-wheel {
-  flex: 0 0 330px;
-  width: 330px;
-  height: 330px;
-  overflow: visible;
-}
-
-.research-wheel text {
-  text-anchor: middle;
-  pointer-events: none;
-}
-
-/* Plain light tint of the theme color inside each circle */
-.research-wheel-fill {
-  fill: var(--global-theme-color);
-  fill-opacity: 0.07;
-  pointer-events: none;
-}
-
-.research-wheel-rim {
-  fill: none;
-  stroke: var(--global-theme-color);
-  stroke-width: 2;
-  pointer-events: none;
-}
-
-.research-wheel-orbit {
-  fill: none;
-  stroke: var(--global-text-color);
-  stroke-width: 1;
-  stroke-dasharray: 1 6;
-  stroke-linecap: round;
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-/* Arrows from phase 1 to 2 and from 2 to 3 */
-.research-wheel-arrow {
-  fill: none;
-  stroke: var(--global-theme-color);
-  stroke-width: 3;
-  stroke-linecap: round;
-  pointer-events: none;
-}
-
-.research-wheel-arrowhead {
-  fill: var(--global-theme-color);
-}
-
-/* Phase stops: blue while in progress, green once completed */
-.research-wheel-node {
-  cursor: pointer;
-}
-
-.research-wheel-node,
-.research-wheel-node:hover,
-.research-wheel-node:focus,
-.research-wheel-node text {
-  text-decoration: none;
-}
-
-.research-wheel-node:focus {
-  outline: none;
-}
-
-.research-wheel-hit {
-  fill: var(--global-bg-color);
-  fill-opacity: 0;
-  transition: fill-opacity 0.2s ease;
-}
-
-.research-wheel-node:hover .research-wheel-hit,
-.research-wheel-node:focus .research-wheel-hit {
-  fill-opacity: 0.75;
-}
-
-.research-wheel-badge {
-  fill: var(--status-blue);
-  stroke: var(--global-bg-color);
-  stroke-width: 3;
-  transform-box: fill-box;
-  transform-origin: center;
-  transition: transform 0.2s ease;
-}
-
-.research-wheel-node:hover .research-wheel-badge,
-.research-wheel-node:focus .research-wheel-badge {
-  transform: scale(1.14);
-}
-
-.research-wheel-num {
-  fill: var(--global-bg-color);
-  font-size: 25px;
-  font-weight: 800;
-}
-
-/* Font Awesome icons inside the second circle's badges */
-.research-wheel-icon {
-  fill: var(--global-bg-color);
-  font-family: "Font Awesome 6 Free";
-  font-size: 19px;
-  font-weight: 900;
-}
-
-.research-wheel-title {
-  fill: var(--global-text-color);
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.research-wheel-status {
-  fill: var(--status-blue);
-  font-size: 10.5px;
-  font-weight: 700;
-}
-
 /* The small dot in an in-progress status pill blinks */
 .research-pulse {
   animation: research-blink 1.4s ease-in-out infinite;
@@ -188,37 +38,6 @@ html[data-theme="dark"] {
 
   50% {
     opacity: 0.25;
-  }
-}
-
-.research-wheel-node--done .research-wheel-badge {
-  fill: var(--status-green);
-}
-
-.research-wheel-node--done .research-wheel-status {
-  fill: var(--status-green);
-}
-
-/* In-progress circles stay solid and send out a ring, like the phase circles on the home page */
-.research-wheel-pulse {
-  fill: none;
-  stroke: var(--status-blue);
-  stroke-width: 2;
-  pointer-events: none;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: research-ripple 1.8s ease-out infinite;
-}
-
-@keyframes research-ripple {
-  from {
-    opacity: 0.8;
-    transform: scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: scale(1.8);
   }
 }
 
@@ -704,29 +523,6 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
 }
 
 @media (max-width: 700px) {
-  .research-intro {
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .research-wheel {
-    flex: 0 0 auto;
-    width: 300px;
-    height: 300px;
-  }
-
-  .research-wheel.research-wheel--other {
-    flex: 0 0 auto;
-    width: 260px;
-    height: 260px;
-  }
-
-  .research-wheel.research-wheel--masters {
-    flex: 0 0 auto;
-    width: 190px;
-    height: 190px;
-  }
-
   .research-photos,
   .research-projects,
   .research-stats {
@@ -770,9 +566,7 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
   }
 
   .research-project,
-  .research-project > summary::after,
-  .research-wheel-badge,
-  .research-wheel-hit {
+  .research-project > summary::after {
     transition: none;
   }
 
@@ -781,12 +575,10 @@ html[data-theme="dark"] .research-section-logo--recolor-dark {
   }
 
   .research-pulse,
-  .research-wheel-pulse,
   .research-rail-num::after {
     animation: none;
   }
 
-  .research-wheel-pulse,
   .research-rail-num::after {
     display: none;
   }
