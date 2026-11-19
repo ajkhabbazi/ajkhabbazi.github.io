@@ -224,7 +224,7 @@ ul.task-list input[type="checkbox"] {
 
 @media (min-width: 576px) {
   .profile {
-    width: 30%;
+    width: 24%;
 
     .address {
       p {
@@ -1786,14 +1786,25 @@ a.heading-link {
     margin-bottom: 1.25rem;
   }
 
-  // Every figure and video on the research page has the same width, a little short of the card
+  // Figures and videos take 90% of the card; tall or simple figures take 60%
   .research-figure {
     display: block;
-    width: 88%;
+    width: 90%;
     margin: 0 auto;
     padding: 0.5rem;
     border-radius: 0.5rem;
     background-color: #fff;
+  }
+
+  .research-figure--small {
+    width: 60%;
+  }
+
+  // On a phone 60% is too small to read, so these go back to 90%
+  @media (max-width: 576px) {
+    .research-figure--small {
+      width: 90%;
+    }
   }
 
   .publications {
@@ -1821,7 +1832,7 @@ a.heading-link {
 
   .research-video {
     display: block;
-    width: 88%;
+    width: 90%;
     margin: 1rem auto 0;
     border-radius: 0.5rem;
     background-color: #fff;
