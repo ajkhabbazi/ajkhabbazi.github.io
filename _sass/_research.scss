@@ -25,17 +25,24 @@ html[data-theme="dark"] {
   text-transform: uppercase;
 }
 
-/* Opening: statement on the left, phase wheel on the right */
+/* Opening: the PhD wheel on the left, collaborations and master's on the right */
 .research-intro {
   display: flex;
-  align-items: center;
-  gap: 1.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem 3rem;
   margin-bottom: 0.5rem;
 }
 
-.research-intro .research-statement {
-  flex: 1 1 0;
-  margin-bottom: 0;
+.research-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.research-circle-label {
+  margin-bottom: 0.25rem;
+  text-align: center;
 }
 
 .research-wheel {
@@ -55,6 +62,11 @@ html[data-theme="dark"] {
   fill: var(--global-bg-color);
   fill-opacity: 0.72;
   pointer-events: none;
+}
+
+/* The second circle shows the same photo, faded further */
+.research-wheel-shade--light {
+  fill-opacity: 0.86;
 }
 
 .research-wheel-rim {
@@ -134,6 +146,14 @@ html[data-theme="dark"] {
   font-weight: 800;
 }
 
+/* Font Awesome icons inside the second circle's badges */
+.research-wheel-icon {
+  fill: var(--global-bg-color);
+  font-family: "Font Awesome 6 Free";
+  font-size: 19px;
+  font-weight: 900;
+}
+
 .research-wheel-title {
   fill: var(--global-text-color);
   font-size: 14px;
@@ -163,6 +183,11 @@ html[data-theme="dark"] {
   50% {
     opacity: 0.25;
   }
+}
+
+/* Only the PhD wheel blinks; the second circle stays still so the page is not busy */
+.research-wheel--other .research-wheel-node .research-wheel-badge {
+  animation: none;
 }
 
 .research-wheel-node--done .research-wheel-badge {

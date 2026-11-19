@@ -7,8 +7,8 @@ nav_order: 0
 ---
 
 <div class="research-intro">
-  <p class="research-statement"><strong>Buildings</strong> use <strong><a href="https://www.iea.org/news/making-buildings-more-efficient-offers-a-major-opportunity-to-bring-down-energy-bills-and-reduce-emissions">30%</a></strong> of the world&rsquo;s energy, and much of that depends on how their systems are controlled. <strong>Advanced control</strong>, such as predictive control and reinforcement learning, can save buildings energy and money, but it rarely reaches real buildings at scale. My research aims to advance the state of the art of practical automation systems for efficient, occupant- and grid-interactive buildings. I focus on minimizing the data and engineering needed to achieve good, if imperfect, performance, and on measuring the results reliably.</p>
-
+  <div class="research-circle">
+  <p class="research-eyebrow research-circle-label">My PhD</p>
   <svg class="research-wheel" viewBox="0 0 360 360" role="navigation" aria-label="My PhD in three phases">
     <defs>
       <clipPath id="research-wheel-clip"><circle cx="180" cy="180" r="170"></circle></clipPath>
@@ -48,6 +48,56 @@ nav_order: 0
       <text class="research-wheel-status" x="100.3" y="296">In progress</text>
     </a>
   </svg>
+  </div>
+
+  <div class="research-circle">
+  <p class="research-eyebrow research-circle-label">Collaborations and master&rsquo;s</p>
+  <svg class="research-wheel research-wheel--other" viewBox="0 0 360 360" role="navigation" aria-label="Collaborations and master's research">
+    <defs>
+      <clipPath id="research-wheel-clip-other"><circle cx="180" cy="180" r="170"></circle></clipPath>
+    </defs>
+    <image href="{{ '/assets/img/research/towers.webp' | relative_url }}" x="10" y="10" width="340" height="340" preserveAspectRatio="xMidYMid slice" clip-path="url(#research-wheel-clip-other)"></image>
+    <circle class="research-wheel-shade research-wheel-shade--light" cx="180" cy="180" r="170"></circle>
+    <circle class="research-wheel-rim" cx="180" cy="180" r="170"></circle>
+    <circle class="research-wheel-orbit" cx="180" cy="180" r="92"></circle>
+
+    <a class="research-wheel-node" href="#project-ltc" aria-label="Tuning-free control. In progress.">
+      <rect class="research-wheel-hit" x="100" y="24" width="160" height="94" rx="14"></rect>
+      <text class="research-wheel-title" x="180" y="44">Tuning-free control</text>
+      <text class="research-wheel-status" x="180" y="59">In progress</text>
+      <circle class="research-wheel-badge" cx="180" cy="88" r="22"></circle>
+      <text class="research-wheel-icon" x="180" y="95">&#xf2c9;</text>
+    </a>
+    <a class="research-wheel-node" href="#project-tpc" aria-label="Data-driven control. In progress.">
+      <rect class="research-wheel-hit" x="198" y="126" width="140" height="88" rx="14"></rect>
+      <circle class="research-wheel-badge" cx="267.5" cy="151.6" r="22"></circle>
+      <text class="research-wheel-icon" x="267.5" y="158.6">&#xf201;</text>
+      <text class="research-wheel-title" x="267.5" y="192">Data-driven control</text>
+      <text class="research-wheel-status" x="267.5" y="206">In progress</text>
+    </a>
+    <a class="research-wheel-node" href="#project-sbsim" aria-label="SBSim. In progress.">
+      <rect class="research-wheel-hit" x="196" y="228" width="76" height="90" rx="14"></rect>
+      <circle class="research-wheel-badge" cx="234.1" cy="254.4" r="22"></circle>
+      <text class="research-wheel-icon" x="234.1" y="261.4">&#xf1ad;</text>
+      <text class="research-wheel-title" x="234.1" y="296">SBSim</text>
+      <text class="research-wheel-status" x="234.1" y="310">In progress</text>
+    </a>
+    <a class="research-wheel-node research-wheel-node--done" href="#project-hydrogen" aria-label="Hydrogen blending, master's research. Completed.">
+      <rect class="research-wheel-hit" x="60" y="228" width="132" height="90" rx="14"></rect>
+      <circle class="research-wheel-badge" cx="125.9" cy="254.4" r="22"></circle>
+      <text class="research-wheel-icon" x="125.9" y="261.4">&#xf5d2;</text>
+      <text class="research-wheel-title" x="125.9" y="296">Hydrogen blending</text>
+      <text class="research-wheel-status" x="125.9" y="310">&#10003; Master&rsquo;s</text>
+    </a>
+    <a class="research-wheel-node research-wheel-node--done" href="#project-homes" aria-label="Home power control. Completed.">
+      <rect class="research-wheel-hit" x="22" y="126" width="142" height="88" rx="14"></rect>
+      <circle class="research-wheel-badge" cx="92.5" cy="151.6" r="22"></circle>
+      <text class="research-wheel-icon" x="92.5" y="158.6">&#xf015;</text>
+      <text class="research-wheel-title" x="92.5" y="192">Home power control</text>
+      <text class="research-wheel-status" x="92.5" y="206">&#10003; Completed</text>
+    </a>
+  </svg>
+  </div>
 </div>
 
 <section class="research-section" id="phases">
