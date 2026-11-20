@@ -1311,6 +1311,20 @@ img.medium-zoom-image--opened {
   will-change: auto;
 }
 
+/* Desktop pages are drawn at 90%, the same as browser zoom at 90%. The std-zoom class is set
+   in head.liquid, only in browsers that measure zoomed elements the standard way; others stay
+   at 100%. medium-zoom places its copy of a figure from measurements in screen pixels, so the
+   copy gets the inverse zoom to stay in screen pixels and open centered. */
+@media (min-width: 992px) {
+  html.std-zoom {
+    zoom: 0.9;
+  }
+
+  html.std-zoom > body > img.medium-zoom-image {
+    zoom: 1.1111;
+  }
+}
+
 #toc-sidebar {
   z-index: 1;
 }
