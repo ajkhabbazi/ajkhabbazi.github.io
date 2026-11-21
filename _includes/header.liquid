@@ -6,6 +6,7 @@
         <!-- Social Icons, on every page -->
         <div class="navbar-brand social">
           <a class="home-mark" href="{{ '/' | relative_url }}" aria-label="Home"><img src="{{ '/assets/img/a-icon.png' | relative_url }}" alt="" width="32" height="32"><span class="social-label">Home</span></a>
+          <span class="home-sep" aria-hidden="true"></span>
           {% include social.liquid %}
         </div>
       {% else %}

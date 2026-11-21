@@ -446,7 +446,6 @@ ul.task-list input[type="checkbox"] {
 
     // Home link, the "A" monogram before the icons
     a.home-mark {
-      margin-right: 0.35rem;
       border-radius: 0.3rem;
       background-color: transparent;
 
@@ -455,6 +454,16 @@ ul.task-list input[type="checkbox"] {
         height: 100%;
         margin: 0;
       }
+    }
+
+    // Thin line between the monogram and the icons
+    .home-sep {
+      flex: 0 0 auto;
+      width: 1px;
+      height: 1.5rem;
+      margin: 0 0.25rem;
+      background-color: var(--global-text-color-light);
+      opacity: 0.6;
     }
 
     // Narrow phones: smaller icons so the monogram, the icons and the menu button fit on one line
