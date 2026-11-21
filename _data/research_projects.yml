@@ -1,10 +1,10 @@
 # Research page card for each value of a paper's `research` field in papers.bib.
 # The publication list links every paper to its card with this label.
 review:
-  label: Phase 1 &middot; Field demonstrations
+  label: Phase 1 &middot; Field evidence
   anchor: phase-1
 savings:
-  label: Phase 2 &middot; Control scope
+  label: Phase 2 &middot; Savings measurement
   anchor: phase-2
 ltc:
   label: Control with almost no commissioning
