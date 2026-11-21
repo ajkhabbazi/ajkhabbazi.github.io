@@ -1,4 +1,5 @@
 ---
+published: false # blog hidden 2026-11-21; delete this line to bring it back
 layout: post
 title: "What I Took from Hamming’s “You and Your Research”"
 date: 2026-11-03

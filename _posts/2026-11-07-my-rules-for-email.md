@@ -1,4 +1,5 @@
 ---
+published: false # blog hidden 2026-11-21; delete this line to bring it back
 layout: post
 title: "My Rules for Email"
 date: 2026-11-07
