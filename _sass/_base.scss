@@ -443,6 +443,29 @@ ul.task-list input[type="checkbox"] {
         color: var(--global-bg-color);
       }
     }
+
+    // Home link, the "A" monogram before the icons
+    a.home-mark {
+      margin-right: 0.35rem;
+      border-radius: 0.3rem;
+      background-color: transparent;
+
+      img {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+    }
+
+    // Narrow phones: smaller icons so the monogram, the icons and the menu button fit on one line
+    @media (max-width: 359px) {
+      gap: 0.2rem;
+
+      a {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
   }
 }
 
