@@ -69,12 +69,38 @@
   animation-delay: 0.38s;
 }
 
-/* Research intro: one big number beside a lead line, the rest of the statement smaller */
+/* Research intro: one big number beside a lead line, the rest of the statement smaller, set in
+   a card like the News and Publications panels. A strip in the site's two blues runs along the
+   top (the same pair as the accent block behind the outdoor photo), and the number sits on its
+   own tinted panel, which replaces the old divider line. */
+html {
+  --home-intro-wash: linear-gradient(135deg, rgba(31, 58, 95, 0.11), rgba(31, 58, 95, 0.02));
+}
+
+html[data-theme="dark"] {
+  --home-intro-wash: linear-gradient(135deg, rgba(143, 179, 224, 0.14), rgba(143, 179, 224, 0.03));
+}
+
 .home-research-intro {
+  position: relative;
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  align-items: stretch;
   margin-bottom: 1.5rem;
+  overflow: hidden;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.6rem;
+  background-color: var(--global-card-bg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--global-availability-edge), var(--global-theme-color));
+  }
 }
 
 .home-stat {
@@ -82,9 +108,10 @@
   flex: 0 0 auto;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   margin: 0;
-  padding-right: 1.5rem;
-  border-right: 3px solid var(--global-theme-color);
+  padding: 1.5rem 1.75rem 1.25rem;
+  background: var(--home-intro-wash);
 }
 
 .home-stat-label {
@@ -141,7 +168,9 @@ html[data-theme="dark"] {
 
 .home-research-text {
   flex: 1 1 0;
+  align-self: center;
   min-width: 0;
+  padding: 1.4rem 1.6rem 1.2rem;
 }
 
 .home-research-lead {
@@ -415,17 +444,17 @@ html[data-theme="dark"] {
   /* The number moves above the text, on one line with its words */
   .home-research-intro {
     flex-direction: column;
-    align-items: stretch;
-    gap: 0.9rem;
   }
 
   .home-stat {
     flex-flow: row wrap;
     align-items: baseline;
     gap: 0.45rem;
-    padding: 0 0 0.7rem;
-    border-right: 0;
-    border-bottom: 3px solid var(--global-theme-color);
+    padding: 1.1rem 1.1rem 0.8rem;
+  }
+
+  .home-research-text {
+    padding: 0.9rem 1.1rem 1rem;
   }
 
   .home-stat-num,
