@@ -1760,12 +1760,42 @@ details.about-more {
   }
 }
 
-@media (min-width: 576px) {
-  .about-side-photo {
-    float: right;
-    width: 26.4%;
-    max-width: none;
-    margin: 0 0 1.2rem 1.7rem;
+/* Tablets and desktops: the bio and the outdoor photo sit in two columns.
+   Rule: the photo is exactly as tall as the text, from the top of the first line to the
+   bottom of the last, and the blank gap between them is minimal (the accent block's 0.7rem
+   plus a little air). The photo never sets the height itself: it fills its column and is
+   cropped to fit, so the rule holds whatever the text or the screen width. */
+@media (min-width: 768px) {
+  .home-bio {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 24%;
+    column-gap: 1.6rem;
+    margin-bottom: 1rem;
+
+    > p {
+      grid-column: 1;
+    }
+
+    > p:last-child {
+      margin-bottom: 0;
+    }
+
+    // Spans every bio paragraph (up to nine); empty rows take no height
+    > .about-side-photo {
+      grid-column: 2;
+      grid-row: 1 / span 9;
+      max-width: none;
+      margin: 0;
+
+      img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 30%;
+      }
+    }
   }
 }
 
@@ -1993,6 +2023,56 @@ details.about-more {
   }
 }
 
+/* Research heading on home: the section name on the left, a pill to the full research page
+   on the right (below the name on narrow screens). Its arrow nudges forward on hover. */
+.home-section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+a.home-section-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--global-theme-color);
+  border-radius: 999px;
+  color: var(--global-theme-color);
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  i {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--global-theme-color);
+    color: var(--global-bg-color);
+    text-decoration: none;
+
+    i {
+      transform: translateX(3px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.home-section-more,
+  a.home-section-more i {
+    transition: none;
+  }
+}
+
 /* Section headings that link somewhere */
 a.heading-link {
   color: inherit;
@@ -2004,7 +2084,6 @@ a.heading-link {
 
 /* Keep about-page text in a column beside the photos, so nothing wraps under or over them. On phones the photos stack above the text instead. */
 @media (min-width: 576px) {
-  article > .clearfix > p,
   details.about-more > p {
     // A plain percentage: the deploy minifier strips the spaces inside calc(), which makes it invalid
     margin-right: 33.5%;

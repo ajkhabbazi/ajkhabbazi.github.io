@@ -43,12 +43,13 @@ layout: default
   </header>
 
   <article>
-    <div class="clearfix">{{ content }}</div>
+    <div class="clearfix home-bio">{{ content }}</div>
 
     <!-- Research: one number and a lead line, then the three PhD phases on a rail,
          each card linking to its phase on the research page -->
-    <h2 style="margin-top: 2rem;">
+    <h2 class="home-section-head" style="margin-top: 2rem;">
       <a href="{{ '/research/' | relative_url }}" class="heading-link">Research</a>
+      <a class="home-section-more" href="{{ '/research/' | relative_url }}">Explore all projects<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
     </h2>
     <div class="home-research-intro">
       <div class="home-stat">

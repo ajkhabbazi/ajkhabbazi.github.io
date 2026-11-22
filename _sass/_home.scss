@@ -391,8 +391,9 @@ html[data-theme="dark"] {
   font-size: 1.7rem;
 }
 
-/* Phones: the bio's first paragraph comes first, then the outdoor photo, then the rest */
-@media (max-width: 575.98px) {
+/* Phones and small tablets: the bio's first paragraph comes first, then the outdoor photo,
+   then the rest (below 768px the text column would be too narrow and tall for the photo) */
+@media (max-width: 767.98px) {
   .post article > .clearfix {
     display: flex;
     flex-direction: column;
