@@ -3,7 +3,7 @@ layout: about
 title: About
 permalink: /
 subtitle: PhD Candidate | Mechanical Engineering, Purdue University
-availability: "I'm looking for **internships** and open to **student/visiting researcher** positions." # shown under the name with a Resume button
+availability: "I'm looking for **Spring and Summer 2027 internships** and open to **student/visiting researcher** positions." # shown under the name with a Resume button
 
 profile:
   align: right
